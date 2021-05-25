@@ -1,4 +1,6 @@
 package java.controllers.main_window.status_bar;
 
-public class CursorCoordinatesLabelController {
+import javafx.scene.control.Label;
+
+public class CursorCoordinatesLabelController extends Label {
 }

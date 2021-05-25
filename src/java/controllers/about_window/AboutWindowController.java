@@ -1,4 +1,6 @@
 package java.controllers.about_window;
 
-public class AboutWindowController {
+import javafx.scene.control.Dialog;
+
+public class AboutWindowController extends Dialog {
 }

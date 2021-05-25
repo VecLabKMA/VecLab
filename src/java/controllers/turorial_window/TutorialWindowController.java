@@ -1,4 +1,6 @@
 package java.controllers.turorial_window;
 
-public class TutorialWindowController {
+import javafx.scene.control.Dialog;
+
+public class TutorialWindowController extends Dialog {
 }
