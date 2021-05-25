@@ -1,4 +1,4 @@
-package java.models.tools_panel.tools_buttons;
+package java.models.main_window.tools_panel.tools_buttons;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
