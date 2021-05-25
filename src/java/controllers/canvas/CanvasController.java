@@ -1,4 +1,6 @@
 package java.controllers.canvas;
 
-public class CanvasController {
+import javafx.scene.canvas.Canvas;
+
+public class CanvasController extends Canvas {
 }

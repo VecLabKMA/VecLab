@@ -1,4 +1,6 @@
 package java.controllers.main_window.menu_bar;
 
-public class MenuBarController {
+import javafx.scene.control.MenuBar;
+
+public class MenuBarController extends MenuBar {
 }

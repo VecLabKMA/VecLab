@@ -1,4 +1,6 @@
 package java.controllers.main_window.object_panel;
 
-public class ObjectPanelController {
+import javafx.scene.layout.GridPane;
+
+public class ObjectPanelController extends GridPane {
 }
