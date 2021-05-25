@@ -1,4 +1,4 @@
 package java.models.main_window.tools_panel.tools_buttons;
 
-public class SquareToolButtonModel {
+public class SquareToolButtonModel extends ToolButtonBaseModel {
 }
