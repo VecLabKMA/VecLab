@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="body" prefHeight="900" prefWidth="1200" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <HBox id="tools" prefHeight="200.0">
+      <children>
+          <Button fx:id="drawLine" styleClass="toolButton" />
+          <Button fx:id="drawCurve" styleClass="toolButton" />
+          <TextField promptText="ДШту"/>
+      </children>
+    </HBox>
+    <Pane fx:id="canvasContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
+        <Canvas fx:id="canvas" height="250.0" width="250.0" />
+    </Pane>
+</VBox>

@@ -1,0 +1,29 @@
+#body {
+    -fx-background-color: darkgray;
+}
+
+#canvasContainer {
+     -fx-background-color: white;
+     -fx-border-color: red;
+}
+
+#tools {
+    -fx-background-color: lightgray;
+}
+
+.toolButton {
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+    -fx-background-size: 20px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-radius: 0;
+}
+
+#drawLine {
+    -fx-background-image: url("/sample/assets/straight-line-icon.png");
+}
+
+#drawCurve {
+    -fx-background-image: url("/sample/assets/curve-icon.png");
+}
