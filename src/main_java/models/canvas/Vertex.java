@@ -1,4 +1,4 @@
-package main_java.models.logiс;
+package main_java.models.canvas;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -9,11 +9,11 @@ import java.util.LinkedList;
 public class Vertex {
     private static final float RADIUS = 10f;
 
-    float curr_x, curr_y;
-    float next_x, next_y;
-    float prev_x, prev_y;
+    private float curr_x, curr_y;
+    private float next_x, next_y;
+    private float prev_x, prev_y;
 
-    boolean symmetric;
+    private boolean symmetric;
 
     private Manipulator prev, curr, next;
 

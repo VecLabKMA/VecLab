@@ -1,4 +1,4 @@
-package main_java.models.logiс;
+package main_java.models.canvas;
 
 import javafx.scene.canvas.GraphicsContext;
 

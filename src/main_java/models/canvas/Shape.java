@@ -1,4 +1,4 @@
-package main_java.models.logiс;
+package main_java.models.canvas;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -38,16 +38,13 @@ public class Shape {
         for (Vertex curr : vertices) curr.Scale(point_x, point_y, factor_x, factor_y);
     }
 
-
-
-
     void Build() {
         LinkedList<Float> pre_buffer_x = new LinkedList<Float>();
         LinkedList<Float> pre_buffer_y = new LinkedList<Float>();
 
         for (int i = 0; i < vertices.length - 1; i++)
-            Vertex.CreateCurve(vertices[i], vertices[i+1], pre_buffer_x, pre_buffer_y, 30);
-        Vertex.CreateCurve(vertices[vertices.length-1], vertices[0], pre_buffer_x, pre_buffer_y, 30);
+            Vertex.CreateCurve(vertices[i], vertices[i+1], pre_buffer_x, pre_buffer_y, 5);
+        Vertex.CreateCurve(vertices[vertices.length-1], vertices[0], pre_buffer_x, pre_buffer_y, 5);
 
 
         buffer_x = new double[pre_buffer_x.size()];
