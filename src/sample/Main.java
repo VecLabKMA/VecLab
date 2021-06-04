@@ -17,6 +17,7 @@ public class Main extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/sample.fxml"));
         Parent root = loader.load();
+
         Scene scene = new Scene(root);
 
         InputStream iconStream = getClass().getResourceAsStream("/sample/assets/curve-icon.png");

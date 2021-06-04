@@ -24,9 +24,6 @@ public class CanvasController extends Canvas {
             throw new RuntimeException(exception);
         }
 
-//        label = new Label("text");
-//        button.setText("button_text");
-
         new CanvasModel(this).AddSimple();
     }
 }

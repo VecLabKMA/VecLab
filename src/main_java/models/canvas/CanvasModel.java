@@ -4,17 +4,18 @@ package main_java.models.canvas;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import main_java.controllers.canvas.CanvasController;
 
 import java.util.LinkedList;
 
 public class CanvasModel {
     LinkedList<Shape> shapes;
-    Canvas canvas;
+    CanvasController canvas;
 
     Manipulator selected;
     LinkedList<Manipulator> manipulators;
 
-    public CanvasModel(Canvas canvas) {
+    public CanvasModel(CanvasController canvas) {
         shapes = new LinkedList<Shape>();
         manipulators = new LinkedList<Manipulator>();
 
@@ -71,7 +72,6 @@ public class CanvasModel {
         AddRectangle(400, 400, 100, 200, Color.LIGHTYELLOW, Color.YELLOW, 5f);
         Redraw();
     }
-
 
     public void AddEllipse(float center_x, float center_y, float width, float height, Color fill_color, Color stroke_color, float border_thickness) {
         final float k = 0.552284749831f;

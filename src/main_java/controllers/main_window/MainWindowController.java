@@ -13,14 +13,10 @@ public class MainWindowController extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         CustomPanelController pane = new CustomPanelController();
-        // pane.setStyle("-fx-background-color: red");
 
-        // pane.getChildren().add(new CustomPanelController());
-        pane.getChildren().add(new CanvasController());
-        // pane.getChildren().add(new Button("Smth"));
+        // pane.getChildren().add(new CanvasController());
 
         Scene scene = new Scene(pane, 800, 600);
-
 
         primaryStage.setScene(scene);
         primaryStage.show();

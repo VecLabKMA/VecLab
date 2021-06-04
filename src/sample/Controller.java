@@ -6,9 +6,11 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import main_java.controllers.canvas.CanvasController;
+import main_java.models.canvas.CanvasModel;
 
 public class Controller {
-    @FXML private Canvas canvas;
+    @FXML private CanvasController canvas;
 
     @FXML private void drawCanvas(ActionEvent event) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
