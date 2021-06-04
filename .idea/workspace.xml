@@ -20,25 +20,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/about-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/arrow-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/ellipse-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/fill-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/free-select-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/polygon-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/rectangle-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/select-area-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/select-object-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/assets/triangle-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VecLab/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VecLab/sample/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/SquareToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/about_window/AboutWindowView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/object_panel/ObjectPanelView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/ToolsPanelView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/AreaSelectToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/ArrowToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/BezierToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/EllipseToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/FillAreaToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/FreeSelectToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/LineToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/ObjectSelectToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/PolygonToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/RectangleToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/ToolButtonBaseView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tools_panel/tools_buttons/TriangleToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/resources/view/tutorial_window/TurorialWindowView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/about-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/arrow-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/curve-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/ellipse-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/fill-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/free-select-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/polygon-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/rectangle-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/select-area-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/select-object-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/straight-line-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/assets/triangle-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VecLab/sample/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/CustomPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/CustomPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/canvas/CanvasModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/models/canvas/CanvasModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/CustomPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/CustomPanelView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/straight-line-icon.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +153,7 @@
       <recent name="C:\Users\anton\Desktop\Practice\VecLab\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -174,8 +195,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainWindowController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main_java.controllers.main_window.MainWindowController" />
+      <module name="VecLab" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main_java.controllers.main_window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -211,6 +259,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainWindowController" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -262,39 +315,5 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Re-created project as JavaFX application" />
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1622663509185">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1622663509185" />
-    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1621856924303">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621856924303" />
-    <state width="1493" height="165" key="GridCell.Tab.0.bottom" timestamp="1622665978346">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="165" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622665978346" />
-    <state width="1493" height="165" key="GridCell.Tab.0.center" timestamp="1622665978346">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="165" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622665978346" />
-    <state width="1493" height="165" key="GridCell.Tab.0.left" timestamp="1622665978346">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="165" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622665978346" />
-    <state width="1493" height="165" key="GridCell.Tab.0.right" timestamp="1622665978346">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="165" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622665978346" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1622013085478">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622013085478" />
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621946167059">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1621946167059" />
   </component>
 </project>
