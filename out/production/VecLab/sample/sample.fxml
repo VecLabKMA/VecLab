@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <VBox id="body" prefHeight="900" prefWidth="1200" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <HBox id="tools" prefHeight="200.0">
-      <children>
-          <Button fx:id="drawLine" styleClass="toolButton" />
-          <Button fx:id="drawCurve" styleClass="toolButton" />
-          <TextField promptText="ДШту"/>
-      </children>
+    <HBox id="tools">
+        <FlowPane prefWidth="500.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="drawLine" styleClass="toolButton" />
+            <Button fx:id="drawCurve" styleClass="toolButton" />
+            <Button fx:id="drawArrow" styleClass="toolButton" />
+            <Button fx:id="drawEllipse" styleClass="toolButton" />
+            <Button fx:id="drawTriangle" styleClass="toolButton" />
+            <Button fx:id="drawRectangle" styleClass="toolButton" />
+            <Button fx:id="drawPolygon" styleClass="toolButton" />
+            <Button fx:id="fillArea" styleClass="toolButton" />
+            <Button fx:id="selectArea" styleClass="toolButton" />
+            <Button fx:id="selectObject" styleClass="toolButton" />
+            <Button fx:id="freeSelect" styleClass="toolButton" />
+        </FlowPane>
+        <Button fx:id="about" styleClass="toolButton" onAction="#drawCanvas"/>
     </HBox>
-    <Pane fx:id="canvasContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
-        <Canvas fx:id="canvas" height="250.0" width="250.0" />
+    <Pane fx:id="canvasContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0">
+        <Canvas fx:id="canvas" />
+      <VBox.margin>
+         <Insets left="50.0" top="50.0" />
+      </VBox.margin>
     </Pane>
 </VBox>

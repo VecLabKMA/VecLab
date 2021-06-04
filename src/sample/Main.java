@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -27,7 +26,7 @@ public class Main extends Application {
         String stylesheet = getClass().getResource("style.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
 
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("VecLab");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
