@@ -21,9 +21,9 @@ public class CanvasModel {
 
         this.canvas = canvas;
 
-        canvas.setOnMousePressed(event -> Pressed((float)event.getSceneX(), (float)event.getSceneY()));
-        canvas.setOnMouseReleased(event -> Released((float)event.getSceneX(), (float)event.getSceneY()));
-        canvas.setOnMouseDragged(event -> Dragged((float)event.getSceneX(), (float)event.getSceneY()));
+        canvas.setOnMousePressed(event -> Pressed((float)event.getX(), (float)event.getY()));
+        canvas.setOnMouseReleased(event -> Released((float)event.getX(), (float)event.getY()));
+        canvas.setOnMouseDragged(event -> Dragged((float)event.getX(), (float)event.getY()));
 
     }
 

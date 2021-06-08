@@ -5,49 +5,49 @@
 }
 
 #drawLine {
-    -fx-background-image: url("/sample/assets/straight-line-icon.png");
+    -fx-background-image: url("/resources/assets/images/line-icon.png");
 }
 
 #drawCurve {
-    -fx-background-image: url("/sample/assets/curve-icon.png");
+    -fx-background-image: url("/resources/assets/images/bezier-curve-icon.png");
 }
 
 #drawArrow {
-    -fx-background-image: url("/sample/assets/arrow-icon.png");
+    -fx-background-image: url("/resources/assets/images/arrow-icon.png");
 }
 
 #drawEllipse {
-    -fx-background-image: url("/sample/assets/ellipse-icon.png");
+    -fx-background-image: url("/resources/assets/images/ellipse-icon.png");
 }
 
 #drawTriangle {
-    -fx-background-image: url("/sample/assets/triangle-icon.png");
+    -fx-background-image: url("/resources/assets/images/triangle-icon.png");
 }
 
 #drawRectangle {
-    -fx-background-image: url("/sample/assets/rectangle-icon.png");
+    -fx-background-image: url("/resources/assets/images/rectangle-icon.png");
 }
 
 #drawPolygon {
-    -fx-background-image: url("/sample/assets/polygon-icon.png");
+    -fx-background-image: url("/resources/assets/images/polygon-icon.png");
 }
 
 #fillArea {
-    -fx-background-image: url("/sample/assets/fill-icon.png");
+    -fx-background-image: url("/resources/assets/images/fill-icon.png");
 }
 
 #selectArea {
-    -fx-background-image: url("/sample/assets/select-area-icon.png");
+    -fx-background-image: url("/resources/assets/images/select-area-icon.png");
 }
 
 #selectObject {
-    -fx-background-image: url("/sample/assets/select-object-icon.png");
+    -fx-background-image: url("/resources/assets/images/select-object-icon.png");
 }
 
 #freeSelect {
-    -fx-background-image: url("/sample/assets/free-select-icon.png");
+    -fx-background-image: url("/resources/assets/images/free-select-icon.png");
 }
 
 #about {
-    -fx-background-image: url("/sample/assets/about-icon.png");
+    -fx-background-image: url("/resources/assets/images/about-icon.png");
 }
