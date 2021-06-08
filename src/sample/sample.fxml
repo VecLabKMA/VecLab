@@ -8,7 +8,6 @@
 
 <VBox id="body" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="sample.Controller">
-    <CanvasController height="600.0" width="800.0" fx:id="canvas"/>
 
     <HBox id="tools">
         <FlowPane prefWidth="500.0" HBox.hgrow="ALWAYS">
@@ -23,12 +22,15 @@
             <Button fx:id="selectArea" styleClass="toolButton" />
             <Button fx:id="selectObject" styleClass="toolButton" />
             <Button fx:id="freeSelect" styleClass="toolButton" />
+            <Button fx:id="rasterSaveButton" styleClass="toolButton" text="Save as PNG" onAction="#saveAsPicture" />
+            <Button fx:id="vectorSaveButton" styleClass="toolButton" text="Save as SVG" onAction="#saveAsVector" />
         </FlowPane>
         <Button fx:id="about" styleClass="toolButton" onAction="#drawCanvas"/>
     </HBox>
     <Pane fx:id="canvasContainer">
-      <VBox.margin>
-         <Insets left="50.0" top="50.0" />
-      </VBox.margin>
+        <CanvasController height="600.0" width="800.0" fx:id="canvas"/>
+        <VBox.margin>
+            <Insets left="50.0" top="50.0" />
+        </VBox.margin>
     </Pane>
 </VBox>

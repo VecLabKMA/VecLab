@@ -1,20 +1,30 @@
 package sample;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import main_java.controllers.canvas.CanvasController;
 import main_java.models.canvas.CanvasModel;
+
+import javax.imageio.ImageIO;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 public class Controller {
     @FXML private CanvasController canvas;
 
     @FXML private void drawCanvas(ActionEvent event) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        System.out.println(gc);
         gc.setFill(Color.GREEN);
         gc.setStroke(Color.BLUE);
         gc.setLineWidth(5);
@@ -37,5 +47,33 @@ public class Controller {
                 new double[]{210, 210, 240, 240}, 4);
         gc.setFill(Color.BLACK);
         gc.fillRect(10,10,100,100);
+    }
+
+    public void saveAsPicture(ActionEvent actionEvent) {
+
+        Node node = (Node) actionEvent.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        File file = fileChooser.showSaveDialog(thisStage);
+
+        if(file != null){
+            try {
+                WritableImage writableImage = new WritableImage((int)canvas.getWidth(), (int)canvas.getHeight());
+                canvas.snapshot(null, writableImage);
+                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                ImageIO.write(renderedImage, "png", file);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void saveAsVector(ActionEvent actionEvent) {
     }
 }

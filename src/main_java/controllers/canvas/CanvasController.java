@@ -1,5 +1,6 @@
 package main_java.controllers.canvas;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.canvas.Canvas;
 import main_java.models.canvas.CanvasModel;
