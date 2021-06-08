@@ -14,16 +14,16 @@ public class CanvasController extends Canvas {
 //    Button button;
 
     public CanvasController() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/resources/view/canvas/CanvasView.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+//                "/resources/view/canvas/CanvasView.fxml"));
+//        fxmlLoader.setRoot(this);
+//        fxmlLoader.setController(this);
+//
+//        try {
+//            fxmlLoader.load();
+//        } catch (IOException exception) {
+//            throw new RuntimeException(exception);
+//        }
 
         new CanvasModel(this).AddSimple();
     }
