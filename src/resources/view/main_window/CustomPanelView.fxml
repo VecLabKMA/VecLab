@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.Circle?>
+
+<!--        fx:controller="main_java.controllers.main_window.CustomPanelController"-->
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
 <?import main_java.controllers.canvas.CanvasController?>
-
 <fx:root xmlns:fx="http://javafx.com/fxml"
          type="javafx.scene.layout.GridPane">
 
@@ -15,5 +17,7 @@
     <rowConstraints>
         <RowConstraints />
     </rowConstraints>
-    <CanvasController id="main_canvas" fx:id="main_canvas" height="800.0" width="800.0" />
+    <children>
+        <CanvasController id="main_canvas" fx:id="main_canvas" height="800.0" width="800.0" />
+    </children>
 </fx:root>

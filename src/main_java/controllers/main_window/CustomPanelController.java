@@ -9,8 +9,8 @@ import main_java.models.canvas.CanvasModel;
 import java.io.IOException;
 
 public class CustomPanelController extends GridPane {
-//    @FXML
-//    CanvasController main_canvas;
+    @FXML
+    CanvasController main_canvas;
 
     public CustomPanelController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
@@ -24,7 +24,8 @@ public class CustomPanelController extends GridPane {
             throw new RuntimeException(exception);
         }
 
-        //new CanvasModel(main_canvas).AddSimple();
+
+        new CanvasModel(main_canvas).AddSimple();
 
     }
 }
