@@ -103,6 +103,9 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -244,6 +247,8 @@
       <workItem from="1622013066664" duration="517000" />
       <workItem from="1622107569546" duration="1666000" />
       <workItem from="1622656154557" duration="8647000" />
+      <workItem from="1623166984921" duration="12000" />
+      <workItem from="1623170025898" duration="634000" />
     </task>
     <task id="LOCAL-00001" summary="Re-created project as JavaFX application">
       <created>1621854287189</created>
@@ -294,5 +299,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623147240094" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1623166993128">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1623166993128" />
   </component>
 </project>
