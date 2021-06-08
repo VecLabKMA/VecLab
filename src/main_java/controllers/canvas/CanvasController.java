@@ -1,5 +1,6 @@
 package main_java.controllers.canvas;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.canvas.Canvas;
 import main_java.models.canvas.CanvasModel;
@@ -23,9 +24,6 @@ public class CanvasController extends Canvas {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-//        label = new Label("text");
-//        button.setText("button_text");
 
         new CanvasModel(this).AddSimple();
     }
