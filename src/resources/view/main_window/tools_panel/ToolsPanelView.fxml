@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.FlowPane?>
+
+<?import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController?>
+<fx:root styleClass="toolPanel" type="FlowPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <stylesheets>
+        <URL value="@toolsPanel.css" />
+    </stylesheets>
+    <ToolButtonBaseController fx:id="drawLine">
+      <tooltip>
+         <Tooltip text="Line" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="drawCurve">
+      <tooltip>
+         <Tooltip text="Curve" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="drawArrow">
+      <tooltip>
+         <Tooltip text="Arrow" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="drawEllipse">
+      <tooltip>
+         <Tooltip text="Ellipse" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="drawTriangle">
+      <tooltip>
+         <Tooltip text="Triangle" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="drawRectangle">
+      <tooltip>
+         <Tooltip text="Rectangle" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="drawPolygon">
+      <tooltip>
+         <Tooltip text="Polygon" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="fillArea">
+      <tooltip>
+         <Tooltip text="Fill Area" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="selectArea">
+        <tooltip>
+            <Tooltip text="Select Area" />
+        </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="selectObject">
+      <tooltip>
+         <Tooltip text="Select Object" />
+      </tooltip>
+    </ToolButtonBaseController>
+    <ToolButtonBaseController fx:id="freeSelect">
+      <tooltip>
+         <Tooltip text="Free Select" />
+      </tooltip>
+    </ToolButtonBaseController>
+</fx:root>

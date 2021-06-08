@@ -20,14 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/BezierManagerPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/GeneralManagerPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/StyleManagerPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/mainWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/BezierManagerPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/GeneralManagerPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/StyleManagerPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/managerPanel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/objectPanel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolButtonBaseView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/curve-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/assets/bezier-curve-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/straight-line-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/assets/line-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/CustomPanelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/ObjectPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/ObjectPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ToolButtonBaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ToolButtonBaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/canvas/CanvasView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/canvas/CanvasView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/CustomPanelView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/object_panel/ObjectPanelView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/ToolsPanelView.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,19 +152,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -192,6 +196,19 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -283,23 +300,5 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Re-created project as JavaFX application" />
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom" timestamp="1623145251316">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623145251316" />
-    <state width="1493" height="221" key="GridCell.Tab.0.center" timestamp="1623145251316">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623145251316" />
-    <state width="1493" height="221" key="GridCell.Tab.0.left" timestamp="1623145251316">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623145251316" />
-    <state width="1493" height="221" key="GridCell.Tab.0.right" timestamp="1623145251316">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623145251316" />
   </component>
 </project>

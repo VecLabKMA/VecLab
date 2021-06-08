@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import main_java.controllers.main_window.tools_panel.ToolsPanelController?>
+<?import main_java.controllers.canvas.CanvasController?>
+
+<?import java.net.URL?>
+<?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="main_java.controllers.main_window.MainWindowController"
+          styleClass="mainWindow">
+    <stylesheets>
+        <URL value="@mainWindow.css"/>
+    </stylesheets>
+
+    <ToolsPanelController GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+    <Pane GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <CanvasController width="800" height="600"/>
+    </Pane>
+    <ObjectPanelController prefWidth="300" prefHeight="600" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+</GridPane>
