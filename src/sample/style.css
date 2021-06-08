@@ -1,0 +1,83 @@
+#body {
+    -fx-background-color: darkgray;
+}
+
+#canvasContainer {
+     -fx-background-color: white;
+     -fx-padding: 0 0 0 10px;
+}
+
+.toolButton {
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+    -fx-background-size: 20px;
+    -fx-background-color: white;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.toolButton:hover {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#drawLine {
+    -fx-background-image: url("/sample/assets/line-icon.png");
+}
+
+#drawCurve {
+    -fx-background-image: url("/sample/assets/bezier-curve-icon.png");
+}
+
+#drawArrow {
+    -fx-background-image: url("/sample/assets/arrow-icon.png");
+}
+
+#drawEllipse {
+    -fx-background-image: url("/sample/assets/ellipse-icon.png");
+}
+
+#drawTriangle {
+    -fx-background-image: url("/sample/assets/triangle-icon.png");
+}
+
+#drawRectangle {
+    -fx-background-image: url("/sample/assets/rectangle-icon.png");
+}
+
+#drawPolygon {
+    -fx-background-image: url("/sample/assets/polygon-icon.png");
+}
+
+#fillArea {
+    -fx-background-image: url("/sample/assets/fill-icon.png");
+}
+
+#selectArea {
+    -fx-background-image: url("/sample/assets/select-area-icon.png");
+}
+
+#selectObject {
+    -fx-background-image: url("/sample/assets/select-object-icon.png");
+}
+
+#freeSelect {
+    -fx-background-image: url("/sample/assets/free-select-icon.png");
+}
+
+#about {
+    -fx-background-image: url("/sample/assets/about-icon.png");
+}
+
+#rasterSaveButton {
+    -fx-pref-width: 150;
+}
+
+#vectorSaveButton {
+    -fx-pref-width: 150;
+}
