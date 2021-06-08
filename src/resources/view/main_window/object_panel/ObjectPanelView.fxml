@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
+
+<?import javafx.scene.control.Tab?>
+<?import main_java.controllers.main_window.object_panel.StyleManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.GeneralManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.BezierManagerPanelController?>
+<?import java.net.URL?>
+
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="ObjectPanelController">
+    <stylesheets>
+        <URL value="@objectPanel.css"/>
+    </stylesheets>
+    <Tab text="General" styleClass="objectPanelTab">
+        <GeneralManagerPanelController/>
+    </Tab>
+    <Tab text="Fill &amp; Border" styleClass="objectPanelTab">
+        <StyleManagerPanelController/>
+    </Tab>
+    <Tab text="Bezier" styleClass="objectPanelTab">
+        <BezierManagerPanelController/>
+    </Tab>
+</fx:root>

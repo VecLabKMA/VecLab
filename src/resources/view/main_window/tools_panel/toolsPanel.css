@@ -1,0 +1,53 @@
+.toolPanel {
+    -fx-background-color: #f2f2f2;
+    -fx-pref-width: 100em;
+    -fx-border-color: #d2d2d2
+}
+
+#drawLine {
+    -fx-background-image: url("/resources/assets/images/line-icon.png");
+}
+
+#drawCurve {
+    -fx-background-image: url("/resources/assets/images/bezier-curve-icon.png");
+}
+
+#drawArrow {
+    -fx-background-image: url("/resources/assets/images/arrow-icon.png");
+}
+
+#drawEllipse {
+    -fx-background-image: url("/resources/assets/images/ellipse-icon.png");
+}
+
+#drawTriangle {
+    -fx-background-image: url("/resources/assets/images/triangle-icon.png");
+}
+
+#drawRectangle {
+    -fx-background-image: url("/resources/assets/images/rectangle-icon.png");
+}
+
+#drawPolygon {
+    -fx-background-image: url("/resources/assets/images/polygon-icon.png");
+}
+
+#fillArea {
+    -fx-background-image: url("/resources/assets/images/fill-icon.png");
+}
+
+#selectArea {
+    -fx-background-image: url("/resources/assets/images/select-area-icon.png");
+}
+
+#selectObject {
+    -fx-background-image: url("/resources/assets/images/select-object-icon.png");
+}
+
+#freeSelect {
+    -fx-background-image: url("/resources/assets/images/free-select-icon.png");
+}
+
+#about {
+    -fx-background-image: url("/resources/assets/images/about-icon.png");
+}
