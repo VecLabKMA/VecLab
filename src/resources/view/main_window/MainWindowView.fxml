@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import main_java.controllers.canvas.CanvasController?>
-
+<?import main_java.controllers.main_window.CustomPanelController?>
 <VBox id="body" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="main_java.controllers.main_window.MainWindowController">
     <VBox id="menuContainer">
@@ -37,6 +37,6 @@
             </menus>
         </MenuBar>
     </VBox>
-
+    <CanvasController id="main_canvas" fx:id="main_canvas" height="800.0" width="800.0" />
 </VBox>
 

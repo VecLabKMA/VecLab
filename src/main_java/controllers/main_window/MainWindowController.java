@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
@@ -28,13 +30,13 @@ public class MainWindowController extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         CustomPanelController pane = new CustomPanelController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/main_window/MainWindowView.fxml"));
+        Parent root = loader.load();
 
-//         pane.getChildren().add(new CanvasController());
-
-        Scene scene = new Scene(pane, 800, 600);
-        pane.getChildren().add(menuBar); // DOESN'T WORK
+        Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
+        primaryStage.setTitle("VecLab");
         primaryStage.show();
     }
 
