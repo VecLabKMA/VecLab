@@ -20,7 +20,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root);
 
-        InputStream iconStream = getClass().getResourceAsStream("/sample/assets/curve-icon.png");
+        InputStream iconStream = getClass().getResourceAsStream("/sample/assets/bezier-curve-icon.png");
         Image image = new Image(iconStream);
         primaryStage.getIcons().add(image);
 

@@ -27,11 +27,11 @@
 }
 
 #drawLine {
-    -fx-background-image: url("/sample/assets/straight-line-icon.png");
+    -fx-background-image: url("/sample/assets/line-icon.png");
 }
 
 #drawCurve {
-    -fx-background-image: url("/sample/assets/curve-icon.png");
+    -fx-background-image: url("/sample/assets/bezier-curve-icon.png");
 }
 
 #drawArrow {
@@ -72,4 +72,12 @@
 
 #about {
     -fx-background-image: url("/sample/assets/about-icon.png");
+}
+
+#rasterSaveButton {
+    -fx-pref-width: 150;
+}
+
+#vectorSaveButton {
+    -fx-pref-width: 150;
 }
