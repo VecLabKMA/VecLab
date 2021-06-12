@@ -17,34 +17,18 @@ public class MainWindowController extends Application {
         MainWindowPanelController mainPanel = new MainWindowPanelController();
         mainPanel.setPrimaryStage(primaryStage);
 
-        GridPane root = new GridPane();
-        root.getChildren().add(mainPanel);
-
-
-
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(mainPanel);
 
         InputStream iconStream = getClass().getResourceAsStream("/sample/assets/bezier-curve-icon.png");
         Image image = new Image(iconStream);
         primaryStage.getIcons().add(image);
 
-        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
-            System.out.println(mainPanel.getWidth());
-        });
-
-        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
-            // Do whatever you want
-        });
         primaryStage.setScene(scene);
         primaryStage.setTitle("VecLab");
         primaryStage.show();
-
-
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-
-
 }

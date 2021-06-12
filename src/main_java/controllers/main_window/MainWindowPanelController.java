@@ -20,11 +20,9 @@ import java.io.IOException;
 public class MainWindowPanelController extends GridPane {
 
     @FXML
-    public Pane canvasWrapper = new Pane();
+    private Pane canvasWrapper;
     @FXML
-    public CanvasController mainCanvas = new CanvasController();
-    @FXML
-    private MenuBar menuBar = new MenuBar();
+    private CanvasController mainCanvas;
     private Stage primaryStage;
 
     public MainWindowPanelController() {
@@ -42,7 +40,6 @@ public class MainWindowPanelController extends GridPane {
 
         maxWidth(Double.POSITIVE_INFINITY);
         maxHeight(Double.POSITIVE_INFINITY);
-
 
         mainCanvas.widthProperty().bind(canvasWrapper.widthProperty());
         mainCanvas.heightProperty().bind(canvasWrapper.heightProperty());

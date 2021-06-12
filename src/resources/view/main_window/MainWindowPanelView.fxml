@@ -52,6 +52,6 @@
           prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
         <CanvasController width="600" height="400" fx:id="mainCanvas"/>
     </Pane>
-    <ObjectPanelController prefWidth="300" prefHeight="600" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <ObjectPanelController prefWidth="360" GridPane.fillHeight="true" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
 </fx:root>
