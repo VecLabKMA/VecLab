@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main_java.controllers.canvas.CanvasController;
@@ -100,5 +101,10 @@ public class MainWindowController extends Application {
 
     @FXML
     public void handleAboutAction(ActionEvent actionEvent) {
+
+    }
+
+    public void makeCanvasAlive(MouseEvent mouseEvent) {
+        mainCanvas.handleClick(mouseEvent);
     }
 }
