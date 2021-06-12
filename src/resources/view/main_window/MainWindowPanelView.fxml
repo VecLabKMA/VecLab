@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import main_java.controllers.main_window.MainWindowPanelController?>
+
+<?import main_java.controllers.main_window.tools_panel.ToolsPanelController?>
+<?import main_java.controllers.canvas.CanvasController?>
+<?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
+<?import java.net.URL?>
+
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="MainWindowPanelController"
+         styleClass="mainWindow">
+
+    <stylesheets>
+        <URL value="@mainWindow.css"/>
+    </stylesheets>
+    <VBox GridPane.rowIndex="0" GridPane.columnSpan="2" id="menuContainer">
+        <MenuBar fx:id="menuBar">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="New" onAction="#handleNewAction"/>
+                        <MenuItem text="Open" onAction="#handleOpenAction"/>
+                        <MenuItem text="Save" onAction="#handleSaveAction"/>
+                        <MenuItem text="Save As" onAction="#handleSaveAsAction"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit" onAction="#handleExitAction"/>
+                    </items>
+                </Menu>
+                <Menu text="Edit">
+                    <items>
+                        <MenuItem text="Copy" onAction="#handleCopyAction"/>
+                        <MenuItem text="Cut" onAction="#handleCutAction"/>
+                        <MenuItem text="Paste" onAction="#handlePasteAction"/>
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="About" onAction="#handleAboutAction"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </VBox>
+    <ToolsPanelController GridPane.fillWidth="true" GridPane.vgrow="NEVER" GridPane.hgrow="ALWAYS"
+                          GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <Pane fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
+          prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <CanvasController width="600" height="400" fx:id="mainCanvas"/>
+    </Pane>
+    <ObjectPanelController prefWidth="300" prefHeight="600" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+</fx:root>

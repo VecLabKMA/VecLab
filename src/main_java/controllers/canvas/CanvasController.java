@@ -1,9 +1,9 @@
 package main_java.controllers.canvas;
 
-import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import logic.DrawingMode;
 import logic.Shape;
@@ -14,22 +14,22 @@ public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
 
-    public void handleClick(ActionEvent event) {
-        sm = new ShapeManager(this) {
-            @Override
-            public void OnManipulatorSelect() {
-                System.out.println("Manipulator selected");
-            }
+    public void init() {
+        if (sm == null) {
+            sm = new ShapeManager(this) {
+                @Override
+                public void OnManipulatorSelect() {
+                    System.out.println("Manipulator selected");
+                }
 
-            @Override
-            public void OnManipulatorUnselect() {
-                System.out.println("Manipulator unselected");
-            }
-        };
+                @Override
+                public void OnManipulatorUnselect() {
+                    System.out.println("Manipulator unselected");
+                }
+            };
+        }
 
         sm.Example();
-
-
 
         this.getScene().setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ALT) { sm.SetRotationFixed(true); }
