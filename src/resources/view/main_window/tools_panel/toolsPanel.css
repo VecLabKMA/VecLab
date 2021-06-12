@@ -1,7 +1,9 @@
 .toolPanel {
     -fx-background-color: #f2f2f2;
-    -fx-pref-width: 100em;
-    -fx-border-color: #d2d2d2
+    /*-fx-pref-width: 100em;*/
+    -fx-border-color: #d2d2d2;
+    -fx-pref-height: 45;
+    -fx-fill-width: true;
 }
 
 #drawLine {

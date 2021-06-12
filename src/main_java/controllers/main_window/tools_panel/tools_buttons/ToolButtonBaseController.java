@@ -3,13 +3,12 @@ package main_java.controllers.main_window.tools_panel.tools_buttons;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 
 import java.io.IOException;
 
 // base class
 public class ToolButtonBaseController extends Button {
-
-    private boolean enabled;
 
     public ToolButtonBaseController() {
         super();
@@ -24,16 +23,16 @@ public class ToolButtonBaseController extends Button {
             throw new RuntimeException(exception);
         }
 
+        getStyleClass().clear();
         getStyleClass().add("toolButton");
+    }
 
-        addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            if (enabled) {
-                getStyleClass().clear();
-                getStyleClass().add("toolButton");
-            } else {
-                getStyleClass().add("toolButton--enabled");
-            }
-            enabled = !enabled;
-        });
+    public void enable() {
+        getStyleClass().add("toolButton--enabled");
+    }
+
+    public void disable() {
+        getStyleClass().clear();
+        getStyleClass().add("toolButton");
     }
 }

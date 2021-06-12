@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import main_java.controllers.main_window.MainWindowPanelController?>
 
 <?import main_java.controllers.main_window.tools_panel.ToolsPanelController?>
 <?import main_java.controllers.canvas.CanvasController?>
-
-<?import java.net.URL?>
 <?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import java.net.URL?>
 
-<GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="main_java.controllers.main_window.MainWindowController"
-          styleClass="mainWindow">
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="MainWindowPanelController"
+        styleClass="mainWindow">
+
     <stylesheets>
         <URL value="@mainWindow.css"/>
     </stylesheets>
@@ -48,10 +46,12 @@
             </menus>
         </MenuBar>
     </VBox>
-    <ToolsPanelController GridPane.rowIndex="1" GridPane.columnSpan="2"/>
-    <Pane GridPane.rowIndex="2" GridPane.columnIndex="0">
-        <CanvasController width="800" height="600" fx:id="mainCanvas"/>
+    <ToolsPanelController GridPane.fillWidth="true" GridPane.vgrow="NEVER" GridPane.hgrow="ALWAYS"
+                          GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <Pane fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
+          prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <CanvasController width="600" height="400" fx:id="mainCanvas"/>
     </Pane>
     <ObjectPanelController prefWidth="300" prefHeight="600" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-</GridPane>
+</fx:root>
