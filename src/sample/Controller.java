@@ -1,79 +1,129 @@
 package sample;
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.WritableImage;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import main_java.controllers.canvas.CanvasController;
-import main_java.models.canvas.CanvasModel;
+import logic.DrawingMode;
+import logic.Shape;
+import logic.ShapeManager;
+import logic.Vertex;
 
-import javax.imageio.ImageIO;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
 
 public class Controller {
-    @FXML private CanvasController canvas;
 
-    @FXML private void drawCanvas(ActionEvent event) {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.GREEN);
-        gc.setStroke(Color.BLUE);
-        gc.setLineWidth(5);
-        gc.strokeLine(40, 10, 10, 40);
-        gc.fillOval(10, 60, 30, 30);
-        gc.strokeOval(60, 60, 30, 30);
-        gc.fillRoundRect(110, 60, 30, 30, 10, 10);
-        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
-        gc.fillArc(10, 110, 30, 30, 45, 240, ArcType.OPEN);
-        gc.fillArc(60, 110, 30, 30, 45, 240, ArcType.CHORD);
-        gc.fillArc(110, 110, 30, 30, 45, 240, ArcType.ROUND);
-        gc.strokeArc(10, 160, 30, 30, 45, 240, ArcType.OPEN);
-        gc.strokeArc(60, 160, 30, 30, 45, 240, ArcType.CHORD);
-        gc.strokeArc(110, 160, 30, 30, 45, 240, ArcType.ROUND);
-        gc.fillPolygon(new double[]{10, 40, 10, 40},
-                new double[]{210, 210, 240, 240}, 4);
-        gc.strokePolygon(new double[]{60, 90, 60, 90},
-                new double[]{210, 210, 240, 240}, 4);
-        gc.strokePolyline(new double[]{110, 140, 110, 140},
-                new double[]{210, 210, 240, 240}, 4);
-        gc.setFill(Color.BLACK);
-        gc.fillRect(10,10,100,100);
-    }
 
-    public void saveAsPicture(ActionEvent actionEvent) {
+    @FXML
+    private Canvas canvas;
 
-        Node node = (Node) actionEvent.getSource();
-        Stage thisStage = (Stage) node.getScene().getWindow();
+    public static ShapeManager sm;
 
-        FileChooser fileChooser = new FileChooser();
 
-        FileChooser.ExtensionFilter extFilter =
-                new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-        fileChooser.getExtensionFilters().add(extFilter);
 
-        File file = fileChooser.showSaveDialog(thisStage);
-
-        if(file != null){
-            try {
-                WritableImage writableImage = new WritableImage((int)canvas.getWidth(), (int)canvas.getHeight());
-                canvas.snapshot(null, writableImage);
-                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                ImageIO.write(renderedImage, "png", file);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+    public void onClick(ActionEvent actionEvent) {
+        sm = new ShapeManager(canvas) {
+            @Override
+            public void OnManipulatorSelect() {
+                System.out.println("Manipulator selected");
             }
-        }
+
+            @Override
+            public void OnManipulatorUnselect() {
+                System.out.println("Manipulator unselected");
+            }
+        };
+
+        sm.Example();
+
+
+
+        canvas.getScene().setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ALT) { sm.SetRotationFixed(true); }
+            if (e.getCode() == KeyCode.CONTROL) { sm.SetAppendSelection(true); }
+
+            if (e.getCode() == KeyCode.V) { sm.SetShowVertex(!sm.GetShowVertex()); }
+            if (e.getCode() == KeyCode.A) { sm.SetShowAnchorPoints(!sm.GetShowAnchorPoints()); }
+
+            if (e.getCode() == KeyCode.DIGIT0) { sm.SetDrawingMode(DrawingMode.NO); }
+            if (e.getCode() == KeyCode.DIGIT1) { sm.SetDrawingMode(DrawingMode.PEN); }
+            if (e.getCode() == KeyCode.DIGIT2) { sm.SetDrawingMode(DrawingMode.RECTANGLE); }
+            if (e.getCode() == KeyCode.DIGIT3) { sm.SetDrawingMode(DrawingMode.ELLIPSE); }
+
+            if (e.getCode() == KeyCode.E) {
+                sm.ClearSelection();
+                System.out.println("Cleared");
+            }
+
+            if (e.getCode() == KeyCode.R) {
+                sm.SetBorderThickness(4f);
+                sm.SetStrokeColor(Color.DARKGREEN);
+                sm.SetFillColor(Color.GREEN);
+            }
+
+            if (e.getCode() == KeyCode.DELETE) {
+                Shape shapes[] = sm.GetSelectedShapes();
+                for (Shape curr : shapes) {
+                    sm.root_layer.RemoveShape(curr);
+                }
+
+                if (sm.GetSelectedManipulator() instanceof Vertex.CurrManipulator) {
+                    Vertex deleted = ((Vertex.CurrManipulator) sm.GetSelectedManipulator()).GetVertex();
+                    deleted.GetShape().RemoveVertex(deleted);
+                }
+            }
+
+            if (e.getCode() == KeyCode.S) {
+                if (sm.GetSelectedManipulator() instanceof Vertex.CurrManipulator) {
+                    Vertex symmetred = ((Vertex.CurrManipulator) sm.GetSelectedManipulator()).GetVertex();
+                    symmetred.SetSymmetric(!symmetred.GetSymmetric());
+                }
+            }
+
+            if (e.getCode() == KeyCode.F) {
+                Shape shapes[] = sm.GetSelectedShapes();
+                for (Shape curr : shapes) {
+                    curr.SetFilled(!curr.GetFilled());
+                }
+            }
+
+
+
+        });
+
+        canvas.getScene().setOnKeyReleased(e -> {
+            if (e.getCode() == KeyCode.ALT) { sm.SetRotationFixed(false); }
+            if (e.getCode() == KeyCode.CONTROL) { sm.SetAppendSelection(false); }
+
+        });
+
+
+        canvas.setOnMousePressed(e -> {
+            if (e.getButton() == MouseButton.SECONDARY) {
+                if (sm.GetSelectedShapes().length == 1)
+                    sm.GetSelectedShapes()[0].InsertClose((float)e.getSceneX(), (float)e.getSceneY());
+            }
+
+            if (e.getButton() == MouseButton.PRIMARY) {
+                sm.OnPressed((float)e.getSceneX(), (float)e.getSceneY());
+            }
+        });
+
+        canvas.setOnMouseDragged(e -> {
+            if (e.getButton() == MouseButton.PRIMARY) {
+                sm.OnDragged((float)e.getSceneX(), (float)e.getSceneY());
+            }
+        });
+
+        canvas.setOnMouseReleased(e -> {
+            if (e.getButton() == MouseButton.PRIMARY) {
+                sm.OnReleased((float)e.getSceneX(), (float)e.getSceneY());
+            }
+        });
     }
 
-    public void saveAsVector(ActionEvent actionEvent) {
-    }
+
 }
+
+

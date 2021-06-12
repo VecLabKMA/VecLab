@@ -20,25 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/about-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/arrow-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/bezier-curve-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/ellipse-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/fill-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/free-select-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/line-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/polygon-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/rectangle-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/select-area-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/select-object-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/triangle-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/DrawingMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/Layer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/Vertex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VecLab.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VecLab.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/models/canvas/CanvasModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/models/canvas/CanvasModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/canvas/CanvasModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/canvas/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Manipulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/canvas/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/canvas/Vertex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,17 +128,10 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-<<<<<<< HEAD
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-||||||| 2108283
-=======
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
->>>>>>> f78b6c6d26e98832123ec04ae45924eed8a97536
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
@@ -172,6 +160,17 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -234,34 +233,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-||||||| 2108283
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-=======
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
->>>>>>> f78b6c6d26e98832123ec04ae45924eed8a97536
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -299,7 +270,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -318,13 +289,11 @@
       <workItem from="1622013066664" duration="517000" />
       <workItem from="1622107569546" duration="1666000" />
       <workItem from="1622656154557" duration="8647000" />
-<<<<<<< HEAD
       <workItem from="1623166984921" duration="12000" />
       <workItem from="1623170025898" duration="634000" />
-||||||| 2108283
-=======
-      <workItem from="1623166852952" duration="2827000" />
->>>>>>> f78b6c6d26e98832123ec04ae45924eed8a97536
+      <workItem from="1623425775275" duration="31000" />
+      <workItem from="1623511724009" duration="66000" />
+      <workItem from="1623511822853" duration="4836000" />
     </task>
     <task id="LOCAL-00001" summary="Re-created project as JavaFX application">
       <created>1621854287189</created>
@@ -337,7 +306,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -359,25 +328,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom" timestamp="1623147240094">
+    <state width="1493" height="221" key="GridCell.Tab.0.bottom" timestamp="1623516249580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623147240094" />
-    <state width="1493" height="221" key="GridCell.Tab.0.center" timestamp="1623147240094">
+    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623516249580" />
+    <state width="1493" height="221" key="GridCell.Tab.0.center" timestamp="1623516249579">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623147240094" />
-    <state width="1493" height="221" key="GridCell.Tab.0.left" timestamp="1623147240094">
+    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623516249579" />
+    <state width="1493" height="221" key="GridCell.Tab.0.left" timestamp="1623516249579">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623147240094" />
-    <state width="1493" height="221" key="GridCell.Tab.0.right" timestamp="1623147240094">
+    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623516249579" />
+    <state width="1493" height="221" key="GridCell.Tab.0.right" timestamp="1623516249580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623147240094" />
+    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623516249580" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1623166993128">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1623166993128" />
+    <state x="209" y="73" key="new project wizard" timestamp="1623425805215">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1623425805215" />
   </component>
 </project>

@@ -100,5 +100,6 @@ public class MainWindowController extends Application {
 
     @FXML
     public void handleAboutAction(ActionEvent actionEvent) {
+        mainCanvas.handleClick(actionEvent);
     }
 }
