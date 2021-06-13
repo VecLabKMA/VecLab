@@ -5,11 +5,11 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 
-public class GeneralManagerPanelController extends GridPane {
-    public GeneralManagerPanelController() {
+public class StrokeStyleManagerPanelController extends GridPane {
+    public StrokeStyleManagerPanelController() {
         super();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/resources/view/main_window/object_panel/GeneralManagerPanelView.fxml"));
+                "/resources/view/main_window/object_panel/StrokeStyleManagerPanelView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -20,9 +20,9 @@ public class GeneralManagerPanelController extends GridPane {
         }
     }
 
-    public GeneralManagerPanelController(double width, double height) {
+    public StrokeStyleManagerPanelController(double width, double height) {
         this();
-        setWidth(width);
-        setHeight(height);
+        prefWidth(width);
+        prefHeight(height);
     }
 }
