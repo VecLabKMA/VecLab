@@ -49,6 +49,11 @@
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/managerPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/managerPanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/objectPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/objectPanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,17 +229,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -272,7 +266,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -294,6 +288,11 @@
       <workItem from="1623166852952" duration="7260000" />
       <workItem from="1623216996276" duration="579000" />
       <workItem from="1623498361286" duration="13867000" />
+      <workItem from="1623166984921" duration="12000" />
+      <workItem from="1623170025898" duration="634000" />
+      <workItem from="1623425775275" duration="31000" />
+      <workItem from="1623511724009" duration="66000" />
+      <workItem from="1623511822853" duration="4836000" />
     </task>
     <task id="LOCAL-00001" summary="Re-created project as JavaFX application">
       <created>1621854287189</created>
@@ -306,7 +305,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

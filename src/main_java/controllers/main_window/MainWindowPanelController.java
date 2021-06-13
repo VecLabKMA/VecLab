@@ -7,7 +7,6 @@ import javafx.scene.layout.Pane;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.menu_bar.MenuBarController;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
-
 import java.io.IOException;
 
 public class MainWindowPanelController extends GridPane {
@@ -42,4 +41,9 @@ public class MainWindowPanelController extends GridPane {
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
     }
+
+    public void init() {
+        mainCanvas.init();
+    }
+
 }

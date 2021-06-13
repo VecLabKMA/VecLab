@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import main_java.controllers.main_window.MainWindowPanelController?>
 
@@ -19,7 +20,9 @@
     <stylesheets>
         <URL value="@mainWindow.css"/>
     </stylesheets>
+
     <MenuBarController GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" GridPane.rowIndex="0" GridPane.columnSpan="2"  fx:id="menuBar"/>
+
     <ToolsPanelController GridPane.fillWidth="true" GridPane.vgrow="NEVER" GridPane.hgrow="ALWAYS"
                           GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
     <Pane fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"

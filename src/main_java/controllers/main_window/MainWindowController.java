@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import java.io.InputStream;
 
 public class MainWindowController extends Application {
-
     private static final int MAX_WINDOW_HEIGHT = 540;
     private static final int MAX_WINDOW_WIDTH = 540;
 
@@ -23,13 +22,15 @@ public class MainWindowController extends Application {
         primaryStage.setMinHeight(MAX_WINDOW_HEIGHT);
         primaryStage.setMinWidth(MAX_WINDOW_WIDTH);
 
-        InputStream iconStream = getClass().getResourceAsStream("/sample/assets/bezier-curve-icon.png");
+        InputStream iconStream = getClass().getResourceAsStream("/resources/assets/images/bezier-curve-icon.png");
         Image image = new Image(iconStream);
         primaryStage.getIcons().add(image);
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("VecLab");
         primaryStage.show();
+
+        mainPanel.init();
     }
 
     public static void main(String[] args) {
