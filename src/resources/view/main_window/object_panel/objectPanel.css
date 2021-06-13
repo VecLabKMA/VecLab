@@ -1,0 +1,7 @@
+.objectPanelTab {
+    -fx-border-color: yellow;
+}
+
+.objectPanelTab:top {
+    -fx-border-color: blue;
+}

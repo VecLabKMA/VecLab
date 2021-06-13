@@ -27,11 +27,11 @@
 }
 
 #drawLine {
-    -fx-background-image: url("/sample/assets/line-icon.png");
+    -fx-background-image: url("/sample/assets/straight-line-icon.png");
 }
 
 #drawCurve {
-    -fx-background-image: url("/sample/assets/bezier-curve-icon.png");
+    -fx-background-image: url("/sample/assets/curve-icon.png");
 }
 
 #drawArrow {

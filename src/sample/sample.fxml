@@ -4,29 +4,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.canvas.Canvas?>
 <?import main_java.controllers.canvas.CanvasController?>
-
 <VBox id="body" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="sample.Controller">
-
-    <HBox id="tools">
-        <FlowPane prefWidth="500.0" HBox.hgrow="ALWAYS">
-            <Button fx:id="drawLine" styleClass="toolButton" />
-            <Button fx:id="drawCurve" styleClass="toolButton" />
-            <Button fx:id="drawArrow" styleClass="toolButton" />
-            <Button fx:id="drawEllipse" styleClass="toolButton" />
-            <Button fx:id="drawTriangle" styleClass="toolButton" />
-            <Button fx:id="drawRectangle" styleClass="toolButton" />
-            <Button fx:id="drawPolygon" styleClass="toolButton" />
-            <Button fx:id="fillArea" styleClass="toolButton" />
-            <Button fx:id="selectArea" styleClass="toolButton" />
-            <Button fx:id="selectObject" styleClass="toolButton" />
-            <Button fx:id="freeSelect" styleClass="toolButton" />
-            <Button fx:id="rasterSaveButton" styleClass="toolButton" text="Save as PNG" onAction="#saveAsPicture" />
-            <Button fx:id="vectorSaveButton" styleClass="toolButton" text="Save as SVG" onAction="#saveAsVector" />
-        </FlowPane>
-        <Button fx:id="about" styleClass="toolButton" onAction="#drawCanvas"/>
-    </HBox>
+    <VBox id="menuContainer">
+        <MenuBar fx:id="menuBar">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="New" />
+                        <MenuItem text="Open" />
+                        <MenuItem text="Save" />
+                        <MenuItem text="Save As" />
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit" />
+                    </items>
+                </Menu>
+                <Menu text="Edit">
+                    <items>
+                        <MenuItem text="Copy" />
+                        <MenuItem text="Cut" />
+                        <MenuItem text="Paste" />
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="About" onAction="#onClick" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </VBox>
     <Pane fx:id="canvasContainer">
         <CanvasController height="600.0" width="800.0" fx:id="canvas"/>
         <VBox.margin>
@@ -34,3 +44,4 @@
         </VBox.margin>
     </Pane>
 </VBox>
+
