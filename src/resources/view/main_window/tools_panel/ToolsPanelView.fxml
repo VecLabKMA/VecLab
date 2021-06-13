@@ -6,6 +6,8 @@
 <?import main_java.controllers.main_window.tools_panel.ToolsPanelController?>
 <?import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController?>
 
+<?import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController?>
+<?import javafx.scene.control.Separator?>
 <fx:root styleClass="toolPanel" type="ToolsPanelController" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml">
     <stylesheets>
@@ -66,4 +68,5 @@
          <Tooltip text="Free Select" />
       </tooltip>
     </ToolButtonBaseController>
+    <ParametersPanelController/>
 </fx:root>

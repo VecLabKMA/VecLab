@@ -61,6 +61,8 @@ public class ToolsPanelController extends FlowPane {
 
     private void addEventHandlers() {
         for (Node child : getChildren()) {
+            if (child.getClass() != ToolButtonBaseController.class)
+                continue;
             ToolButtonBaseController toolButton = (ToolButtonBaseController) child;
             toolButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
                 toolButton.enable();

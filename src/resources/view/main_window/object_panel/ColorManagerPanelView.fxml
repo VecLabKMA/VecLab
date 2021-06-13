@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import main_java.controllers.main_window.object_panel.ColorManagerPanelController?>
+
+<?import java.net.URL?>
+<?import javafx.scene.shape.Rectangle?>
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="ColorManagerPanelController"
+         styleClass="managerPanel">
+
+    <stylesheets>
+        <URL value="@managerPanel.css"/>
+    </stylesheets>
+
+    <Label styleClass="objPanelLabel" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2">Border color</Label>
+    <Rectangle styleClass="rect" GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="borderColorRect" width="15" height="15"/>
+    <ColorPicker GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="borderColorPicker"/>
+    <Separator GridPane.hgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2"/>
+    <Label styleClass="objPanelLabel" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2">Fill color</Label>
+    <Rectangle styleClass="rect" GridPane.columnIndex="0" GridPane.rowIndex="4" fx:id="fillColorRect" width="15" height="15"/>
+    <ColorPicker GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="fillColorPicker"/>
+
+
+<!--    <HBox alignment="CENTER">-->
+<!--        <Label>Stroke Width: </Label>-->
+<!--        <Spinner>-->
+<!--            <valueFactory>-->
+<!--                <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="10"/>-->
+<!--            </valueFactory></Spinner>-->
+<!--    </HBox>-->
+</fx:root>

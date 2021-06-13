@@ -2,25 +2,29 @@
 
 <?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
 
-<?import javafx.scene.control.Tab?>
-<?import main_java.controllers.main_window.object_panel.StyleManagerPanelController?>
-<?import main_java.controllers.main_window.object_panel.GeneralManagerPanelController?>
+<?import javafx.scene.control.*?>
+<?import main_java.controllers.main_window.object_panel.StrokeStyleManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.ColorManagerPanelController?>
 <?import main_java.controllers.main_window.object_panel.BezierManagerPanelController?>
 <?import java.net.URL?>
 
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
-         type="ObjectPanelController">
+         type="ObjectPanelController"
+        styleClass="objectPanel">
     <stylesheets>
         <URL value="@objectPanel.css"/>
     </stylesheets>
-    <Tab text="General" styleClass="objectPanelTab">
-        <GeneralManagerPanelController/>
-    </Tab>
-    <Tab text="Fill &amp; Border" styleClass="objectPanelTab">
-        <StyleManagerPanelController/>
-    </Tab>
-    <Tab text="Bezier" styleClass="objectPanelTab">
-        <BezierManagerPanelController/>
-    </Tab>
+    <TabPane fx:id="tabPane">
+        <Tab text="Color" styleClass="objectPanelTab">
+            <ColorManagerPanelController/>
+        </Tab>
+        <Tab text="Stroke &amp; Style" styleClass="objectPanelTab">
+            <StrokeStyleManagerPanelController/>
+        </Tab>
+        <Tab text="Bezier" styleClass="objectPanelTab">
+            <BezierManagerPanelController/>
+        </Tab>
+    </TabPane>
+    <Button styleClass="openCloseButton, closeButton" fx:id="openCloseButton"/>
 </fx:root>
