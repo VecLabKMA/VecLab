@@ -14,7 +14,7 @@ public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
 
-    public void handleClick(MouseEvent event) {
+    public void init() {
         if (sm == null) {
             sm = new ShapeManager(this) {
                 @Override
@@ -30,8 +30,6 @@ public class CanvasController extends Canvas {
         }
 
         sm.Example();
-
-
 
         this.getScene().setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ALT) { sm.SetRotationFixed(true); }

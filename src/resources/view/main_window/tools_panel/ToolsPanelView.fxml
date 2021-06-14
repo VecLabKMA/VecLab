@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.layout.FlowPane?>
 
+<?import main_java.controllers.main_window.tools_panel.ToolsPanelController?>
 <?import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController?>
-<fx:root styleClass="toolPanel" type="FlowPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+
+<?import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController?>
+<?import javafx.scene.control.Separator?>
+<fx:root styleClass="toolPanel" type="ToolsPanelController" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml">
     <stylesheets>
         <URL value="@toolsPanel.css" />
     </stylesheets>
@@ -17,7 +20,7 @@
     </ToolButtonBaseController>
     <ToolButtonBaseController fx:id="drawCurve">
       <tooltip>
-         <Tooltip text="Curve" />
+         <Tooltip text="Curve"/>
       </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController fx:id="drawArrow">
@@ -65,4 +68,5 @@
          <Tooltip text="Free Select" />
       </tooltip>
     </ToolButtonBaseController>
+    <ParametersPanelController/>
 </fx:root>

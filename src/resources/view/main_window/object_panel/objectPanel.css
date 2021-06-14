@@ -1,7 +1,73 @@
+.objectPanel {
+    -fx-border-color: #d2d2d2;
+    -fx-border-width: 0 1 1 1;
+}
+
 .objectPanelTab {
-    -fx-border-color: yellow;
+
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+    -fx-pref-width: 103.0;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-font-size: 14;
+}
+
+.tab-pane > .tab-header-area {
+    -fx-border-style: none;
+}
+
+.tab-down-button {
+    -fx-padding: 0;
+}
+
+.tab-down-button .arrow {
+    -fx-padding: 0;
+}
+
+.tab {
+
+}
+
+.headers-region {
+    -fx-pref-height: 25;
+}
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: #f2f2f2;
 }
 
 .objectPanelTab:top {
-    -fx-border-color: blue;
+    /*-fx-pref-height: 100;*/
+    /*-fx-border-color: blue;*/
+    /*-fx-fill-width: true;*/
+}
+
+.objectPanelTab:bottom {
+
+}
+
+.openCloseButton {
+    -fx-pref-width: 10;
+    -fx-pref-height: 20;
+    -fx-background-size: 15px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.openButton {
+    -fx-background-image: url('/resources/assets/images/open_obj_panel.png');
+}
+
+.closeButton {
+    -fx-background-image: url('/resources/assets/images/close_obj_panel.png');
+}
+
+.openCloseButton {
+
+}
+
+.objPanelLabel {
+    -fx-font-size: 13;
 }

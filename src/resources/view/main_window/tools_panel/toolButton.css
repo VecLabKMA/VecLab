@@ -1,31 +1,41 @@
 .toolButton {
-    -fx-pref-width: 40px;
-    -fx-pref-height: 40px;
-    -fx-background-size: 20px;
-    -fx-background-color: #f2f2f2;
+    -fx-pref-width: 38px;
+    -fx-pref-height: 38px;
+    -fx-background-size: 25px;
+    -fx-background-color: #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-border-color: #e0e0e0;
-    -fx-padding: 5 15px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+    /*-fx-border-color: #e0e0e0;*/
+    /*-fx-padding: 5 15px;*/
+    /*-fx-border-insets: 5px;*/
+    /*-fx-background-insets: 5px;*/
 }
 
 .toolButton:hover {
     -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     /*-fx-background-color: #c4c4c4;*/
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 3px, 3px, 2px, 1px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
+    /*-fx-background-insets: 0 0 -1 0, 0, 1, 2;*/
+    /*-fx-background-radius: 3px, 3px, 2px, 1px;*/
+    /*-fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; !* 4 8 4 8 *!*/
+    /*-fx-text-fill: -fx-text-base-color;*/
+    /*-fx-alignment: CENTER;*/
+    /*-fx-content-display: LEFT;*/
 }
 
 .toolButton--enabled {
-    -fx-padding: 50px;
+    /*-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;*/
+    -fx-background-color: #dddcdc;
+    -fx-border-color: #d0d0d0;
+    /*-fx-background-insets: 0 0 -1 0, 0, 1, 2;*/
+    /*-fx-background-radius: 3px, 3px, 2px, 1px;*/
+    /*-fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; !* 4 8 4 8 *!*/
+    /*-fx-text-fill: -fx-text-base-color;*/
+    /*-fx-alignment: CENTER;*/
+    /*-fx-content-display: LEFT;*/
+
 }
 
 .toolButton--enabled:hover {
-    -fx-padding: 50px;
+    -fx-background-color: #dddcdc;
+    -fx-border-color: #d0d0d0;
 }
