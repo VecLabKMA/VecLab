@@ -8,6 +8,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import main_java.controllers.canvas.CanvasController;
+import main_java.controllers.tutorial_window.TutorialWindowController;
 
 import javax.imageio.ImageIO;
 import java.awt.image.RenderedImage;
@@ -81,6 +82,11 @@ public class MenuBarController extends VBox {
 
     @FXML
     public void handlePasteAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void handleTutorialAction(ActionEvent actionEvent) {
+        TutorialWindowController tutorial = new TutorialWindowController();
     }
 
     @FXML
