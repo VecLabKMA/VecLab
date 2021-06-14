@@ -11,16 +11,16 @@ import javafx.stage.Stage;
 import java.io.InputStream;
 
 public class MainWindowController extends Application {
+    private static final int MAX_WINDOW_HEIGHT = 540;
+    private static final int MAX_WINDOW_WIDTH = 540;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         MainWindowPanelController mainPanel = new MainWindowPanelController();
-        mainPanel.setPrimaryStage(primaryStage);
+        Scene scene = new Scene(mainPanel);
 
-        GridPane root = new GridPane();
-        root.getChildren().add(mainPanel);
-
-        Scene scene = new Scene(root);
+        primaryStage.setMinHeight(MAX_WINDOW_HEIGHT);
+        primaryStage.setMinWidth(MAX_WINDOW_WIDTH);
 
         InputStream iconStream = getClass().getResourceAsStream("/resources/assets/images/bezier-curve-icon.png");
         Image image = new Image(iconStream);
@@ -36,6 +36,4 @@ public class MainWindowController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-
 }
