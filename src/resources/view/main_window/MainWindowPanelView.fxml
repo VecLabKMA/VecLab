@@ -38,7 +38,7 @@
         </stylesheets>
     </ScrollPane>
     <ObjectPanelController fx:id="objectPanel" GridPane.hgrow="NEVER" GridPane.vgrow="ALWAYS" minWidth="360" prefWidth="360"
-                           GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+                           GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowSpan="2"/>
     <StatusBarController fx:id="statusBar" GridPane.vgrow="NEVER" GridPane.hgrow="ALWAYS"
                          GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 </fx:root>

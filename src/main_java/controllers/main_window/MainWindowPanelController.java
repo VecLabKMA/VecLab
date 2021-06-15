@@ -24,6 +24,7 @@ public class MainWindowPanelController extends GridPane {
     private ObjectPanelController objectPanel;
     @FXML
     private ToolsPanelController toolsPanel;
+    @FXML
     private StatusBarController statusBar;
 
     public MainWindowPanelController() {
@@ -44,10 +45,11 @@ public class MainWindowPanelController extends GridPane {
         maxWidth(Double.POSITIVE_INFINITY);
         maxHeight(Double.POSITIVE_INFINITY);
 
+        mainCanvas.widthProperty().bind(canvasWrapper.widthProperty());
+        mainCanvas.heightProperty().bind(canvasWrapper.heightProperty());
 
         canvasWrapper = new ScrollPane(mainCanvas);
         canvasWrapper.setPannable(true);
-
 
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
