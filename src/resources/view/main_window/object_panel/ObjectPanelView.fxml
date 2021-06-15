@@ -20,7 +20,7 @@
             <ColorManagerPanelController/>
         </Tab>
         <Tab text="Layers" styleClass="objectPanelTab">
-            <LayerManagerPanelController/>
+            <LayerManagerPanelController fx:id="layersController"/>
         </Tab>
         <Tab text="Bezier" styleClass="objectPanelTab">
             <BezierManagerPanelController/>

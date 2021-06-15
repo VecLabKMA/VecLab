@@ -4,13 +4,14 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.*;
 import javafx.scene.paint.Color;
 import logic.*;
+import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 
 public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
 
-    public void init(ToolsPanelController toolsPanel) {
+    public void init(ToolsPanelController toolsPanel, ObjectPanelController objectPanel) {
         if (sm == null) {
             sm = new ShapeManager(this) {
                 @Override
@@ -23,6 +24,7 @@ public class CanvasController extends Canvas {
                     }
                 }
             };
+            objectPanel.initLayers(sm);
         }
 
 //        sm.Example();

@@ -2,10 +2,12 @@ package logic;
 
 import javafx.scene.canvas.GraphicsContext;
 
+import java.io.Serializable;
+
 //This interface describes a simple manipulator
 //It uses for changing something (position, rotation, size) by mouse
 
-public interface Manipulator {
+public interface Manipulator extends Serializable {
     //Calls, when someone grabs this manipulator by mouse
     default void Press(float x, float y) { }
 

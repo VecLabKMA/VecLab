@@ -7,6 +7,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import logic.ShapeManager;
 
 import java.io.IOException;
 
@@ -19,6 +20,8 @@ public class ObjectPanelController extends AnchorPane {
     private TabPane tabPane;
     @FXML
     private Button openCloseButton;
+    @FXML
+    private LayerManagerPanelController layersController;
     private GridPane mainPanel;
 
     private boolean closed = false;
@@ -70,4 +73,6 @@ public class ObjectPanelController extends AnchorPane {
     public void init(GridPane mainPanel) {
         this.mainPanel = mainPanel;
     }
+
+    public void initLayers(ShapeManager sm) {layersController.init(sm);}
 }

@@ -1,8 +1,9 @@
 package logic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Layer {
+public class Layer implements Serializable {
     private String name;
     private final ArrayList<Shape> shapes = new ArrayList<Shape>();
     private final ArrayList<Layer> layers = new ArrayList<Layer>();
@@ -215,7 +216,7 @@ public class Layer {
 
 
     /**Fills buffer with shapes of this and child layers in correct order*/
-    final void FillShapes(ArrayList<Shape> buffer) {
+    public final void FillShapes(ArrayList<Shape> buffer) {
         for (Layer curr : layers)
             curr.FillShapes(buffer);
         buffer.addAll(shapes);

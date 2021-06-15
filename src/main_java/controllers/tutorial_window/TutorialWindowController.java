@@ -54,7 +54,7 @@ public class TutorialWindowController {
         {
             tutorialTexts.add(new String[]{
                     "What is this program?",
-                    "It's intended as simple editor to teach people what vector graphics are",
+                    "It's intended as simple, amateur editor to teach people what vector graphics are",
                     "Okay"
             });
             tutorialTexts.add(new String[]{
@@ -99,8 +99,18 @@ public class TutorialWindowController {
             });
             tutorialTexts.add(new String[]{
                     "How to draw a Bezier curve",
-                    "Yes. This is a Bezier curve with four control points",
-                    "Woah..."
+                    "Yes. This is a Bezier curve with four control points. You can move them across the canvas to make the shape you need. Or to play around",
+                    "So... What now?"
+            });
+            tutorialTexts.add(new String[]{
+                    "Well...",
+                    "This was pretty much the most confusing part of an editor, everything else works like in any other editor. We have simple shapes, color changing etc. It works just like in MS Paint.",
+                    "Oh, okay. Bye, then."
+            });
+            tutorialTexts.add(new String[]{
+                    "Bye",
+                    "If you need help with Bezier curves again, you can come here.\n See you later",
+                    "Bye."
             });
         }
         Iterator<String[]> it = tutorialTexts.iterator();
