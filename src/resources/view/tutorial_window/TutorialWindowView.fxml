@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="resources.view.tutorial_window.TurorialWindowView"
+            fx:controller="main_java.controllers.tutorial_window.TutorialWindowController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>

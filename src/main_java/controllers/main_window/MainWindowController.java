@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import main_java.controllers.tutorial_window.TutorialWindowController;
 
 import java.io.InputStream;
 

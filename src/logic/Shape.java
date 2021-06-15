@@ -3,7 +3,6 @@ package logic;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import sample.Controller;
 
 import java.awt.*;
 import java.util.ArrayList;
