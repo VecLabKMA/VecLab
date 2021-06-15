@@ -26,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/turorial_window/TutorialWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/menu_bar/MenuBarView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/menu_bar/MenuBarView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/scrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/scrollPane.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/tutorial_window/TurorialWindowView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/tutorial_window/TutorialWindowView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" />
@@ -93,8 +94,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -255,7 +256,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -290,7 +291,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621854287189</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Re-created project as JavaFX application">
+      <created>1623748386209</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623748386209</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Re-created project as JavaFX application">
+      <created>1623756134971</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623756134971</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Re-created project as JavaFX application">
+      <created>1623756943625</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623756943625</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,5 +382,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1623682406924" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

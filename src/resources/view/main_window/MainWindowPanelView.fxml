@@ -10,26 +10,36 @@
 <?import java.net.URL?>
 
 <?import main_java.controllers.main_window.menu_bar.MenuBarController?>
+<?import main_java.controllers.main_window.status_bar.StatusBarController?>
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          type="MainWindowPanelController"
          styleClass="mainWindow"
-        minWidth="400"
-        minHeight="200">
+         minWidth="400"
+         minHeight="200">
 
     <stylesheets>
         <URL value="@mainWindow.css"/>
     </stylesheets>
 
-    <MenuBarController GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" GridPane.rowIndex="0" GridPane.columnSpan="2"  fx:id="menuBar"/>
+    <MenuBarController GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" GridPane.rowIndex="0" GridPane.columnSpan="2"
+                       fx:id="menuBar"/>
 
     <ToolsPanelController GridPane.fillWidth="true" GridPane.vgrow="NEVER" GridPane.hgrow="ALWAYS"
                           GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
-    <Pane fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
-          prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
-        <CanvasController width="600" height="400" fx:id="mainCanvas"/>
-    </Pane>
-    <ObjectPanelController fx:id="objectPanel" GridPane.hgrow="NEVER" GridPane.vgrow="ALWAYS" minWidth="360" prefWidth="360"
+    <ScrollPane
+            styleClass="scrollPane"
+            fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
+            prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <CanvasController styleClass="canvas" width="1000" height="800" fx:id="mainCanvas"/>
+        <stylesheets>
+            <URL value="@scrollPane.css"/>
+        </stylesheets>
+    </ScrollPane>
+    <ObjectPanelController fx:id="objectPanel" GridPane.hgrow="NEVER" GridPane.vgrow="ALWAYS" minWidth="360"
+                           prefWidth="360"
                            GridPane.fillHeight="true"
                            GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <StatusBarController fx:id="statusBar" GridPane.vgrow="NEVER" GridPane.hgrow="ALWAYS"
+                         GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 </fx:root>
