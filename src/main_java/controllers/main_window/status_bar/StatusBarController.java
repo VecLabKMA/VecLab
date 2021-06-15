@@ -19,6 +19,8 @@ public class StatusBarController extends HBox {
     public Label mouseLocationLabel = new Label("hello");
     private Canvas cs;
     private GridPane mainPanel;
+    private double zoomFactor = 0.9;
+    private double currentZoom = 100.00;
 
     public StatusBarController() {
         super();
@@ -28,16 +30,37 @@ public class StatusBarController extends HBox {
         fxmlLoader.setController(this);
         handleMouseLocationLabel();
 
-        Button zoomIn = new Button("+");
+        Label zoomLabel = new Label();
+        zoomLabel.setText(currentZoom + "%");
+
+        Button zoomIn = new Button("-");
         zoomIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                cs.setScaleX(cs.getScaleX() * 0.5);
-                cs.setScaleY(cs.getScaleY() * 0.5);
+                if (currentZoom > 10) {
+                    cs.setScaleX(cs.getScaleX() * zoomFactor);
+                    cs.setScaleY(cs.getScaleY() * zoomFactor);
+                    currentZoom *= zoomFactor;
+                    zoomLabel.setText(String.format("%.2f", currentZoom) + "%");
+                }
             }
         });
 
-        this.getChildren().setAll(mouseLocationLabel, zoomIn);
+        Button zoomOut = new Button("+");
+        zoomOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (currentZoom < 200) {
+                    cs.setScaleX(cs.getScaleX() / zoomFactor);
+                    cs.setScaleY(cs.getScaleY() / zoomFactor);
+                    currentZoom /= zoomFactor;
+                    zoomLabel.setText(String.format("%.2f", currentZoom) + "%");
+                }
+            }
+        });
+
+
+        this.getChildren().setAll(mouseLocationLabel, zoomIn, zoomLabel, zoomOut);
 
         try {
             fxmlLoader.load();
@@ -52,8 +75,8 @@ public class StatusBarController extends HBox {
             public void handle(MouseEvent event) {
                 String message =
                         "X: " + event.getX() +
-                        "\n" +
-                        "Y: " + event.getY();
+                                "\n" +
+                                "Y: " + event.getY();
                 mouseLocationLabel.setText(message);
             }
         });

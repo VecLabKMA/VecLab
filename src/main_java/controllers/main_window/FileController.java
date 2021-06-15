@@ -27,4 +27,9 @@ public class FileController {
         FileController.currentFile = currentFile;
         FileController.currentFileName = currentFile.getName();
     }
+
+    public static void createNewFile() {
+        currentFileName = defaultFileName;
+        currentFile = null;
+    }
 }

@@ -34,7 +34,7 @@
             styleClass="scrollPane"
             fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
             prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
-        <CanvasController styleClass="canvas" width="1000" height="800" fx:id="mainCanvas"/>
+        <CanvasController styleClass="canvas" width="1000" height="1000" fx:id="mainCanvas"/>
         <stylesheets>
             <URL value="@scrollPane.css"/>
         </stylesheets>
