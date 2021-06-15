@@ -9,8 +9,18 @@ import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
+    private ToolsPanelController toolsPanel;
+
+    public void reloadShapeManager() {
+        if (sm != null) {
+            sm.deleteManager();
+            sm = null;
+            this.init(toolsPanel);
+        }
+    }
 
     public void init(ToolsPanelController toolsPanel) {
+        this.toolsPanel = toolsPanel;
         if (sm == null) {
             sm = new ShapeManager(this) {
                 @Override
@@ -205,5 +215,6 @@ public class CanvasController extends Canvas {
                 sm.OnReleased((float)e.getX(), (float)e.getY());
             }
         });
+
     }
 }
