@@ -23,6 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/scrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/scrollPane.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,5 +337,15 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Re-created project as JavaFX application" />
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
