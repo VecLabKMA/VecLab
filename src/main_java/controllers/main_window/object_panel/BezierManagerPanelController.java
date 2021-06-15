@@ -2,6 +2,7 @@ package main_java.controllers.main_window.object_panel;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
+import logic.Shape;
 
 import java.io.IOException;
 
@@ -20,9 +21,18 @@ public class BezierManagerPanelController extends GridPane {
         }
     }
 
+    public void setShape(Shape shape) {
+
+    }
+
+
     public BezierManagerPanelController(double width, double height) {
         this();
         prefWidth(width);
         prefHeight(height);
+    }
+
+    public void update(Shape shape) {
+
     }
 }

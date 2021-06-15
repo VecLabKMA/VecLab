@@ -5,18 +5,19 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.io.*;
 import java.util.ArrayList;
 
 
-public class ShapeManager {
-    static ShapeManager manager;
+public class ShapeManager implements Serializable {
+    public static transient ShapeManager manager;
 
     public final Layer root_layer = new Layer("root");
     private Layer current_layer = root_layer;
 
     private final ArrayList<Manipulator> manipulators = new ArrayList<Manipulator>();
     private final ArrayList<Shape> selected_shapes = new ArrayList<Shape>();
-    private Canvas canvas;
+    private transient Canvas canvas;
 
     Manipulator selected;
 
@@ -32,13 +33,14 @@ public class ShapeManager {
 
 
     //Drawing parameters
-    private Color current_fill_color = Color.LIGHTBLUE;
-    private Color current_stroke_color = Color.BLUE;
+    private SerializableColor current_fill_color = new SerializableColor(Color.LIGHTBLUE);
+    private SerializableColor current_stroke_color = new SerializableColor(Color.BLUE);
     private float current_border_thickness = 2f;
     private boolean append_selection = true;
     private boolean fixed_rotation = false;
     private boolean show_manipulators = true;
     private boolean show_anchor_points = true;
+    private boolean show_vertices = true;
     private DrawingMode drawing_mode = DrawingMode.NO;
 
 
@@ -96,32 +98,21 @@ public class ShapeManager {
         this.canvas = canvas;
     }
 
-    public void Example() {
-        root_layer.AddLayer(new Layer("child1"));
-        root_layer.AddLayer(new Layer("child2"));
-        root_layer.AddLayer(new Layer("child3"));
-        root_layer.AddLayer(new Layer("child4"));
-        //AddEllipse(0, 0, 30, 30, Color.BLACK, Color.WHITE, 2);
-        current_layer = root_layer.GetLayers()[2];
-        current_layer.AddLayer(new Layer("child3.1"));
-        current_layer.AddLayer(new Layer("child3.2"));
-        current_layer.AddLayer(new Layer("child3.3"));
-        Layer child3_4 = new Layer("child3.4");
-        current_layer.AddLayer(child3_4);
-
-        root_layer.MoveTop(child3_4);
-        root_layer.MoveUp(child3_4);
-        root_layer.MoveUp(child3_4);
-        root_layer.MoveUp(child3_4);
-
-
-
-
-
-
+    public final float GetSelectionCenterX(){
+        return pos_x;
     }
 
+    public final float GetSelectionCenterY(){
+        return pos_y;
+    }
 
+    public final float GetSelectionWidth(){
+        return Math.abs(pos_x - cor_x)*2f;
+    }
+
+    public final float GetSelectionHeight(){
+        return Math.abs(pos_y - cor_y)*2f;
+    }
 
     public final void OnPressed(float x, float y) {
 
@@ -144,7 +135,7 @@ public class ShapeManager {
             OnManipulatorSelect();
 
             if (pen_shape == null) {
-                pen_shape = new Shape(current_stroke_color, current_fill_color, current_border_thickness, false, vertex);
+                pen_shape = new Shape(current_stroke_color.Get(), current_fill_color.Get(), current_border_thickness, false, vertex);
                 current_layer.AddShape(pen_shape);
             } else {
                 pen_shape.PushBack(vertex);
@@ -153,7 +144,7 @@ public class ShapeManager {
 
         if (drawing_mode == DrawingMode.ELLIPSE) {
             append_selection = false;
-            Select(AddEllipse(x, y, 50f, 50f, current_stroke_color, current_fill_color, current_border_thickness));
+            Select(AddEllipse(x, y, 50f, 50f, current_stroke_color.Get(), current_fill_color.Get(), current_border_thickness));
             cor_x = pos_x;
             cor_y = pos_y;
 
@@ -163,7 +154,7 @@ public class ShapeManager {
 
         if (drawing_mode == DrawingMode.RECTANGLE) {
             append_selection = false;
-            Select(AddRectangle(x, y, 50f, 50f, current_stroke_color, current_fill_color, current_border_thickness));
+            Select(AddRectangle(x, y, 50f, 50f, current_stroke_color.Get(), current_fill_color.Get(), current_border_thickness));
             cor_x = pos_x;
             cor_y = pos_y;
 
@@ -173,7 +164,7 @@ public class ShapeManager {
 
         if (drawing_mode == DrawingMode.TRIANGLE) {
             append_selection = false;
-            Select(AddTriangle(x, y, 50f, current_stroke_color, current_fill_color, current_border_thickness));
+            Select(AddTriangle(x, y, 50f, current_stroke_color.Get(), current_fill_color.Get(), current_border_thickness));
             cor_x = pos_x;
             cor_y = pos_y;
 
@@ -192,6 +183,7 @@ public class ShapeManager {
             OnManipulatorUnselect();
             selected = null;
         }
+
     }
 
     public final void OnDragged(float x, float y){
@@ -269,7 +261,7 @@ public class ShapeManager {
     }
 
     /**Redraws all shapes*/
-    void Redraw(){
+    public void Redraw(){
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
@@ -304,7 +296,7 @@ public class ShapeManager {
                 continue;
             }
             if (show_manipulators)
-                curr.GetManipulators(manipulators, show_anchor_points);
+                curr.GetManipulators(manipulators, show_anchor_points, show_vertices);
             curr.Draw(gc);
         }
 
@@ -319,10 +311,9 @@ public class ShapeManager {
             if (curr != null) curr.Draw(gc);
 
         OnChange();
+
+
     }
-
-
-
 
 
     Shape AddEllipse(float center_x, float center_y, float width, float height, Color fill_color, Color stroke_color, float border_thickness) {
@@ -408,6 +399,17 @@ public class ShapeManager {
         return show_manipulators;
     }
 
+    /**Enable or disable showing vertices*/
+    public final void SetShowVertices(boolean show) {
+        show_vertices = show;
+        Redraw();
+    }
+
+    /**Checks if showing vertices is enabled*/
+    public final boolean GetShowVertices() {
+        return show_vertices;
+    }
+
     /**Set mode of shape transforming by mouse. */
     public final void SetRotationFixed(boolean fixed) {
         fixed_rotation = fixed;
@@ -443,12 +445,12 @@ public class ShapeManager {
 
     /**Selects fill color which will use as default color of next shape*/
     public final void SetFillColor(Color color){
-        current_fill_color = color;
+        current_fill_color.Set(color);
     }
 
     /**Selects stroke color which will use as default color of next shape*/
     public final void SetStrokeColor(Color color){
-        current_stroke_color = color;
+        current_stroke_color.Set(color);
     }
 
     /**Selects border thickness which will use as default thickness of next shape*/
@@ -473,5 +475,28 @@ public class ShapeManager {
 
     public final Layer GetCurrentLayer() {
         return current_layer;
+    }
+
+
+    public static boolean SaveToFile(String filename) {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(manager);
+            return true;
+        } catch (Exception ex) {
+            System.err.println("Saving error!");
+            return false;
+        }
+    }
+
+    public static boolean OpenFromFile(String filename, Canvas canvas) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+            manager = (ShapeManager)ois.readObject();
+            manager.canvas = canvas;
+            manager.Redraw();
+            return true;
+        } catch(Exception ex) {
+            System.err.println("Opening error!");
+            return false;
+        }
     }
 }

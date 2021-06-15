@@ -85,3 +85,7 @@
 #appendSelection {
     -fx-background-image: url("/resources/assets/images/appendSelection.png");
 }
+
+#selectShape {
+    -fx-background-image: url("/resources/assets/images/manipulators_on.png");
+}

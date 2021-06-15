@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import logic.DrawingMode;
 import main_java.controllers.canvas.CanvasController;
+import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController;
 import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController;
 
 import java.io.IOException;
@@ -32,17 +33,11 @@ public class ToolsPanelController extends FlowPane {
     @FXML
     public ToolButtonBaseController drawPolygon;
     @FXML
-    public ToolButtonBaseController fillArea;
-    @FXML
-    public ToolButtonBaseController selectArea;
-    @FXML
-    public ToolButtonBaseController selectObject;
-    @FXML
-    public ToolButtonBaseController freeSelect;
-    @FXML
     public Button clearAll;
     @FXML
     public Button deleteShape;
+    @FXML
+    public ToolButtonBaseController selectShape;
     @FXML
     public ToolButtonBaseController appendSelection;
     @FXML
@@ -51,6 +46,8 @@ public class ToolsPanelController extends FlowPane {
     public ToolButtonBaseController showAnchorPoints;
     @FXML
     public ToolButtonBaseController rotationFixed;
+    @FXML
+    public ParametersPanelController parametersPanel;
 
     public ToolsPanelController() {
         super();
