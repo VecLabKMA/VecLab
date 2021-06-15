@@ -37,7 +37,7 @@ public class StatusBarController extends HBox {
             }
         });
 
-        this.getChildren().setAll(mouseLocationLabel);
+        this.getChildren().setAll(mouseLocationLabel, zoomIn);
 
         try {
             fxmlLoader.load();

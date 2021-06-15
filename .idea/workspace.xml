@@ -21,29 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/turorial_window/TutorialWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/menu_bar/MenuBarView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/menu_bar/MenuBarView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/scrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/scrollPane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/tutorial_window/TurorialWindowView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/tutorial_window/TutorialWindowView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/about-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/arrow-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/curve-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/ellipse-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/fill-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/free-select-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/polygon-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/rectangle-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/select-area-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/select-object-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/straight-line-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/triangle-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,52 +315,6 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Re-created project as JavaFX application" />
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1623675695903">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1623675695903" />
-    <state width="1493" height="240" key="GridCell.Tab.0.bottom" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="240" key="GridCell.Tab.0.center" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="240" key="GridCell.Tab.0.left" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="240" key="GridCell.Tab.0.right" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state x="501" y="139" width="847" height="406" key="MultipleFileMergeDialog" timestamp="1623675462179">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="501" y="139" width="847" height="406" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1623675462179" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1623682406924">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1623682406924" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
