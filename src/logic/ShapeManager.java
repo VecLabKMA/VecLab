@@ -1,14 +1,11 @@
 package logic;
 
 
-import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 
 public class ShapeManager {
@@ -21,7 +18,7 @@ public class ShapeManager {
     private final ArrayList<Shape> selected_shapes = new ArrayList<Shape>();
     private Canvas canvas;
 
-    private Manipulator selected;
+    Manipulator selected;
 
 
     private float pos_x, pos_y, prev_pos_x, prev_pos_y;
@@ -37,7 +34,7 @@ public class ShapeManager {
     private float current_border_thickness = 2f;
     private boolean append_selection = true;
     private boolean fixed_rotation = false;
-    private boolean show_vertex = true;
+    private boolean show_manipulators = true;
     private boolean show_anchor_points = true;
     private DrawingMode drawing_mode = DrawingMode.NO;
 
@@ -114,12 +111,17 @@ public class ShapeManager {
         root_layer.MoveUp(child3_4);
         root_layer.MoveUp(child3_4);
 
+
+
+
+
+
     }
 
 
 
     public final void OnPressed(float x, float y) {
-        Redraw();
+
 
         for (Manipulator curr : manipulators) {
             if (curr.Intersects(x, y)) {
@@ -165,6 +167,19 @@ public class ShapeManager {
             selected = corner_manipulator;
             OnManipulatorSelect();
         }
+
+        if (drawing_mode == DrawingMode.TRIANGLE) {
+            append_selection = false;
+            Select(AddTriangle(x, y, 50f, current_stroke_color, current_fill_color, current_border_thickness));
+            cor_x = pos_x;
+            cor_y = pos_y;
+
+            selected = corner_manipulator;
+            OnManipulatorSelect();
+        }
+
+
+        Redraw();
     }
 
     public final void OnReleased(float x, float y){
@@ -188,6 +203,9 @@ public class ShapeManager {
 
     /**Calls when manipulator is unselected*/
     public void OnManipulatorUnselect() {};
+
+    /**Calls when something is changed*/
+    public void OnChange() {};
 
     /**Selects given shape*/
     public void Select(Shape shape){
@@ -269,42 +287,35 @@ public class ShapeManager {
                     float scale = (float)(Math.sqrt(nd_x*nd_x+nd_y*nd_y) / Math.sqrt(pd_x*pd_x+pd_y*pd_y));
 
                     curr.Draw(gc, prev_pos_x, prev_pos_y, shift_x, shift_y, scale, scale, angle);
+                    if (show_manipulators)
+                        curr.DrawFrame(gc, prev_pos_x, prev_pos_y, shift_x, shift_y, scale, scale, angle);
                 } else {
                     float scale_x = nd_x/pd_x;
                     float scale_y = nd_y/pd_y;
 
                     curr.Draw(gc, prev_pos_x, prev_pos_y, shift_x, shift_y, scale_x, scale_y, 0f);
+                    if (show_manipulators)
+                        curr.DrawFrame(gc, prev_pos_x, prev_pos_y, shift_x, shift_y, scale_x, scale_y, 0f);
                 }
 
                 continue;
             }
-            curr.GetManipulators(manipulators, show_vertex, show_anchor_points);
+            if (show_manipulators)
+                curr.GetManipulators(manipulators, show_anchor_points);
             curr.Draw(gc);
         }
 
-        /*if (!selected_shapes.isEmpty()) {
-            double bound_buffer_x[] = new double[] {cor_x, 2*pos_x - cor_x, 2*pos_x - cor_x, pos_x};
-            double bound_buffer_y[] = new double[] {cor_y, cor_y, 2*pos_y - cor_y, 2*pos_y - cor_y};
-
-            for (int i = 0; i < 4; i++) {
-                float next_x = Vertex.TransformX((float)bound_buffer_x[i], (float)bound_buffer_y[i], origin_x, origin_y, shift_x, shift_y, scale_x, scale_y, cos, sin);
-                float next_y = Vertex.TransformY((float)bound_buffer_x[i], (float)bound_buffer_y[i], origin_x, origin_y, shift_x, shift_y, scale_x, scale_y, cos, sin);
-                bound_buffer_x[i] = next_x;
-                bound_buffer_y[i] = next_y;
+        if (show_manipulators)
+            if (!selected_shapes.isEmpty()) {
+                manipulators.add(center_manipulator);
+                manipulators.add(corner_manipulator);
             }
 
-            gc.setLineWidth(1.5);
-            gc.setStroke(Color.LIGHTBLUE);
-            gc.strokePolygon(bound_buffer_x, bound_buffer_y, 4);
-        }*/
-
-        if (!selected_shapes.isEmpty()) {
-            manipulators.add(center_manipulator);
-            manipulators.add(corner_manipulator);
-        }
 
         for (Manipulator curr : manipulators)
             if (curr != null) curr.Draw(gc);
+
+        OnChange();
     }
 
 
@@ -332,7 +343,6 @@ public class ShapeManager {
     }
 
     Shape AddRectangle(float center_x, float center_y, float width, float height, Color fill_color, Color stroke_color, float border_thickness) {
-        final float k = 0.552284749831f;
         Shape figure = new Shape(
                 fill_color,
                 stroke_color,
@@ -345,6 +355,26 @@ public class ShapeManager {
         );
 
         figure.SetTransform(0f, 0f, center_x, center_y, width*0.5f, height*0.5f, 0f);
+
+        current_layer.AddShape(figure);
+
+        return figure;
+    }
+
+    Shape AddTriangle(float center_x, float center_y, float length, Color fill_color, Color stroke_color, float border_thickness) {
+        float a = 0.28867513459f;
+
+        Shape figure = new Shape(
+                fill_color,
+                stroke_color,
+                border_thickness,
+                true,
+                new Vertex(0f, 2*a, 0f, 2*a, 0f, 2*a, false),
+                new Vertex(0.5f, -a, 0.5f, -a, 0.5f, -a, false),
+                new Vertex(-0.5f, -a, -0.5f, -a, -0.5f, -a, false)
+        );
+
+        figure.SetTransform(0f, 0f, center_x, center_y, length, length, 0f);
 
         current_layer.AddShape(figure);
 
@@ -364,15 +394,15 @@ public class ShapeManager {
         return show_anchor_points;
     }
 
-    /**Enable or disable showing vertices*/
-    public final void SetShowVertex(boolean show) {
-        show_vertex = show;
+    /**Enable or disable showing manipulators*/
+    public final void SetShowManipulators(boolean show) {
+        show_manipulators = show;
         Redraw();
     }
 
-    /**Checks if showing vertices is enabled*/
-    public final boolean GetShowVertex() {
-        return show_vertex;
+    /**Checks if showing manipulators is enabled*/
+    public final boolean GetShowManipulators() {
+        return show_manipulators;
     }
 
     /**Set mode of shape transforming by mouse. */
@@ -431,5 +461,14 @@ public class ShapeManager {
     /**Returns selected manipulator. It may return null value!*/
     public final Manipulator GetSelectedManipulator() {
         return selected;
+    }
+
+    public final void SetCurrentLayer(Layer layer){
+        if (layer == null) throw new NullPointerException("Layer cannot be null");
+        current_layer = layer;
+    }
+
+    public final Layer GetCurrentLayer() {
+        return current_layer;
     }
 }

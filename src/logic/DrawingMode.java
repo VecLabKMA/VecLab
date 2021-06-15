@@ -4,5 +4,6 @@ public enum DrawingMode {
     NO,
     PEN,
     ELLIPSE,
-    RECTANGLE
+    RECTANGLE,
+    TRIANGLE
 }

@@ -25,6 +25,9 @@ public class Shape {
         @Override
         public void Press(float x, float y) {
             ShapeManager.manager.Select(Shape.this);
+            ShapeManager.manager.OnManipulatorSelect();
+            ShapeManager.manager.selected = this;
+            ShapeManager.manager.OnManipulatorUnselect();
         }
 
         @Override
@@ -169,12 +172,16 @@ public class Shape {
 
         vertex.shape = this;
         vertices.add(position, vertex);
+
+        Build();
     }
 
     /**Adds vertex in the end of this shape*/
     final void PushBack(Vertex vertex){
         vertex.shape = this;
         vertices.add(vertex);
+
+        Build();
     }
 
 
@@ -227,7 +234,7 @@ public class Shape {
         ShapeManager.manager.Redraw();
     }
 
-
+    /**Draws shape*/
     final void Draw(GraphicsContext gc){
         if (filled) {
             gc.setFill(fill_color);
@@ -246,6 +253,7 @@ public class Shape {
         //gc.strokeRect(center_x - half_width, center_y - half_height, 2f*half_width, 2f*half_height);
     }
 
+    /**Draws shape in given position, rotation, scale*/
     final void Draw(GraphicsContext gc, float origin_x, float origin_y, float shift_x, float shift_y, float scale_x, float scale_y, float angle) {
         float cos = (float)Math.cos(angle), sin = (float)Math.sin(angle);
         double[] transformed_buffer_x = new double[buffer_x.length];
@@ -267,8 +275,11 @@ public class Shape {
             gc.setStroke(stroke_color);
             gc.strokePolyline(transformed_buffer_x, transformed_buffer_y, transformed_buffer_x.length);
         }
+    }
 
-
+    /**Draws blue frame over this shape. Uses when shape is selected*/
+    final void DrawFrame(GraphicsContext gc, float origin_x, float origin_y, float shift_x, float shift_y, float scale_x, float scale_y, float angle) {
+        float cos = (float)Math.cos(angle), sin = (float)Math.sin(angle);
 
 
         double bound_buffer_x[] = new double[] {center_x + width*0.5f, center_x - width*0.5f, center_x - width*0.5f, center_x + width*0.5f};
@@ -287,10 +298,8 @@ public class Shape {
     }
 
 
-    final void GetManipulators(Collection<Manipulator> buffer, boolean show_vertex, boolean show_anchor_points) {
+    final void GetManipulators(Collection<Manipulator> buffer, boolean show_anchor_points) {
         for (Vertex curr : vertices) {
-
-            if (!show_vertex) continue;
             if (show_anchor_points) {
                 buffer.add(curr.next);
                 buffer.add(curr.prev);

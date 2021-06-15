@@ -20,29 +20,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/anchorPoints.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/appendSelection.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/clear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/clear_all.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/deleteShape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/fixedRotation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/no_mode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/showVertexes.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/DrawingMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/DrawingMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/turorial_window/TutorialWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/menu_bar/MenuBarView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/menu_bar/MenuBarView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/tutorial_window/TurorialWindowView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/tutorial_window/TutorialWindowView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/about-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/arrow-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/curve-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/ellipse-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/fill-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/free-select-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/polygon-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/rectangle-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/select-area-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/select-object-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/straight-line-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assets/triangle-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/StrokeStyleManagerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ToolButtonBaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ToolButtonBaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ColorManagerPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ColorManagerPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/StrokeStyleManagerPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/LayerManagerPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/parameters_panel/ParametersPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/parameters_panel/ParametersPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/AreaSelectToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/ArrowToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/BezierToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/EllipseToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/FillAreaToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/FreeSelectToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/LineToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/ObjectSelectToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/PolygonToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/RectangleToolButtonView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/ToolButtonBaseView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/tools_panel/tools_buttons/TriangleToolButtonView.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +120,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1syoMQwGizm8w21B73HiC3GWYWa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -150,6 +172,7 @@
       <recent name="F:\ilya\Workspace\PRNavch\VecLab\src\resources\view\main_window\tools_panel" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\ilya\Workspace\PRNavch\VecLab\src\logic" />
       <recent name="F:\ilya\Workspace\PRNavch\VecLab\src\resources\assets\images" />
       <recent name="C:\Users\anton\Desktop\Practice\VecLab\src\sample" />
       <recent name="C:\Users\anton\Desktop\Practice\VecLab\src\sample\assets" />
@@ -218,6 +241,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -255,7 +289,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -315,50 +349,15 @@
     <MESSAGE value="Re-created project as JavaFX application" />
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1623675695903">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1623675695903" />
-    <state width="1493" height="240" key="GridCell.Tab.0.bottom" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="240" key="GridCell.Tab.0.center" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="240" key="GridCell.Tab.0.left" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="240" key="GridCell.Tab.0.right" timestamp="1623687520082">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="240" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623687520082" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1623687279162">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1623687279162" />
-    <state x="501" y="139" width="847" height="406" key="MultipleFileMergeDialog" timestamp="1623675462179">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="501" y="139" width="847" height="406" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1623675462179" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1623682406924">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1623682406924" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

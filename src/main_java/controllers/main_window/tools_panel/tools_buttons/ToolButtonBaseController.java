@@ -10,6 +10,9 @@ import java.io.IOException;
 // base class
 public class ToolButtonBaseController extends Button {
 
+    private boolean enabled = false;
+    private String baseStyleClass;
+
     public ToolButtonBaseController() {
         super();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
@@ -27,12 +30,26 @@ public class ToolButtonBaseController extends Button {
         getStyleClass().add("toolButton");
     }
 
-    public void enable() {
-        getStyleClass().add("toolButton--enabled");
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void disable() {
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
         getStyleClass().clear();
-        getStyleClass().add("toolButton");
+        getStyleClass().add(baseStyleClass);
+        if (enabled)
+            getStyleClass().addAll( "toolButton", "toolButton--enabled");
+        else {
+            getStyleClass().add("toolButton");
+        }
+    }
+
+    public String getBaseStyleClass() {
+        return baseStyleClass;
+    }
+
+    public void setBaseStyleClass(String baseStyleClass) {
+        this.baseStyleClass = baseStyleClass;
     }
 }

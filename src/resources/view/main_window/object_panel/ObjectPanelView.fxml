@@ -3,7 +3,7 @@
 <?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
 
 <?import javafx.scene.control.*?>
-<?import main_java.controllers.main_window.object_panel.StrokeStyleManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.LayerManagerPanelController?>
 <?import main_java.controllers.main_window.object_panel.ColorManagerPanelController?>
 <?import main_java.controllers.main_window.object_panel.BezierManagerPanelController?>
 <?import java.net.URL?>
@@ -16,11 +16,11 @@
         <URL value="@objectPanel.css"/>
     </stylesheets>
     <TabPane fx:id="tabPane">
-        <Tab text="Color" styleClass="objectPanelTab">
+        <Tab text="Color &amp; Style" styleClass="objectPanelTab">
             <ColorManagerPanelController/>
         </Tab>
-        <Tab text="Stroke &amp; Style" styleClass="objectPanelTab">
-            <StrokeStyleManagerPanelController/>
+        <Tab text="Layers" styleClass="objectPanelTab">
+            <LayerManagerPanelController/>
         </Tab>
         <Tab text="Bezier" styleClass="objectPanelTab">
             <BezierManagerPanelController/>

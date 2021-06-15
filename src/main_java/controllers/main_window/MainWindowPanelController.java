@@ -7,6 +7,8 @@ import javafx.scene.layout.Pane;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.menu_bar.MenuBarController;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
+import main_java.controllers.main_window.tools_panel.ToolsPanelController;
+
 import java.io.IOException;
 
 public class MainWindowPanelController extends GridPane {
@@ -18,6 +20,8 @@ public class MainWindowPanelController extends GridPane {
     private MenuBarController menuBar;
     @FXML
     private ObjectPanelController objectPanel;
+    @FXML
+    private ToolsPanelController toolsPanel;
 
     public MainWindowPanelController() {
         super();
@@ -31,7 +35,9 @@ public class MainWindowPanelController extends GridPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
 
+    public void init() {
         maxWidth(Double.POSITIVE_INFINITY);
         maxHeight(Double.POSITIVE_INFINITY);
 
@@ -40,10 +46,7 @@ public class MainWindowPanelController extends GridPane {
 
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
-    }
 
-    public void init() {
-        mainCanvas.init();
+        mainCanvas.init(toolsPanel);
     }
-
 }

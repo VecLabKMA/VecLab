@@ -6,37 +6,51 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import logic.DrawingMode;
+import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController;
 
 import java.io.IOException;
 
 public class ToolsPanelController extends FlowPane {
     private ToolButtonBaseController currentToolButton;
-//    @FXML
-//    ToolButtonBaseController drawLine;
-//    @FXML
-//    ToolButtonBaseController drawCurve;
-//    @FXML
-//    ToolButtonBaseController drawArrow;
-//    @FXML
-//    ToolButtonBaseController drawEllipse;
-//    @FXML
-//    ToolButtonBaseController drawTriangle;
-//    @FXML
-//    ToolButtonBaseController drawRectangle;
-//    @FXML
-//    ToolButtonBaseController drawPolygon;
-//    @FXML
-//    ToolButtonBaseController fillArea;
-//    @FXML
-//    ToolButtonBaseController selectArea;
-//    @FXML
-//    ToolButtonBaseController selectObject;
-//    @FXML
-//    ToolButtonBaseController freeSelect;
-
+    @FXML
+    public ToolButtonBaseController noMode;
+    @FXML
+    public ToolButtonBaseController drawCurve;
+    @FXML
+    public ToolButtonBaseController drawArrow;
+    @FXML
+    public ToolButtonBaseController drawEllipse;
+    @FXML
+    public ToolButtonBaseController drawTriangle;
+    @FXML
+    public ToolButtonBaseController drawRectangle;
+    @FXML
+    public ToolButtonBaseController drawPolygon;
+    @FXML
+    public ToolButtonBaseController fillArea;
+    @FXML
+    public ToolButtonBaseController selectArea;
+    @FXML
+    public ToolButtonBaseController selectObject;
+    @FXML
+    public ToolButtonBaseController freeSelect;
+    @FXML
+    public Button clearAll;
+    @FXML
+    public Button deleteShape;
+    @FXML
+    public ToolButtonBaseController appendSelection;
+    @FXML
+    public ToolButtonBaseController showVertexes;
+    @FXML
+    public ToolButtonBaseController showAnchorPoints;
+    @FXML
+    public ToolButtonBaseController rotationFixed;
 
     public ToolsPanelController() {
         super();
@@ -64,15 +78,36 @@ public class ToolsPanelController extends FlowPane {
             if (child.getClass() != ToolButtonBaseController.class)
                 continue;
             ToolButtonBaseController toolButton = (ToolButtonBaseController) child;
-            toolButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-                toolButton.enable();
-                if (currentToolButton != null)
-                    currentToolButton.disable();
-                if (toolButton != currentToolButton)
-                    currentToolButton = toolButton;
-                else
-                    currentToolButton = null;
-            });
+
+            if (child.getStyleClass().contains("modeButton")) {
+                toolButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                    toolButton.setEnabled(true);
+
+                    if (currentToolButton != null)
+                        currentToolButton.setEnabled(false);
+
+                    if (toolButton != currentToolButton) {
+                        currentToolButton = toolButton;
+                    } else {
+                        currentToolButton = noMode;
+                        noMode.setEnabled(true);
+                        CanvasController.sm.SetDrawingMode(DrawingMode.NO);
+                    }
+                });
+            } else {
+                toolButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                    toolButton.setEnabled(!toolButton.isEnabled());
+                    toolButton.getStyleClass().add("optionButton");
+                });
+            }
         }
+    }
+
+    public void setNoMode() {
+        CanvasController.sm.SetDrawingMode(DrawingMode.NO);
+        currentToolButton.setEnabled(false);
+        currentToolButton = noMode;
+        noMode.setEnabled(true);
+
     }
 }

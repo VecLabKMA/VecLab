@@ -8,65 +8,78 @@
 
 <?import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Button?>
 <fx:root styleClass="toolPanel" type="ToolsPanelController" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml">
     <stylesheets>
         <URL value="@toolsPanel.css" />
     </stylesheets>
-    <ToolButtonBaseController fx:id="drawLine">
+    <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="noMode">
       <tooltip>
-         <Tooltip text="Line" />
+         <Tooltip text="No Mode" />
       </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="drawCurve">
+    <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawCurve">
       <tooltip>
          <Tooltip text="Curve"/>
       </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="drawArrow">
-      <tooltip>
-         <Tooltip text="Arrow" />
-      </tooltip>
-    </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="drawEllipse">
+    <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawEllipse">
       <tooltip>
          <Tooltip text="Ellipse" />
       </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="drawTriangle">
+    <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawTriangle">
       <tooltip>
          <Tooltip text="Triangle" />
       </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="drawRectangle">
+    <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawRectangle">
       <tooltip>
          <Tooltip text="Rectangle" />
       </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="drawPolygon">
+    <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawPolygon">
       <tooltip>
          <Tooltip text="Polygon" />
       </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="fillArea">
+<!--    <ToolButtonBaseController fx:id="selectObject">-->
+<!--      <tooltip>-->
+<!--         <Tooltip text="Select Object" />-->
+<!--      </tooltip>-->
+<!--    </ToolButtonBaseController>-->
+    <Separator orientation="VERTICAL"/>
+    <Button styleClass="iconButton" fx:id="clearAll">
       <tooltip>
-         <Tooltip text="Fill Area" />
+         <Tooltip text="Clear Canvas" />
       </tooltip>
-    </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="selectArea">
+    </Button>
+    <Button styleClass="iconButton" fx:id="deleteShape">
         <tooltip>
-            <Tooltip text="Select Area" />
+            <Tooltip text="Delete Shape" />
+        </tooltip>
+    </Button>
+    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="appendSelection">
+        <tooltip>
+            <Tooltip text="Append Selection" />
         </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="selectObject">
-      <tooltip>
-         <Tooltip text="Select Object" />
-      </tooltip>
+    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="showVertexes">
+        <tooltip>
+            <Tooltip text="Show Vertexes" />
+        </tooltip>
     </ToolButtonBaseController>
-    <ToolButtonBaseController fx:id="freeSelect">
-      <tooltip>
-         <Tooltip text="Free Select" />
-      </tooltip>
+    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="showAnchorPoints">
+        <tooltip>
+            <Tooltip text="Show Anchor Points" />
+        </tooltip>
     </ToolButtonBaseController>
+    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="rotationFixed">
+        <tooltip>
+            <Tooltip text="Fix Rotation" />
+        </tooltip>
+    </ToolButtonBaseController>
+
     <ParametersPanelController/>
 </fx:root>

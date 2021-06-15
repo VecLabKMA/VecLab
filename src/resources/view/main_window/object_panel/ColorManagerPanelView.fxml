@@ -25,13 +25,13 @@
     <Label styleClass="objPanelLabel" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2">Fill color</Label>
     <Rectangle styleClass="rect" GridPane.columnIndex="0" GridPane.rowIndex="4" fx:id="fillColorRect" width="15" height="15"/>
     <ColorPicker GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="fillColorPicker"/>
-
-
-<!--    <HBox alignment="CENTER">-->
-<!--        <Label>Stroke Width: </Label>-->
-<!--        <Spinner>-->
-<!--            <valueFactory>-->
-<!--                <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="10"/>-->
-<!--            </valueFactory></Spinner>-->
-<!--    </HBox>-->
+    <Separator GridPane.hgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"/>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="6" alignment="CENTER">
+        <Label minWidth="100" prefWidth="100">Stroke Width: </Label>
+        <Spinner>
+            <valueFactory>
+                <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="10"/>
+            </valueFactory>
+        </Spinner>
+    </HBox>
 </fx:root>

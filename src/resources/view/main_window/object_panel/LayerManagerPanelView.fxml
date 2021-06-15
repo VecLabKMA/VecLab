@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import main_java.controllers.main_window.object_panel.StrokeStyleManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.LayerManagerPanelController?>
 
 <?import javafx.scene.control.* ?>
 <?import javafx.scene.layout.* ?>
@@ -8,7 +8,7 @@
 
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
-         type="StrokeStyleManagerPanelController"
+         type="LayerManagerPanelController"
          styleClass="managerPanel">
 
     <stylesheets>
