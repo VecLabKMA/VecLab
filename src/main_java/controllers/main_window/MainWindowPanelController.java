@@ -3,6 +3,7 @@ package main_java.controllers.main_window;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.menu_bar.MenuBarController;
@@ -42,6 +43,7 @@ public class MainWindowPanelController extends GridPane {
 
         canvasWrapper = new ScrollPane(mainCanvas);
         canvasWrapper.setPannable(true);
+
 
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
