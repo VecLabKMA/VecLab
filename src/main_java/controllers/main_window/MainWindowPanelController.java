@@ -21,13 +21,13 @@ public class MainWindowPanelController extends GridPane {
     @FXML
     private ScrollPane canvasWrapper;
     @FXML
-    private CanvasController mainCanvas;
+    public CanvasController mainCanvas;
     @FXML
     private MenuBarController menuBar;
     @FXML
     private ObjectPanelController objectPanel;
     @FXML
-    private ToolsPanelController toolsPanel;
+    public ToolsPanelController toolsPanel;
     @FXML
     private StatusBarController statusBar;
     @FXML
@@ -62,6 +62,8 @@ public class MainWindowPanelController extends GridPane {
         canvasWrapper.setPannable(true);
 
         menuBar.setMainCanvas(mainCanvas);
+        menuBar.init(this);
+
         objectPanel.init(this);
         objectPanel.update(null);
 
