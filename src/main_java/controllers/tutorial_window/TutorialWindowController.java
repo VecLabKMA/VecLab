@@ -6,12 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main_java.controllers.main_window.MainWindowPanelController;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -128,6 +130,8 @@ public class TutorialWindowController {
                 animations.get(currentAnimationIndex.getAndIncrement()).start();
                 String[] texts = it.next();
                 display(texts[0], texts[1], texts[2]);
+            } else {
+                window.close();
             }
         });
 
@@ -161,8 +165,8 @@ public class TutorialWindowController {
                     BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
             try {
                 sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ignored) {
+
             }
         }, () -> {
             mainWindow.toolsPanel.drawTriangle.setBorder(new Border(new BorderStroke(Color.RED,
@@ -176,6 +180,13 @@ public class TutorialWindowController {
             mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
                     BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
         }));
+        animations.add(new TutorialAnimation(() -> {
+            Image i = new Image(new File("location/file.gif").toURI().toString());
+            ImageView imgView = new ImageView(i);
+//            toolsP
+        }, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
