@@ -2,18 +2,20 @@ package main_java.controllers.main_window;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.menu_bar.MenuBarController;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
+import main_java.controllers.main_window.status_bar.StatusBarController;
 
 import java.io.IOException;
 
 public class MainWindowPanelController extends GridPane {
     @FXML
-    private Pane canvasWrapper;
+    private ScrollPane canvasWrapper;
     @FXML
     private CanvasController mainCanvas;
     @FXML
@@ -22,6 +24,7 @@ public class MainWindowPanelController extends GridPane {
     private ObjectPanelController objectPanel;
     @FXML
     private ToolsPanelController toolsPanel;
+    private StatusBarController statusBar;
 
     public MainWindowPanelController() {
         super();
@@ -41,11 +44,16 @@ public class MainWindowPanelController extends GridPane {
         maxWidth(Double.POSITIVE_INFINITY);
         maxHeight(Double.POSITIVE_INFINITY);
 
-        mainCanvas.widthProperty().bind(canvasWrapper.widthProperty());
-        mainCanvas.heightProperty().bind(canvasWrapper.heightProperty());
+
+        canvasWrapper = new ScrollPane(mainCanvas);
+        canvasWrapper.setPannable(true);
+
 
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
+
+        statusBar.init(this);
+        statusBar.getCanvas(mainCanvas);
 
         mainCanvas.init(toolsPanel);
     }
