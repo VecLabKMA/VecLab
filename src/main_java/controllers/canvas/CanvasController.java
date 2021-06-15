@@ -14,6 +14,10 @@ public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
 
+    public CanvasController() {
+        
+    }
+
     public void init() {
         if (sm == null) {
             sm = new ShapeManager(this) {
