@@ -4,7 +4,7 @@
 }
 
 .scrollPane {
-    -fx-background-color: white;
+    -fx-background : #f2f2f2;
 }
 
 .canvas {
