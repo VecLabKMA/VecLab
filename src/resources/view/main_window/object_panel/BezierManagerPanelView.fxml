@@ -15,6 +15,5 @@
     <stylesheets>
         <URL value="@managerPanel.css"/>
     </stylesheets>
-    <Label>something</Label>
 </fx:root>
 
