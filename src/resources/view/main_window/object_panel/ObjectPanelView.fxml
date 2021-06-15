@@ -15,16 +15,10 @@
     <stylesheets>
         <URL value="@objectPanel.css"/>
     </stylesheets>
-    <TabPane fx:id="tabPane">
-        <Tab text="Color &amp; Style" styleClass="objectPanelTab">
-            <ColorManagerPanelController/>
-        </Tab>
-        <Tab text="Layers" styleClass="objectPanelTab">
-            <LayerManagerPanelController/>
-        </Tab>
-        <Tab text="Bezier" styleClass="objectPanelTab">
-            <BezierManagerPanelController/>
-        </Tab>
-    </TabPane>
-    <Button styleClass="openCloseButton, closeButton" fx:id="openCloseButton"/>
+    <Tab text="Color &amp; Style" styleClass="objectPanelTab">
+        <ColorManagerPanelController fx:id="colorManager"/>
+    </Tab>
+    <Tab text="Layers" styleClass="objectPanelTab">
+        <LayerManagerPanelController fx:id="layerManager"/>
+    </Tab>
 </fx:root>

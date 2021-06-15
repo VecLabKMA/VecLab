@@ -5,15 +5,16 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Shape {
+public class Shape implements Serializable {
     private ArrayList<Vertex> vertices;
     private double buffer_x[], buffer_y[];
 
-    private Color stroke_color, fill_color;
+    private SerializableColor stroke_color, fill_color;
     private float border_thickness;
 
     float center_x, center_y, width, height;
@@ -25,6 +26,7 @@ public class Shape {
         @Override
         public void Press(float x, float y) {
             ShapeManager.manager.Select(Shape.this);
+
             ShapeManager.manager.OnManipulatorSelect();
             ShapeManager.manager.selected = this;
             ShapeManager.manager.OnManipulatorUnselect();
@@ -49,8 +51,8 @@ public class Shape {
     public final SelectManipulator select_manipulator = new SelectManipulator();
 
     Shape(Color stroke_color, Color fill_color, float border_thickness, boolean filled, Vertex... vert) {
-        this.stroke_color = stroke_color;
-        this.fill_color = fill_color;
+        this.stroke_color = new SerializableColor(stroke_color);
+        this.fill_color = new SerializableColor(fill_color);
         this.border_thickness = border_thickness;
         this.filled = filled;
 
@@ -63,7 +65,6 @@ public class Shape {
 
         Build();
     }
-
 
 
     /**Sets transform of this shape*/
@@ -139,12 +140,12 @@ public class Shape {
     }
 
     public final void SetFillColor(Color color) {
-        fill_color = color;
+        fill_color.Set(color);
         ShapeManager.manager.Redraw();
     }
 
     public final void SetStrokeColor(Color color) {
-        stroke_color = color;
+        stroke_color.Set(color);
         ShapeManager.manager.Redraw();
     }
 
@@ -154,11 +155,11 @@ public class Shape {
     }
 
     public final Color GetFillColor() {
-        return fill_color;
+        return fill_color.Get();
     }
 
     public final Color GetStrokeColor() {
-        return stroke_color;
+        return stroke_color.Get();
     }
 
     public final float GetBorderThickness() {
@@ -237,14 +238,14 @@ public class Shape {
     /**Draws shape*/
     final void Draw(GraphicsContext gc){
         if (filled) {
-            gc.setFill(fill_color);
+            gc.setFill(fill_color.Get());
             gc.fillPolygon(buffer_x, buffer_y, buffer_x.length);
             gc.setLineWidth(border_thickness);
-            gc.setStroke(stroke_color);
+            gc.setStroke(stroke_color.Get());
             gc.strokePolygon(buffer_x, buffer_y, buffer_x.length);
         } else {
             gc.setLineWidth(border_thickness);
-            gc.setStroke(stroke_color);
+            gc.setStroke(stroke_color.Get());
             gc.strokePolyline(buffer_x, buffer_y, buffer_x.length);
         }
 
@@ -265,14 +266,14 @@ public class Shape {
         }
 
         if (filled) {
-            gc.setFill(fill_color);
+            gc.setFill(fill_color.Get());
             gc.fillPolygon(transformed_buffer_x, transformed_buffer_y, transformed_buffer_x.length);
             gc.setLineWidth(border_thickness);
-            gc.setStroke(stroke_color);
+            gc.setStroke(stroke_color.Get());
             gc.strokePolygon(transformed_buffer_x, transformed_buffer_y, transformed_buffer_x.length);
         } else {
             gc.setLineWidth(border_thickness);
-            gc.setStroke(stroke_color);
+            gc.setStroke(stroke_color.Get());
             gc.strokePolyline(transformed_buffer_x, transformed_buffer_y, transformed_buffer_x.length);
         }
     }
@@ -298,17 +299,25 @@ public class Shape {
     }
 
 
-    final void GetManipulators(Collection<Manipulator> buffer, boolean show_anchor_points) {
-        for (Vertex curr : vertices) {
-            if (show_anchor_points) {
-                buffer.add(curr.next);
-                buffer.add(curr.prev);
-                buffer.add(curr.curr);
-            } else {
-                buffer.add(curr.curr);
-            }
-        }
+    final void GetManipulators(Collection<Manipulator> buffer, boolean show_anchor_points, boolean show_vertices) {
+        if (show_vertices)
+            for (Vertex curr : vertices)
+                if (show_anchor_points) {
+                    buffer.add(curr.next);
+                    buffer.add(curr.prev);
+                    buffer.add(curr.curr);
+                } else {
+                    buffer.add(curr.curr);
+                }
 
         buffer.add(select_manipulator);
+    }
+
+    public float getCenter_x() {
+        return center_x;
+    }
+
+    public float getCenter_y() {
+        return center_y;
     }
 }

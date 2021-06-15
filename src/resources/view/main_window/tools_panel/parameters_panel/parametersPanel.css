@@ -44,3 +44,18 @@
 #rotateLeftButton {
     -fx-background-image: url("/resources/assets/images/rotate_left.png");
 }
+
+.widthHeightLabel {
+    -fx-border-radius: 2;
+    -fx-border-color: #d2d2d2;
+    -fx-border-style: solid;
+}
+
+.colorLabel {
+    -fx-font-size: 10;
+}
+
+.parameterOuterContainer {
+    -fx-spacing: 2;
+    -fx-alignment: CENTER;
+}

@@ -2,7 +2,11 @@ package main_java.controllers.main_window;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TabPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import main_java.controllers.canvas.CanvasController;
@@ -26,6 +30,12 @@ public class MainWindowPanelController extends GridPane {
     private ToolsPanelController toolsPanel;
     @FXML
     private StatusBarController statusBar;
+    @FXML
+    private Button openCloseButton;
+    @FXML
+    private AnchorPane toolsPanelButtonWrapper;
+
+    private boolean closed = false;
 
     public MainWindowPanelController() {
         super();
@@ -53,10 +63,36 @@ public class MainWindowPanelController extends GridPane {
 
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
+        objectPanel.update(null);
 
         statusBar.init(this);
         statusBar.getCanvas(mainCanvas);
 
-        mainCanvas.init(toolsPanel);
+        mainCanvas.init(toolsPanel, objectPanel);
+
+        AnchorPane.setTopAnchor(toolsPanel, 0.0);
+        AnchorPane.setRightAnchor(toolsPanel, 0.0);
+        AnchorPane.setLeftAnchor(toolsPanel, 0.0);
+//        AnchorPane.setBottomAnchor(toolsPanel, 0.0);
+
+        AnchorPane.setRightAnchor(openCloseButton, 5.0);
+        AnchorPane.setBottomAnchor(openCloseButton, 5.0);
+
+        openCloseButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            openCloseButton.getStyleClass().clear();
+            if (closed) {
+                openCloseButton.getStyleClass().addAll("button", "openCloseButton", "closeButton");
+                setMinWidth(360);
+                setPrefWidth(360);
+                getChildren().add(objectPanel);
+            } else {
+                openCloseButton.getStyleClass().addAll("button", "openCloseButton", "openButton");
+                setMinWidth(0);
+                setPrefWidth(0);
+                getChildren().remove(objectPanel);
+            }
+            requestFocus();
+            closed = !closed;
+        });
     }
 }

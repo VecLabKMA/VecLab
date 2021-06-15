@@ -1,20 +1,52 @@
 package main_java.controllers.canvas;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.input.*;
 import javafx.scene.paint.Color;
+import javafx.util.StringConverter;
 import logic.*;
+import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
+import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController;
 
 public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
+    private boolean manuallyX = false;
+    private boolean manuallyY = false;
 
-    public void init(ToolsPanelController toolsPanel) {
+    public void init(ToolsPanelController toolsPanel, ObjectPanelController objectPanel) {
         if (sm == null) {
             sm = new ShapeManager(this) {
                 @Override
                 public void OnChange() {
+                    manuallyX = true;
+                    manuallyY = true;
+
+                    ParametersPanelController parametersPanel = toolsPanel.parametersPanel;
+                    if (sm.GetSelectedShapes().length != 1) {
+                        parametersPanel.heightLabel.setText("-");
+                        parametersPanel.widthLabel.setText("-");
+
+                        parametersPanel.xInput.setText("0.0");
+                        parametersPanel.yInput.setText("0.0");
+                        return;
+                    }
+
+                    parametersPanel.heightLabel.setText(String.valueOf(sm.GetSelectionHeight()));
+                    parametersPanel.widthLabel.setText(String.valueOf(sm.GetSelectionWidth()));
+
+                    parametersPanel.xInput.setText(String.valueOf(sm.GetSelectionCenterX()));
+                    parametersPanel.yInput.setText(String.valueOf(sm.GetSelectionCenterY()));
+
+                    objectPanel.update(sm.GetSelectedShapes()[0]);
                 }
                 @Override
                 public void OnManipulatorSelect() {
@@ -22,28 +54,32 @@ public class CanvasController extends Canvas {
                         toolsPanel.setNoMode();
                     }
                 }
+                @Override
+                public void OnManipulatorUnselect() {
+                }
             };
         }
 
 //        sm.Example();
         sm.SetShowAnchorPoints(false);
+        sm.SetShowManipulators(true);
         sm.SetShowManipulators(false);
-        sm.SetRotationFixed(true);
+        sm.SetRotationFixed(false);
 
         toolsPanel.noMode.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             if (toolsPanel.noMode.isEnabled())
                 sm.SetDrawingMode(DrawingMode.NO);
-        });
-        toolsPanel.drawTriangle.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            sm.SetDrawingMode(DrawingMode.NO);
-            if (toolsPanel.drawTriangle.isEnabled())
-                sm.SetDrawingMode(DrawingMode.TRIANGLE);
         });
         toolsPanel.drawCurve.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             sm.SetDrawingMode(DrawingMode.NO);
             if (toolsPanel.drawCurve.isEnabled()) {
                 sm.SetDrawingMode(DrawingMode.PEN);
             }
+        });
+        toolsPanel.drawTriangle.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            sm.SetDrawingMode(DrawingMode.NO);
+            if (toolsPanel.drawTriangle.isEnabled())
+                sm.SetDrawingMode(DrawingMode.TRIANGLE);
         });
         toolsPanel.drawEllipse.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             sm.SetDrawingMode(DrawingMode.NO);
@@ -55,6 +91,13 @@ public class CanvasController extends Canvas {
             if (toolsPanel.drawRectangle.isEnabled())
                 sm.SetDrawingMode(DrawingMode.RECTANGLE);
         });
+        toolsPanel.drawPolygon.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            sm.SetDrawingMode(DrawingMode.NO);
+            if (toolsPanel.drawCurve.isEnabled()) {
+                sm.SetDrawingMode(DrawingMode.PEN);
+            }
+        });
+
         toolsPanel.clearAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             toolsPanel.setNoMode();
 
@@ -77,17 +120,26 @@ public class CanvasController extends Canvas {
             sm.SetAppendSelection(!sm.GetAppendSelection());
         });
 
+        toolsPanel.selectShape.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            toolsPanel.setNoMode();
+            sm.SetShowAnchorPoints(false);
+            toolsPanel.showAnchorPoints.setEnabled(false);
+            sm.SetShowVertices(false);
+            toolsPanel.showVertexes.setEnabled(false);
+            sm.SetShowManipulators(!sm.GetShowManipulators());
+        });
+
         toolsPanel.showVertexes.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
             if (toolsPanel.showVertexes.isEnabled() && toolsPanel.showAnchorPoints.isEnabled()) {
                 sm.SetShowAnchorPoints(false);
                 toolsPanel.showAnchorPoints.setEnabled(false);
             }
-            sm.SetShowManipulators(!sm.GetShowManipulators());
+            sm.SetShowVertices(!sm.GetShowVertices());
         });
 
         toolsPanel.showAnchorPoints.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
             if (!toolsPanel.showAnchorPoints.isEnabled() && !toolsPanel.showVertexes.isEnabled()) {
-                sm.SetShowManipulators(true);
+                sm.SetShowVertices(true);
                 toolsPanel.showVertexes.setEnabled(true);
             }
             sm.SetShowAnchorPoints(!sm.GetShowAnchorPoints());
@@ -100,6 +152,67 @@ public class CanvasController extends Canvas {
             for (Shape sh : currentSelectedShapes) {
                 sm.Select(sh);
             }
+        });
+        toolsPanel.parametersPanel.rotateLeftButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            boolean rotationFixed = sm.GetRotationFixed();
+            Shape[] currentSelectedShapes = sm.GetSelectedShapes();
+            sm.ClearSelection();
+            sm.SetRotationFixed(false);
+            for (Shape sh : currentSelectedShapes) {
+                sm.Select(sh);
+                sh.SetTransform(sh.getCenter_x(), sh.getCenter_y(), 0, 0, 1, 1, (float) -Math.PI / 2);
+            }
+            sm.SetRotationFixed(rotationFixed);
+        });
+        toolsPanel.parametersPanel.rotateRightButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            boolean rotationFixed = sm.GetRotationFixed();
+            Shape[] currentSelectedShapes = sm.GetSelectedShapes();
+            sm.ClearSelection();
+            sm.SetRotationFixed(false);
+            for (Shape sh : currentSelectedShapes) {
+                sm.Select(sh);
+                sh.SetTransform(sh.getCenter_x(), sh.getCenter_y(), 0, 0, 1, 1, (float) Math.PI / 2);
+            }
+            sm.SetRotationFixed(rotationFixed);
+        });
+
+        toolsPanel.parametersPanel.xInput.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                if (!manuallyX) {
+                    toolsPanel.parametersPanel.xInput.setText(String.valueOf(sm.GetSelectionCenterX()));
+                    manuallyX = true;
+                } else {
+                    sm.center_manipulator.Move(Float.parseFloat(toolsPanel.parametersPanel.xInput.getText()), sm.GetSelectionCenterY());
+                    sm.Redraw();
+                }
+            }
+        });
+
+        toolsPanel.parametersPanel.xInput.setOnAction(e -> {
+            requestFocus();
+        });
+
+
+        toolsPanel.parametersPanel.yInput.focusedProperty().addListener(new ChangeListener<Boolean>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue)
+            {
+                if (!newPropertyValue) {
+                    if (!manuallyY) {
+                        toolsPanel.parametersPanel.xInput.setText(String.valueOf(sm.GetSelectionCenterX()));
+                        manuallyY = false;
+                    } else {
+                        sm.center_manipulator.Move(sm.GetSelectionCenterX(), Float.parseFloat(toolsPanel.parametersPanel.yInput.getText()));
+                        sm.Redraw();
+                    }
+                }
+            }
+        });
+
+        toolsPanel.parametersPanel.yInput.setOnAction(e -> {
+            requestFocus();
         });
 
 //        getScene().getAccelerators().put(
@@ -203,6 +316,31 @@ public class CanvasController extends Canvas {
         this.setOnMouseReleased(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
                 sm.OnReleased((float)e.getX(), (float)e.getY());
+            }
+        });
+
+        initObjectPanel(objectPanel);
+    }
+
+    private void initObjectPanel(ObjectPanelController objectPanel) {
+        objectPanel.colorManager.fillColorPicker.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes()) {
+                sh.SetFillColor(objectPanel.colorManager.fillColorPicker.getValue());
+            }
+        });
+        objectPanel.colorManager.borderColorPicker.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes()) {
+                sh.SetStrokeColor(objectPanel.colorManager.borderColorPicker.getValue());
+            }
+        });
+        objectPanel.colorManager.shapeFilled.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes()) {
+                sh.SetFilled(objectPanel.colorManager.shapeFilled.isSelected());
+            }
+        });
+        objectPanel.colorManager.strokeWidthField.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes()) {
+                sh.SetBorderThickness(Float.parseFloat(objectPanel.colorManager.strokeWidthField.getText()));
             }
         });
     }
