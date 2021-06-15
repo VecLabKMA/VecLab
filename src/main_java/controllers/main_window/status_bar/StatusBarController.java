@@ -1,10 +1,12 @@
 package main_java.controllers.main_window.status_bar;
 
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -25,6 +27,16 @@ public class StatusBarController extends HBox {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         handleMouseLocationLabel();
+
+        Button zoomIn = new Button("+");
+        zoomIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                cs.setScaleX(cs.getScaleX() * 0.5);
+                cs.setScaleY(cs.getScaleY() * 0.5);
+            }
+        });
+
         this.getChildren().setAll(mouseLocationLabel);
 
         try {
@@ -35,7 +47,7 @@ public class StatusBarController extends HBox {
     }
 
     public void handleMouseLocationLabel() {
-        cs.setOnMouseMoved(new EventHandler<MouseEvent>() {
+        mouseLocationLabel.setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 String message =

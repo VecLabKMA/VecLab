@@ -2,9 +2,9 @@ package main_java.controllers.main_window;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import main_java.controllers.canvas.CanvasController;
-import main_java.controllers.canvas.ScrollableCanvasPane;
 import main_java.controllers.main_window.menu_bar.MenuBarController;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.status_bar.StatusBarController;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class MainWindowPanelController extends GridPane {
     @FXML
-    private ScrollableCanvasPane canvasWrapper;
+    private ScrollPane canvasWrapper;
     @FXML
     private CanvasController mainCanvas;
     @FXML
@@ -39,8 +39,9 @@ public class MainWindowPanelController extends GridPane {
         maxWidth(Double.POSITIVE_INFINITY);
         maxHeight(Double.POSITIVE_INFINITY);
 
-        mainCanvas.widthProperty().bind(canvasWrapper.widthProperty());
-        mainCanvas.heightProperty().bind(canvasWrapper.heightProperty());
+
+        canvasWrapper = new ScrollPane(mainCanvas);
+        canvasWrapper.setPannable(true);
 
         menuBar.setMainCanvas(mainCanvas);
         objectPanel.init(this);
