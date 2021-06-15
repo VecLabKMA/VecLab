@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.scene.shape.Rectangle?>
+<?import main_java.controllers.common.DoubleTextField?>
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController"
+         styleClass="parametersPanel">
+    <stylesheets>
+        <URL value="@parametersPanel.css"/>
+    </stylesheets>
+
+    <VBox styleClass="parameterOuterContainer">
+        <Label styleClass="colorLabel">Fill Color</Label>
+        <HBox styleClass="parameterContainer">
+            <Rectangle styleClass="rect" fx:id="fillColorRect" width="15" height="15"/>
+            <ColorPicker fx:id="fillColorPicker"/>
+        </HBox>
+    </VBox>
+    <VBox styleClass="parameterOuterContainer">
+        <Label styleClass="colorLabel">Stroke Color</Label>
+        <HBox styleClass="parameterContainer">
+            <Rectangle styleClass="rect"  fx:id="strokeColorRect" width="15" height="15"/>
+            <ColorPicker fx:id="strokeColorPicker"/>
+        </HBox>
+    </VBox>
+    <Separator orientation="VERTICAL"/>
+    <HBox styleClass="parameterContainer">
+        <Label styleClass="parameterLabel">x: </Label>
+        <DoubleTextField fx:id="xInput" prefWidth="100"/>
+    </HBox>
+    <HBox styleClass="parameterContainer">
+        <Label styleClass="parameterLabel">y: </Label>
+        <DoubleTextField fx:id="yInput" prefWidth="100"/>
+    </HBox>
+    <HBox styleClass="parameterContainer">
+        <Label styleClass="parameterLabel">Width: </Label>
+        <Label styleClass="widthHeightLabel" fx:id="widthLabel" prefWidth="100"/>
+    </HBox>
+    <HBox styleClass="parameterContainer">
+        <Label styleClass="parameterLabel">Height: </Label>
+        <Label styleClass="widthHeightLabel" fx:id="heightLabel" prefWidth="100"/>
+    </HBox>
+    <Separator orientation="VERTICAL"/>
+    <Button styleClass="parameterButton" fx:id="layerUpButton">
+        <tooltip>
+            <Tooltip text="Layer Up"/>
+        </tooltip>
+    </Button>
+    <Button styleClass="parameterButton" fx:id="layerDownButton">
+        <tooltip>
+            <Tooltip text="Layer Down"/>
+        </tooltip>
+    </Button>
+    <Button styleClass="parameterButton" fx:id="toTopButton">
+        <tooltip>
+            <Tooltip text="To Top"/>
+        </tooltip>
+    </Button>
+    <Button styleClass="parameterButton" fx:id="toBottomButton">
+        <tooltip>
+            <Tooltip text="To Bottom"/>
+        </tooltip>
+    </Button>
+    <Button styleClass="parameterButton" fx:id="rotateRightButton">
+        <tooltip>
+            <Tooltip text="Right 90deg"/>
+        </tooltip>
+    </Button>
+    <Button styleClass="parameterButton" fx:id="rotateLeftButton">
+        <tooltip>
+            <Tooltip text="Left 90deg"/>
+        </tooltip>
+    </Button>
+</fx:root>

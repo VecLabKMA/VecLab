@@ -1,0 +1,61 @@
+.objectPanel {
+    -fx-border-color: #d2d2d2;
+    -fx-border-width: 0 1 1 1;
+}
+
+.objectPanelTab {
+
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+    -fx-pref-width: 102.0;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-font-size: 14;
+}
+
+.tab-pane > .tab-header-area {
+    -fx-border-style: none;
+}
+
+.tab-down-button {
+    -fx-padding: 0;
+}
+
+.tab-down-button .arrow {
+    -fx-padding: 0;
+}
+
+.tab {
+
+}
+
+.headers-region {
+    -fx-pref-height: 25;
+}
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: #f2f2f2;
+}
+
+.objectPanelTab:top {
+    /*-fx-pref-height: 100;*/
+    /*-fx-border-color: blue;*/
+    /*-fx-fill-width: true;*/
+}
+
+.objectPanelTab:bottom {
+
+}
+.openCloseButton {
+
+}
+
+.objPanelLabel {
+    -fx-font-size: 13;
+    -fx-border-style: none;
+}
+
+.objPanelHeader {
+    -fx-font-size: 16;
+}

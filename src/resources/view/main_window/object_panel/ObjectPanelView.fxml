@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import main_java.controllers.main_window.object_panel.ObjectPanelController?>
+
+<?import javafx.scene.control.*?>
+<?import main_java.controllers.main_window.object_panel.LayerManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.ColorManagerPanelController?>
+<?import main_java.controllers.main_window.object_panel.BezierManagerPanelController?>
+<?import java.net.URL?>
+
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="ObjectPanelController"
+        styleClass="objectPanel">
+    <stylesheets>
+        <URL value="@objectPanel.css"/>
+    </stylesheets>
+        <Tab text="Color &amp; Style" styleClass="objectPanelTab">
+            <ColorManagerPanelController fx:id="colorManager"/>
+        </Tab>
+        <Tab text="Layers" styleClass="objectPanelTab">
+            <LayerManagerPanelController fx:id="layersController"/>
+        </Tab>
+</fx:root>

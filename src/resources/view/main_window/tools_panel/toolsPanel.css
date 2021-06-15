@@ -1,0 +1,91 @@
+.toolPanel {
+    -fx-background-color: #f2f2f2;
+    /*-fx-pref-width: 100em;*/
+    -fx-border-color: #d2d2d2;
+    -fx-pref-height: 45;
+    -fx-fill-width: true;
+    -fx-padding: 2;
+}
+
+.optionButton {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #d2d2d2;
+    -fx-border-radius: 2px;
+}
+
+.iconButton {
+    -fx-pref-width: 38px;
+    -fx-pref-height: 38px;
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#noMode {
+    -fx-background-image: url("/resources/assets/images/no_mode.png");
+}
+
+#drawCurve {
+    -fx-background-image: url("/resources/assets/images/bezier-curve-icon.png");
+}
+
+#drawArrow {
+    -fx-background-image: url("/resources/assets/images/arrow-icon.png");
+}
+
+#drawEllipse {
+    -fx-background-image: url("/resources/assets/images/ellipse-icon.png");
+}
+
+#drawTriangle {
+    -fx-background-image: url("/resources/assets/images/triangle-icon.png");
+}
+
+#drawRectangle {
+    -fx-background-image: url("/resources/assets/images/rectangle-icon.png");
+}
+
+#drawPolygon {
+    -fx-background-image: url("/resources/assets/images/polygon-icon.png");
+}
+
+#fillArea {
+    -fx-background-image: url("/resources/assets/images/fill-icon.png");
+}
+
+#selectArea {
+    -fx-background-image: url("/resources/assets/images/select-area-icon.png");
+}
+
+#selectObject {
+    -fx-background-image: url("/resources/assets/images/select-object-icon.png");
+}
+
+#deleteShape {
+    -fx-background-image: url("/resources/assets/images/deleteShape.png");
+}
+
+#showVertexes {
+    -fx-background-image: url("/resources/assets/images/showVertexes.png");
+}
+
+#showAnchorPoints {
+    -fx-background-image: url("/resources/assets/images/anchorPoints.png");
+}
+
+#clearAll {
+    -fx-background-image: url("/resources/assets/images/clear_all.png");
+}
+
+#rotationFixed {
+    -fx-background-image: url("/resources/assets/images/fixedRotation.png");
+}
+
+#appendSelection {
+    -fx-background-image: url("/resources/assets/images/appendSelection.png");
+}
+
+#selectShape {
+    -fx-background-image: url("/resources/assets/images/manipulators_on.png");
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController?>
+
+<?import java.net.URL?>
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml" type="ToolButtonBaseController">
+    <stylesheets>
+        <URL value="@toolButton.css" />
+    </stylesheets>
+</fx:root>

@@ -1,102 +1,40 @@
 package main_java.controllers.main_window;
 
 import javafx.application.Application;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
-import javafx.scene.image.WritableImage;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import main_java.controllers.canvas.CanvasController;
+import main_java.controllers.tutorial_window.TutorialWindowController;
 
-import javax.imageio.ImageIO;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
 
 public class MainWindowController extends Application {
-    @FXML
-    private MenuBar menuBar = new MenuBar();
+    private static final int MIN_WINDOW_HEIGHT = 540;
+    private static final int MIN_WINDOW_WIDTH = 1200;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        CustomPanelController pane = new CustomPanelController();
+        MainWindowPanelController mainPanel = new MainWindowPanelController();
+        Scene scene = new Scene(mainPanel);
 
-//         pane.getChildren().add(new CanvasController());
+        primaryStage.setMinHeight(MIN_WINDOW_HEIGHT);
+        primaryStage.setMinWidth(MIN_WINDOW_WIDTH);
 
-        Scene scene = new Scene(pane, 800, 600);
-        pane.getChildren().add(menuBar); // DOESN'T WORK
+        InputStream iconStream = getClass().getResourceAsStream("/resources/assets/images/bezier-curve-icon.png");
+        Image image = new Image(iconStream);
+        primaryStage.getIcons().add(image);
 
         primaryStage.setScene(scene);
+        primaryStage.setTitle("VecLab");
         primaryStage.show();
+
+        mainPanel.init();
     }
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    @FXML
-    public void handleNewAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleOpenAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleSaveAction(ActionEvent actionEvent) {
-//        Node node = (Node) actionEvent.getSource();
-//        Stage thisStage = (Stage) node.getScene().getWindow();
-//
-//        FileChooser fileChooser = new FileChooser();
-//
-//        FileChooser.ExtensionFilter extFilter =
-//                new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-//        fileChooser.getExtensionFilters().add(extFilter);
-//
-//        File file = fileChooser.showSaveDialog(thisStage);
-//
-//        if(file != null){
-//            try {
-//                WritableImage writableImage = new WritableImage((int)canvas.getWidth(), (int)canvas.getHeight());
-//                canvas.snapshot(null, writableImage);
-//                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-//                ImageIO.write(renderedImage, "png", file);
-//            } catch (IOException ex) {
-//                ex.printStackTrace();
-//            }
-//        }
-//
-    }
-
-    @FXML
-    public void handleSaveAsAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleExitAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleCopyAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleCutAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handlePasteAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleAboutAction(ActionEvent actionEvent) {
     }
 }

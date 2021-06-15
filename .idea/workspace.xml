@@ -20,12 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
-      <change afterPath="$PROJECT_DIR$/src/resources/view/main_window/MainWindowView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/SerializableColor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/CustomPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/CustomPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/CustomPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/CustomPanelView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/DrawingMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/DrawingMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Manipulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/ObjectPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/ObjectPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/LayerManagerPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/LayerManagerPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +85,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -87,6 +97,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1syoMQwGizm8w21B73HiC3GWYWa" />
@@ -111,18 +129,29 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\ilya\Workspace\PRNavch\VecLab\src\resources\view\main_window\tools_panel" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\ilya\Workspace\PRNavch\VecLab\src\logic" />
+      <recent name="F:\ilya\Workspace\PRNavch\VecLab\src\resources\assets\images" />
       <recent name="C:\Users\anton\Desktop\Practice\VecLab\src\sample" />
       <recent name="C:\Users\anton\Desktop\Practice\VecLab\src\sample\assets" />
       <recent name="C:\Users\anton\Desktop\Practice\VecLab\src" />
@@ -141,19 +170,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
@@ -259,6 +275,15 @@
       <workItem from="1622013066664" duration="517000" />
       <workItem from="1622107569546" duration="1666000" />
       <workItem from="1622656154557" duration="8647000" />
+      <workItem from="1623166852952" duration="7260000" />
+      <workItem from="1623216996276" duration="579000" />
+      <workItem from="1623498361286" duration="13867000" />
+      <workItem from="1623166984921" duration="12000" />
+      <workItem from="1623170025898" duration="634000" />
+      <workItem from="1623425775275" duration="31000" />
+      <workItem from="1623511724009" duration="66000" />
+      <workItem from="1623511822853" duration="4836000" />
+      <workItem from="1623779060147" duration="9272000" />
     </task>
     <task id="LOCAL-00001" summary="Re-created project as JavaFX application">
       <created>1621854287189</created>
@@ -267,11 +292,39 @@
       <option name="project" value="LOCAL" />
       <updated>1621854287189</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Re-created project as JavaFX application">
+      <created>1623748386209</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623748386209</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Re-created project as JavaFX application">
+      <created>1623756134971</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623756134971</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Re-created project as JavaFX application">
+      <created>1623756943625</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623756943625</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Re-created project as JavaFX application">
+      <created>1623758642154</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623758642154</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -291,5 +344,33 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Re-created project as JavaFX application" />
     <option name="LAST_COMMIT_MESSAGE" value="Re-created project as JavaFX application" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="190" key="GridCell.Tab.0.bottom" timestamp="1623787231740">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623787231740" />
+    <state width="1493" height="190" key="GridCell.Tab.0.center" timestamp="1623787231740">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623787231740" />
+    <state width="1493" height="190" key="GridCell.Tab.0.left" timestamp="1623787231740">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623787231740" />
+    <state width="1493" height="190" key="GridCell.Tab.0.right" timestamp="1623787231740">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623787231740" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

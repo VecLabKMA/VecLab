@@ -1,0 +1,61 @@
+.parametersPanel {
+    -fx-padding: 5 10;
+    /*-fx-border-color: #d2d2d2;*/
+    /*-fx-border-style: solid solid none none;*/
+}
+
+.parameterContainer {
+    -fx-spacing: 5;
+    -fx-alignment: CENTER;
+}
+
+.parameterLabel {
+    -fx-font-size: 12;
+}
+
+.parameterButton {
+    -fx-pref-width: 30;
+    -fx-pref-height: 30;
+    -fx-background-size: 22px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#layerUpButton {
+    -fx-background-image: url("/resources/assets/images/move_up.png");
+}
+
+#layerDownButton {
+    -fx-background-image: url("/resources/assets/images/move_down.png");
+}
+
+#toTopButton {
+    -fx-background-image: url("/resources/assets/images/move_to_top.png");
+}
+
+#toBottomButton {
+    -fx-background-image: url("/resources/assets/images/move_to_bottom.png");
+}
+
+#rotateRightButton {
+    -fx-background-image: url("/resources/assets/images/rotate_right.png");
+}
+
+#rotateLeftButton {
+    -fx-background-image: url("/resources/assets/images/rotate_left.png");
+}
+
+.widthHeightLabel {
+    -fx-border-radius: 2;
+    -fx-border-color: #d2d2d2;
+    -fx-border-style: solid;
+}
+
+.colorLabel {
+    -fx-font-size: 10;
+}
+
+.parameterOuterContainer {
+    -fx-spacing: 2;
+    -fx-alignment: CENTER;
+}

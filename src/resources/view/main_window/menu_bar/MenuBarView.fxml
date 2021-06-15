@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import main_java.controllers.main_window.menu_bar.MenuBarController?>
+
+<fx:root xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            type="MenuBarController">
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New" onAction="#handleNewAction"/>
+                    <MenuItem text="Open" onAction="#handleOpenAction"/>
+                    <MenuItem text="Save" onAction="#handleSaveAction"/>
+                    <MenuItem text="Save As" onAction="#handleSaveAsAction"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handleExitAction"/>
+                </items>
+            </Menu>
+            <Menu text="Edit">
+                <items>
+                    <MenuItem text="Copy" onAction="#handleCopyAction"/>
+                    <MenuItem text="Cut" onAction="#handleCutAction"/>
+                    <MenuItem text="Paste" onAction="#handlePasteAction"/>
+                </items>
+            </Menu>
+            <Menu text="Help">
+                <items>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Tutorial" onAction="#handleTutorialAction"/>
+                    <MenuItem text="About" onAction="#handleAboutAction"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+</fx:root>
