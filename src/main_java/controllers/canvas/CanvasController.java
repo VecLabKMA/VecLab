@@ -19,10 +19,26 @@ import main_java.controllers.main_window.tools_panel.parameters_panel.Parameters
 public class CanvasController extends Canvas {
 
     public static ShapeManager sm;
+
     private boolean manuallyX = false;
     private boolean manuallyY = false;
 
+
+    private ToolsPanelController toolsPanel;
+    private ObjectPanelController objectPanel;
+
+    public void reloadShapeManager() {
+        if (sm != null) {
+            sm.deleteManager();
+            sm = null;
+            this.init(toolsPanel, objectPanel);
+        }
+    }
+
     public void init(ToolsPanelController toolsPanel, ObjectPanelController objectPanel) {
+        this.toolsPanel = toolsPanel;
+        this.objectPanel = objectPanel;
+
         if (sm == null) {
             sm = new ShapeManager(this) {
                 @Override
@@ -319,6 +335,7 @@ public class CanvasController extends Canvas {
             }
         });
 
+
         initObjectPanel(objectPanel);
     }
 
@@ -343,5 +360,6 @@ public class CanvasController extends Canvas {
                 sh.SetBorderThickness(Float.parseFloat(objectPanel.colorManager.strokeWidthField.getText()));
             }
         });
+
     }
 }

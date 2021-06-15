@@ -1,12 +1,10 @@
 
-.canvas {
-    -fx-background: white;
-}
-
-.scrollPane > .viewport {
+.scrollPane {
     -fx-background : white;
 }
-
-.scrollPane {
-    -fx-background : #f2f2f2;
+.canvas {
+    -fx-background-color: antiquewhite, white ;
+    -fx-background-insets: 0, 20 ;
+    -fx-padding: 20 ;
 }
+

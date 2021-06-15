@@ -49,6 +49,28 @@ public class MenuBarController extends VBox {
 
     @FXML
     public void handleNewAction(ActionEvent actionEvent) {
+        String currentFileName = FileController.getCurrentFileName();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("");
+        alert.setHeaderText("Save changes to document \"" + currentFileName + "\" before closing?");
+        alert.setContentText("If you create a new project without saving, your changes will be discarded.");
+
+        ButtonType discardButton = new ButtonType("Discard");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType saveButton = new ButtonType("Save");
+
+        alert.getButtonTypes().setAll(discardButton, cancelButton, saveButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == discardButton) {
+            FileController.createNewFile();
+            mainCanvas.reloadShapeManager();
+        } else if (result.get() == saveButton) {
+            handleSaveAction(actionEvent);
+            FileController.createNewFile();
+            mainCanvas.reloadShapeManager();
+        }
     }
 
     @FXML

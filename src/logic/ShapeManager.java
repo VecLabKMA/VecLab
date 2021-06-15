@@ -21,6 +21,9 @@ public class ShapeManager implements Serializable {
 
     Manipulator selected;
 
+    public void deleteManager() {
+        manager = null;
+    }
 
     private float pos_x, pos_y, prev_pos_x, prev_pos_y;
     private float cor_x, cor_y, prev_cor_x, prev_cor_y;
