@@ -120,6 +120,8 @@ public class TutorialWindowController {
             if (it.hasNext()) {
                 String[] texts = it.next();
                 display(texts[0], texts[1], texts[2]);
+            } else {
+                window.close();
             }
         });
 

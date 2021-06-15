@@ -48,14 +48,15 @@ public class LayerManagerPanelController extends GridPane {
 
     public void init(ShapeManager sm) {
 
-        TreeItem<String> rootLayer = new TreeItem<>(sm.root_layer.toString());
-        rootLayer.setExpanded(true);
-        layersView.setRoot(rootLayer);
+        TreeItem<String> rootLayerTree = new TreeItem<>(sm.root_layer.toString());
+        rootLayerTree.setExpanded(true);
+        layersView.setRoot(rootLayerTree);
 
         addLayerButton.setOnAction(e -> {
             System.out.println(nameField.getText());
                 if (!nameField.getText().equals("")) {
                     sm.root_layer.AddLayer(new Layer(nameField.getText()));
+                    rootLayerTree.getChildren().add(new TreeItem<>(nameField.getText()));
                 }
         });
 
