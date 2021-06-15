@@ -60,6 +60,11 @@
             <Tooltip text="Delete Shape" />
         </tooltip>
     </Button>
+    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="selectShape">
+        <tooltip>
+            <Tooltip text="Select Shape" />
+        </tooltip>
+    </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="appendSelection">
         <tooltip>
             <Tooltip text="Append Selection" />
@@ -77,9 +82,9 @@
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="rotationFixed">
         <tooltip>
-            <Tooltip text="Fix Rotation" />
+            <Tooltip text="Enable Rotation" />
         </tooltip>
     </ToolButtonBaseController>
 
-    <ParametersPanelController/>
+    <ParametersPanelController fx:id="parametersPanel"/>
 </fx:root>

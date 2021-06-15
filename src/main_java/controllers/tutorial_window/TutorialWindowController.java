@@ -4,30 +4,32 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import main_java.controllers.main_window.MainWindowPanelController;
 
-import java.awt.*;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.lang.Thread.sleep;
 
 public class TutorialWindowController {
 
     static Stage window;
     static Label label;
     static Button changeTextsButton;
+    private MainWindowPanelController mainWindow;
 
-    public TutorialWindowController() {
-
+    public TutorialWindowController(MainWindowPanelController mainWindow) {
+        this.mainWindow = mainWindow;
         window = new Stage();
 
         VBox mainLayout = new VBox();
@@ -59,7 +61,7 @@ public class TutorialWindowController {
             });
             tutorialTexts.add(new String[]{
                     "How does it work?",
-                    "It has a couple drawing modes: Bezier curve, rectangle and ellipsis.",
+                    "It has a couple drawing modes: Bezier curve, ellipsis, rectangle, triangle and polygon.",
                     "Wait, what is a Bezier curve?"
             });
             tutorialTexts.add(new String[]{
@@ -69,12 +71,12 @@ public class TutorialWindowController {
             });
             tutorialTexts.add(new String[]{
                     "What is a Bezier curve?",
-                    "The same procedure applies when three or more points used. You have control points A, B and C. Now, add point D for AB segment, and point E for BC segment.",
+                    "The same procedure applies when three or more points used. You have control points P0, P1 and P2. Now, add point Q0 for P0P1 segment, and point Q1 for P1P2 segment.",
                     "Go on"
             });
             tutorialTexts.add(new String[]{
                     "What is a Bezier curve?",
-                    "Points D and E are moving along their respective segments. When recording intermediary positions, the program joins those points into DE segment and adds another point F to this segment. This point moves and is being recorded at the same rate as points D and E, and its recorded positions are joined together into a curve",
+                    "Points Q0 and Q1 are moving along their respective segments. When recording intermediary positions, the program joins those points into Q0Q1 segment and adds another point B to this segment. This point moves and is being recorded at the same rate as points Q0 and Q1, and its recorded positions are joined together into a curve",
                     "Sounds complicated *brain frying sounds*"
             });
             tutorialTexts.add(new String[]{
@@ -114,10 +116,16 @@ public class TutorialWindowController {
             });
         }
         Iterator<String[]> it = tutorialTexts.iterator();
+        List<TutorialAnimation> animations = getAnimations();
+        AtomicInteger currentAnimationIndex = new AtomicInteger();
 
         changeTextsButton = new Button("Oh, hi!");
         changeTextsButton.setOnAction(event -> {
             if (it.hasNext()) {
+                if (currentAnimationIndex.get() != 0) {
+                    animations.get(currentAnimationIndex.get() - 1).endAnimation();
+                }
+                animations.get(currentAnimationIndex.getAndIncrement()).start();
                 String[] texts = it.next();
                 display(texts[0], texts[1], texts[2]);
             }
@@ -133,6 +141,52 @@ public class TutorialWindowController {
         Scene scene = new Scene(mainLayout);
         window.setScene(scene);
         window.showAndWait();
+    }
+
+    private List<TutorialAnimation> getAnimations() {
+        ArrayList<TutorialAnimation> animations = new ArrayList<>(10);
+
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+
+        animations.add(new TutorialAnimation(() -> {
+            mainWindow.toolsPanel.drawTriangle.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawRectangle.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawPolygon.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawEllipse.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            try {
+                sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }, () -> {
+            mainWindow.toolsPanel.drawTriangle.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawRectangle.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawPolygon.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawEllipse.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+            mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+        }));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+
+        return animations;
     }
 
     public static void display(String title, String message, String buttonText) {

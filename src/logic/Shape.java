@@ -312,4 +312,12 @@ public class Shape implements Serializable {
 
         buffer.add(select_manipulator);
     }
+
+    public float getCenter_x() {
+        return center_x;
+    }
+
+    public float getCenter_y() {
+        return center_y;
+    }
 }
