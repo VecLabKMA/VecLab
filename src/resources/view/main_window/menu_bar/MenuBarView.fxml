@@ -11,18 +11,10 @@
             <Menu text="File">
                 <items>
                     <MenuItem text="New" onAction="#handleNewAction"/>
-                    <MenuItem text="Open" onAction="#handleOpenAction"/>
                     <MenuItem text="Save" onAction="#handleSaveAction"/>
                     <MenuItem text="Save As" onAction="#handleSaveAsAction"/>
                     <SeparatorMenuItem/>
                     <MenuItem text="Exit" onAction="#handleExitAction"/>
-                </items>
-            </Menu>
-            <Menu text="Edit">
-                <items>
-                    <MenuItem text="Copy" onAction="#handleCopyAction"/>
-                    <MenuItem text="Cut" onAction="#handleCutAction"/>
-                    <MenuItem text="Paste" onAction="#handlePasteAction"/>
                 </items>
             </Menu>
             <Menu text="Help">
