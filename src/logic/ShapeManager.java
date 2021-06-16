@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class ShapeManager implements Serializable {
@@ -41,6 +43,7 @@ public class ShapeManager implements Serializable {
     private boolean show_manipulators = true;
     private boolean show_anchor_points = true;
     private boolean show_vertices = true;
+    private boolean show_children_shapes = false;
     private DrawingMode drawing_mode = DrawingMode.NO;
 
 
@@ -267,7 +270,11 @@ public class ShapeManager implements Serializable {
         manipulators.clear();
 
         ArrayList<Shape> shapes = new ArrayList<Shape>();
-        root_layer.FillShapes(shapes);
+//        current_layer.FillShapes(shapes);
+        if (show_children_shapes)
+            current_layer.FillShapes(shapes);
+        else
+            shapes = new ArrayList<Shape>(Arrays.asList(current_layer.GetShapes()));
 
         for (Shape curr : shapes) {
             if (selected_shapes.contains(curr)) {
@@ -409,6 +416,14 @@ public class ShapeManager implements Serializable {
         return show_vertices;
     }
 
+    public boolean GetShowChildrenShapes() {
+        return show_children_shapes;
+    }
+
+    public void SetShowChildrenShapes(boolean show_children_shapes) {
+        this.show_children_shapes = show_children_shapes;
+    }
+
     /**Set mode of shape transforming by mouse. */
     public final void SetRotationFixed(boolean fixed) {
         fixed_rotation = fixed;
@@ -460,6 +475,10 @@ public class ShapeManager implements Serializable {
     /**Returns selected shape*/
     public final Shape[] GetSelectedShapes() {
         return selected_shapes.toArray(new Shape[0]);
+    }
+
+    public Shape GetPenShape() {
+        return pen_shape;
     }
 
     /**Returns selected manipulator. It may return null value!*/

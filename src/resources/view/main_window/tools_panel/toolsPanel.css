@@ -86,12 +86,24 @@
     -fx-background-image: url("/resources/assets/images/appendSelection.png");
 }
 
-#selectShape {
+#showManipulators {
     -fx-background-image: url("/resources/assets/images/manipulators_on.png");
 }
 
-#selectAll {
+#selectLayer {
     -fx-background-image: url("/resources/assets/images/selectAll.png");
+}
+
+#clearLayer {
+    -fx-background-image: url("/resources/assets/images/clear_layer.png");
+}
+
+#showAll {
+    -fx-background-image: url("/resources/assets/images/show_all.png");
+}
+
+#showChildrenShapes {
+    -fx-background-image: url("/resources/assets/images/show_children_shapes.png");
 }
 
 .hBox {

@@ -29,6 +29,15 @@
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/ObjectPanelView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/parameters_panel/ParametersPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/parameters_panel/ParametersPanelView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/clear_layer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/show_all.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/show_children_shapes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
