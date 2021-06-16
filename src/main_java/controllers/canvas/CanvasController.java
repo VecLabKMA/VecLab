@@ -12,6 +12,11 @@ import javafx.scene.input.*;
 import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 import logic.*;
+import logic.DrawingMode;
+import logic.Layer;
+import logic.Shape;
+import logic.ShapeManager;
+import logic.Vertex;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController;
@@ -25,7 +30,6 @@ public class CanvasController extends Canvas {
 
     private ToolsPanelController toolsPanel;
     private ObjectPanelController objectPanel;
-
 
     public void reloadShapeManager() {
         if (sm != null) {
@@ -45,6 +49,8 @@ public class CanvasController extends Canvas {
                 public void OnChange() {
                     manuallyX = true;
                     manuallyY = true;
+
+                    toolsPanel.currentLayerLabel.setText(sm.GetCurrentLayer().GetName());
 
                     ParametersPanelController parametersPanel = toolsPanel.parametersPanel;
                     if (sm.GetSelectedShapes().length != 1) {
@@ -75,6 +81,8 @@ public class CanvasController extends Canvas {
                 }
             };
         }
+
+        objectPanel.initLayers(sm);
 
 //        sm.Example();
         sm.SetShowAnchorPoints(false);
@@ -146,7 +154,10 @@ public class CanvasController extends Canvas {
         });
 
         toolsPanel.showVertexes.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
-            if (toolsPanel.showVertexes.isEnabled() && toolsPanel.showAnchorPoints.isEnabled()) {
+            if (!toolsPanel.showVertexes.isEnabled()) {
+                sm.SetShowManipulators(true);
+                toolsPanel.selectShape.setEnabled(true);
+            } else if (toolsPanel.showAnchorPoints.isEnabled()) {
                 sm.SetShowAnchorPoints(false);
                 toolsPanel.showAnchorPoints.setEnabled(false);
             }
@@ -154,9 +165,13 @@ public class CanvasController extends Canvas {
         });
 
         toolsPanel.showAnchorPoints.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
-            if (!toolsPanel.showAnchorPoints.isEnabled() && !toolsPanel.showVertexes.isEnabled()) {
-                sm.SetShowVertices(true);
-                toolsPanel.showVertexes.setEnabled(true);
+            if (!toolsPanel.showAnchorPoints.isEnabled() ) {
+                if (!toolsPanel.showVertexes.isEnabled()) {
+                    sm.SetShowVertices(true);
+                    toolsPanel.showVertexes.setEnabled(true);
+                }
+                sm.SetShowManipulators(true);
+                toolsPanel.selectShape.setEnabled(true);
             }
             sm.SetShowAnchorPoints(!sm.GetShowAnchorPoints());
         });
@@ -165,10 +180,29 @@ public class CanvasController extends Canvas {
             Shape[] currentSelectedShapes = sm.GetSelectedShapes();
             sm.ClearSelection();
             sm.SetRotationFixed(!sm.GetRotationFixed());
+            toolsPanel.setNoMode();
+
             for (Shape sh : currentSelectedShapes) {
                 sm.Select(sh);
             }
         });
+
+        toolsPanel.selectAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            sm.SetAppendSelection(true);
+            toolsPanel.appendSelection.setEnabled(true);
+
+            sm.SetShowAnchorPoints(false);
+            toolsPanel.showAnchorPoints.setEnabled(false);
+            sm.SetShowVertices(false);
+            toolsPanel.showVertexes.setEnabled(false);
+            sm.SetShowManipulators(true);
+            toolsPanel.selectShape.setEnabled(true);
+
+            for (Shape sh : sm.GetCurrentLayer().GetShapes()) {
+                sm.Select(sh);
+            }
+        });
+
         toolsPanel.parametersPanel.rotateLeftButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             boolean rotationFixed = sm.GetRotationFixed();
             Shape[] currentSelectedShapes = sm.GetSelectedShapes();
@@ -229,6 +263,27 @@ public class CanvasController extends Canvas {
 
         toolsPanel.parametersPanel.yInput.setOnAction(e -> {
             requestFocus();
+        });
+
+        toolsPanel.parametersPanel.toBottomButton.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes())
+                sm.GetCurrentLayer().MoveTop(sh);
+            sm.Redraw();
+        });
+        toolsPanel.parametersPanel.toTopButton.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes())
+                sm.GetCurrentLayer().MoveBottom(sh);
+            sm.Redraw();
+        });
+        toolsPanel.parametersPanel.layerDownButton.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes())
+                sm.GetCurrentLayer().MoveUp(sh);
+            sm.Redraw();
+        });
+        toolsPanel.parametersPanel.layerUpButton.setOnAction(e -> {
+            for (Shape sh : sm.GetSelectedShapes())
+                sm.GetCurrentLayer().MoveDown(sh);
+            sm.Redraw();
         });
 
 //        getScene().getAccelerators().put(

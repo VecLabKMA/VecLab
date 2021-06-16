@@ -112,7 +112,7 @@ public class Layer implements Serializable {
 
     /**Moves given shape one point down */
     public final void MoveDown(Shape shape) {
-        int index = layers.indexOf(shape);
+        int index = shapes.indexOf(shape);
         if (index != -1 && index <= shapes.size()-2) {
             Shape replaced = shapes.get(index+1);
             shapes.set(index+1, shape);
@@ -123,7 +123,7 @@ public class Layer implements Serializable {
         }
 
         for (Layer curr : layers)
-            curr.MoveUp(shape);
+            curr.MoveDown(shape);
     }
 
     /**Moves given shape to the bottom of this layer or child layers*/

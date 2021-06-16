@@ -71,8 +71,8 @@ public class ParametersPanelController extends HBox {
             CanvasController.sm.SetFillColor(fillColorPicker.getValue());
         });
 
-        strokeColorRect.setFill(Color.LIGHTBLUE);
-        strokeColorPicker.setValue(Color.LIGHTBLUE);
+        strokeColorRect.setFill(Color.BLUE);
+        strokeColorPicker.setValue(Color.BLUE);
 
         strokeColorPicker.setOnAction(e -> {
             strokeColorRect.setFill(strokeColorPicker.getValue());

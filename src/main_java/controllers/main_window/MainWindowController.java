@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 public class MainWindowController extends Application {
     private static final int MIN_WINDOW_HEIGHT = 540;
-    private static final int MIN_WINDOW_WIDTH = 1200;
+    private static final int MIN_WINDOW_WIDTH = 1250;
 
     @Override
     public void start(Stage primaryStage) throws Exception {

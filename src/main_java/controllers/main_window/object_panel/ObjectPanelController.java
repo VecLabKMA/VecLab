@@ -4,9 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import logic.ShapeManager;
 import logic.Shape;
 
 import java.io.IOException;
@@ -20,7 +19,11 @@ public class ObjectPanelController extends TabPane {
     @FXML
     public ColorManagerPanelController colorManager;
     @FXML
-    private LayerManagerPanelController layerManager;
+    private Button openCloseButton;
+    @FXML
+    private LayerManagerPanelController layersController;
+
+    private boolean closed = false;
     @FXML
     private BezierManagerPanelController bezierManager;
 
@@ -44,8 +47,9 @@ public class ObjectPanelController extends TabPane {
         this.mainPanel = mainPanel;
     }
 
+    public void initLayers(ShapeManager sm) {layersController.init(sm);}
+
     public void update(Shape shape) {
         colorManager.update(shape);
-//        bezierManager.update(shape);
     }
 }
