@@ -52,6 +52,7 @@ public class CanvasController extends Canvas {
                     manuallyY = true;
 
                     toolsPanel.currentLayerLabel.setText(sm.GetCurrentLayer().GetName());
+                    toolsPanel.currentShapeLayer.setText("-");
 
                     ParametersPanelController parametersPanel = toolsPanel.parametersPanel;
                     if (sm.GetSelectedShapes().length != 1) {
@@ -62,6 +63,8 @@ public class CanvasController extends Canvas {
                         parametersPanel.yInput.setText("0.0");
                         return;
                     }
+
+                    toolsPanel.currentShapeLayer.setText(sm.GetRootLayer().GetLayerByShape(sm.GetSelectedShapes()[0]).GetName());
 
                     parametersPanel.heightLabel.setText(String.valueOf(sm.GetSelectionHeight()));
                     parametersPanel.widthLabel.setText(String.valueOf(sm.GetSelectionWidth()));

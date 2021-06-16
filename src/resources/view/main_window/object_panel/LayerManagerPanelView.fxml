@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import main_java.controllers.main_window.object_panel.*?>
 
-<fx:root styleClass="managerPanel" type="LayerManagerPanelController" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root styleClass="layersPanel, managerPanel" type="LayerManagerPanelController" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <stylesheets>
         <URL value="@managerPanel.css" />
     </stylesheets>
 
-    <TreeView fx:id="layersView" GridPane.vgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3"/>
+    <TreeView fx:id="layersView" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3"/>
     <TextField fx:id="nameField" promptText="New layer name" GridPane.rowIndex="1" GridPane.columnSpan="2"/>
     <Button fx:id="addLayerButton" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="2" />
     <Button fx:id="deleteLayerButton" text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -20,4 +20,5 @@
     <Button fx:id="moveLayerToTopButton" text="Top" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     <Button fx:id="moveLayerDownButton" text="Down" GridPane.columnIndex="0" GridPane.rowIndex="4" />
     <Button fx:id="moveLayerToBottomButton" text="Bottom" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Separator styleClass="separatist" GridPane.columnSpan="3" GridPane.rowIndex="5"/>
 </fx:root>
