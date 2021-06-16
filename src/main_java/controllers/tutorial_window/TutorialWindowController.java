@@ -44,10 +44,10 @@ public class TutorialWindowController {
         HBox buttons = new HBox();
         buttons.setPadding(new Insets(0, 25, 25,0));
         buttons.setSpacing(25);
-        buttons.setAlignment(Pos.CENTER_RIGHT);
+        buttons.setAlignment(Pos.CENTER);
 
         window.initModality(Modality.WINDOW_MODAL);
-        window.setTitle("Hello!");
+        window.setTitle("Привіт!");
         InputStream iconStream = getClass().getResourceAsStream("/resources/assets/images/about-icon.png");
         Image image = new Image(iconStream);
         window.getIcons().add(image);
@@ -56,69 +56,69 @@ public class TutorialWindowController {
         label = new Label();
         label.setMaxWidth(500);
         label.setWrapText(true);
-        label.setText("Welcome to VecLab, our educational vector graphics editor!");
+        label.setText("Ласкаво просимо до VecLab, нашого навчального редактору векторної графіки!");
 
         LinkedList<String[]> tutorialTexts = new LinkedList<>();
         {
             tutorialTexts.add(new String[]{
-                    "What is this program?",
-                    "It's intended as simple, amateur editor to teach people what vector graphics are",
-                    "Okay"
+                    "Що це?",
+                    "Цей редактор розрахований на тих, кто не знає, як працює векторна графіка, і хоче навчитись",
+                    "Зрозуміло"
             });
             tutorialTexts.add(new String[]{
-                    "How does it work?",
-                    "It has a couple drawing modes: Bezier curve, ellipsis, rectangle, triangle and polygon.",
-                    "Wait, what is a Bezier curve?"
+                    "Як вона працює?",
+                    "Бачиш панель вгорі? Там є декілька режимів малювання: без малювання, крива Безьє, еліпс, прямокутник та трикутник",
+                    "Крива Безьє?"
             });
             tutorialTexts.add(new String[]{
-                    "What is a Bezier curve?",
-                    "In a nutshell, imagine a point moving between two points on a straight line. A program records this point's position at equal time intervals and joins them at the end, making (in this case) a Bezier line.",
-                    "But how is it a curve, if it's a line?"
+                    "Що таке крива Безьє?",
+                    "Уяви, що в тебе є три точки 1, 2 і 3. З'єднай їх так: 1->2->3",
+                    "Так?"
             });
             tutorialTexts.add(new String[]{
-                    "What is a Bezier curve?",
-                    "The same procedure applies when three or more points used. You have control points P0, P1 and P2. Now, add point Q0 for P0P1 segment, and point Q1 for P1P2 segment.",
-                    "Go on"
+                    "Що таке крива Безьє?",
+                    "Поділи отримані відрізки на декілька частин (бажано кількома десятками точок). З'єднай першу точку відрізка 1-2 з першою точкою відрзіка 2-3. Отриманий відрізок так само поділи такою ж кількістю точок. Обери першу та виділи її",
+                    "Зачекай, я не можу так швидко..."
             });
             tutorialTexts.add(new String[]{
-                    "What is a Bezier curve?",
-                    "Points Q0 and Q1 are moving along their respective segments. When recording intermediary positions, the program joins those points into Q0Q1 segment and adds another point B to this segment. This point moves and is being recorded at the same rate as points Q0 and Q1, and its recorded positions are joined together into a curve",
-                    "Sounds complicated *brain frying sounds*"
+                    "Що таке крива Безьє?",
+                    "Так само з'єднуєш другі точки на початкових відрізках, ділиш отриманий відрізок на декілька частин, виділяєш другу точку, і так далі, поки не дійдеш до останньої точки. Вітаю, ти створив криву Безьє!",
+                    "Це займає стільки часу!"
             });
             tutorialTexts.add(new String[]{
-                    "Oh, well",
-                    "Yeah, I know, it's quite technical, so, if you want, you can read about its mathematical details on Internet",
-                    "How do I draw one?"
+                    "Розумію",
+                    "Так, але приблизно так само ці криві створюються тут та в інших векторних редакторах, просто комп'ютер здатний зробити це за долю секунди",
+                    "А як мені тут це зробити?"
             });
             tutorialTexts.add(new String[]{
-                    "How to draw a Bezier curve",
-                    "Press a button that represents a curved line or press 1 on your keyboard. You'll enter pen drawing mode",
-                    "Okay, what now?"
+                    "Як малювати криві Безьє",
+                    "Бачиш вгорі кнопку, на якій намальовано криву лінію? Натисни на неї",
+                    "Так"
             });
             tutorialTexts.add(new String[]{
-                    "How to draw a Bezier curve",
-                    "Press a mouse button and drag it somewhere on drawing space",
-                    "There's something weird..."
+                    "Як малювати криві Безьє",
+                    "Потім натисни лівою кнопкою миші на полі для малювання та відтягни курсор",
+                    "Є..."
             });
             tutorialTexts.add(new String[]{
-                    "How to draw a Bezier curve",
-                    "You created two control points for a curve. Now do it again",
-                    "Woah..."
+                    "Як малювати криві Безьє",
+                    "Ти створив дві опорні точки для кривої. Тепер повтори попередній крок десь в іншому місці поля",
+                    "О, щось є"
             });
             tutorialTexts.add(new String[]{
-                    "How to draw a Bezier curve",
-                    "Yes. This is a Bezier curve with four control points. You can move them across the canvas to make the shape you need. Or to play around",
-                    "So... What now?"
+                    "Як малювати криві Безьє",
+                    "Так, це і є крива Безьє з чотирма опорними точками. Я пояснював на прикладі з трьома точками, але воно працює так само для будь-якої кількості точок, якщо їх більше двох.",
+                    "І що тепер?"
             });
             tutorialTexts.add(new String[]{
-                    "Well...",
-                    "This was pretty much the most confusing part of an editor, everything else works like in any other editor. We have simple shapes, color changing etc. It works just like in MS Paint.",
-                    "Oh, okay. Bye, then."
+                    "Ну...",
+                    "Як я вже сказав, в нас також є прості геометричні фігури. Натисни кнопку з овалом/кругом/прямокутником, потім на поле малювання та відтягни курсор. Точка на полі, де ти натиснув, буде центром фігури, і від того, як далеко ти відтягуєш курсор, залежить розмір фігури.",
+                    "Зрозуміло."
             });
             tutorialTexts.add(new String[]{
-                    "Bye",
-                    "If you need help with Bezier curves again, you can come here.\n See you later",
-                    "Bye."
+                    "Ну, тоді...",
+                    "Це все, що я мав розповісти про малювання фігур та як вони працюють. Якщо ти забув, як тут все працює, повертайся, я розповім.",
+                    "Бувай"
             });
         }
         Iterator<String[]> it = tutorialTexts.iterator();
@@ -139,7 +139,7 @@ public class TutorialWindowController {
             }
         });
 
-        Button closeButton = new Button("I don't need a tutorial, close the window!");
+        Button closeButton = new Button("Вийти з вікна навчання");
         closeButton.setOnAction(event -> window.close());
 
         buttons.getChildren().addAll(changeTextsButton, closeButton);

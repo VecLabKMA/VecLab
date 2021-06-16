@@ -1,6 +1,5 @@
 package main_java.controllers.main_window.tools_panel;
 
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -38,7 +37,7 @@ public class ToolsPanelController extends FlowPane {
     @FXML
     public Button deleteShape;
     @FXML
-    public ToolButtonBaseController selectShape;
+    public ToolButtonBaseController showManipulators;
     @FXML
     public ToolButtonBaseController appendSelection;
     @FXML
@@ -54,7 +53,13 @@ public class ToolsPanelController extends FlowPane {
     @FXML
     public ToolButtonBaseController rotationFixed;
     @FXML
-    public Button selectAll;
+    public Button selectLayer;
+    @FXML
+    public Button clearLayer;
+    @FXML
+    public Button showAll;
+    @FXML
+    public ToolButtonBaseController showChildrenShapes;
 
     public ToolsPanelController() {
         super();
@@ -111,9 +116,18 @@ public class ToolsPanelController extends FlowPane {
 
     public void setNoMode() {
         CanvasController.sm.SetDrawingMode(DrawingMode.NO);
+
         currentToolButton.setEnabled(false);
         currentToolButton = noMode;
         noMode.setEnabled(true);
+    }
 
+    public void disableSelection() {
+        CanvasController.sm.SetShowManipulators(false);
+        showManipulators.setEnabled(false);
+        CanvasController.sm.SetShowVertices(false);
+        showVertexes.setEnabled(false);
+        CanvasController.sm.SetShowAnchorPoints(false);
+        showAnchorPoints.setEnabled(false);
     }
 }
