@@ -90,6 +90,7 @@ public class ColorManagerPanelController extends GridPane {
             borderColorRect.setFill(borderColorPicker.getValue());
 
             shapeFilled.setDisable(false);
+            shapeFilled.setSelected(shape.GetFilled());
 
             strokeWidthField.setEditable(true);
             strokeWidthField.setFocusTraversable(true);
