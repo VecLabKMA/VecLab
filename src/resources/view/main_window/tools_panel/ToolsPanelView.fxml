@@ -62,7 +62,7 @@
             <Tooltip text="Delete Shape" />
         </tooltip>
     </Button>
-    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="selectShape">
+    <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="showManipulators">
         <tooltip>
             <Tooltip text="Select Shape" />
         </tooltip>
@@ -92,9 +92,24 @@
         <Label>Current Layer: </Label>
         <Label styleClass="currentLayerLabel" fx:id="currentLayerLabel"/>
     </HBox>
-    <Button styleClass="iconButton" fx:id="selectAll">
+    <Button styleClass="iconButton" fx:id="selectLayer">
         <tooltip>
             <Tooltip text="Select Layer" />
+        </tooltip>
+    </Button>
+    <Button styleClass="iconButton" fx:id="clearLayer">
+        <tooltip>
+            <Tooltip text="Видалити фігури шару" />
+        </tooltip>
+    </Button>
+    <ToolButtonBaseController styleClass="iconButton" fx:id="showChildrenShapes">
+        <tooltip>
+            <Tooltip text="Показати дочірні шари" />
+        </tooltip>
+    </ToolButtonBaseController>
+    <Button styleClass="iconButton" fx:id="showAll">
+        <tooltip>
+            <Tooltip text="Показати всі шари" />
         </tooltip>
     </Button>
     <HBox styleClass="hBox">
