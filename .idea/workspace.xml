@@ -24,10 +24,29 @@
       <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/CursorCoordinatesLabelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/LayerComboBoxController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/LayerManagerPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/LayerManagerPanelView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/managerPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/managerPanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/objectPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/object_panel/objectPanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/AreaSelectToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ArrowToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/BezierToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/EllipseToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/FillAreaToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/FreeSelectToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/LineToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ObjectSelectToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/PolygonToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/RectangleToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SelectAreaToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SelectObjectToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SquareToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/TriangleToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" afterDir="false" />
     </list>
