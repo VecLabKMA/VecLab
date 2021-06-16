@@ -148,6 +148,7 @@ public class TutorialWindowController {
 
         mainPane.getChildren().add(mainContentPane);
         Scene scene = new Scene(mainPane);
+        window.setAlwaysOnTop(true);
         window.setScene(scene);
         window.showAndWait();
     }
@@ -207,14 +208,12 @@ public class TutorialWindowController {
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {
-
-            mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
-                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            Platform.runLater(() -> mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3)))));
             while (true) {}
         }, () -> {
-
-            mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
-                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+            Platform.runLater(() -> mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3)))));
         }));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));

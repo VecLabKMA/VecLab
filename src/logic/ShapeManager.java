@@ -267,7 +267,7 @@ public class ShapeManager implements Serializable {
         manipulators.clear();
 
         ArrayList<Shape> shapes = new ArrayList<Shape>();
-        root_layer.FillShapes(shapes);
+        current_layer.FillShapes(shapes);
 
         for (Shape curr : shapes) {
             if (selected_shapes.contains(curr)) {

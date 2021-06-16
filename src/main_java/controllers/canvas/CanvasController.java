@@ -12,11 +12,6 @@ import javafx.scene.input.*;
 import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 import logic.*;
-import logic.DrawingMode;
-import logic.Layer;
-import logic.Shape;
-import logic.ShapeManager;
-import logic.Vertex;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController;
@@ -63,7 +58,11 @@ public class CanvasController extends Canvas {
                         return;
                     }
 
-                    toolsPanel.currentShapeLayer.setText(sm.GetRootLayer().GetLayerByShape(sm.GetSelectedShapes()[0]).GetName());
+                    try {
+                        toolsPanel.currentShapeLayer.setText(sm.GetRootLayer().GetLayerByShape(sm.GetSelectedShapes()[0]).GetName());
+                    } catch (NullPointerException ignored) {
+
+                    }
 
                     parametersPanel.heightLabel.setText(String.valueOf(sm.GetSelectionHeight()));
                     parametersPanel.widthLabel.setText(String.valueOf(sm.GetSelectionWidth()));
