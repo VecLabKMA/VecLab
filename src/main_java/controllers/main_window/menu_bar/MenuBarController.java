@@ -14,6 +14,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.FileController;
+import main_java.controllers.main_window.MainWindowPanelController;
 import main_java.controllers.tutorial_window.TutorialWindowController;
 
 import javax.imageio.ImageIO;
@@ -25,6 +26,7 @@ import java.util.Optional;
 public class MenuBarController extends VBox {
 
     private CanvasController mainCanvas;
+    private MainWindowPanelController mainWindow;
 
     public MenuBarController() {
         super();
@@ -40,6 +42,11 @@ public class MenuBarController extends VBox {
             throw new RuntimeException(exception);
         }
     }
+
+    public void init(MainWindowPanelController mainWindow) {
+        this.mainWindow = mainWindow;
+    }
+
     @FXML
     public void handleNewAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
@@ -166,7 +173,7 @@ public class MenuBarController extends VBox {
 
     @FXML
     public void handleTutorialAction(ActionEvent actionEvent) {
-        TutorialWindowController tutorial = new TutorialWindowController();
+        new TutorialWindowController(mainWindow);
     }
 
     @FXML
@@ -175,7 +182,7 @@ public class MenuBarController extends VBox {
         alert.setTitle("About VecLab");
         alert.setHeaderText("VecLab 0.1\na small vector painting program illustrating the power of Bezier curves");
         alert.setContentText("Developed by:\n" +
-                "\tAnton Atanasov\n\tDmytro Sytnikov\n\tIllya Poeta\n\tYuriy Skoryk");
+                "\tAnton Atanasov\n\tDmytro Sytnikov\n\tIlia Poeta\n\tYuriy Skoryk");
         alert.showAndWait();
     }
 

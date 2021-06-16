@@ -4,10 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.menu_bar.MenuBarController;
@@ -15,19 +15,20 @@ import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 import main_java.controllers.main_window.status_bar.StatusBarController;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainWindowPanelController extends GridPane {
     @FXML
     private ScrollPane canvasWrapper;
     @FXML
-    private CanvasController mainCanvas;
+    public CanvasController mainCanvas;
     @FXML
     private MenuBarController menuBar;
     @FXML
     private ObjectPanelController objectPanel;
     @FXML
-    private ToolsPanelController toolsPanel;
+    public ToolsPanelController toolsPanel;
     @FXML
     private StatusBarController statusBar;
     @FXML
@@ -62,6 +63,8 @@ public class MainWindowPanelController extends GridPane {
         canvasWrapper.setPannable(true);
 
         menuBar.setMainCanvas(mainCanvas);
+        menuBar.init(this);
+
         objectPanel.init(this);
         objectPanel.update(null);
 
@@ -77,6 +80,16 @@ public class MainWindowPanelController extends GridPane {
 
         AnchorPane.setRightAnchor(openCloseButton, 5.0);
         AnchorPane.setBottomAnchor(openCloseButton, 5.0);
+
+
+        Image i = new Image(new File("location/file.gif").toURI().toString());
+        ImageView imgView = new ImageView(i);
+        imgView.setFitHeight(50);
+        imgView.setFitWidth(50);
+
+        AnchorPane.setRightAnchor(imgView, 0.0);
+
+        toolsPanelButtonWrapper.getChildren().add(imgView);
 
         openCloseButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             openCloseButton.getStyleClass().clear();

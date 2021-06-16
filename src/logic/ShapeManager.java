@@ -470,6 +470,8 @@ public class ShapeManager implements Serializable {
     public final void SetCurrentLayer(Layer layer){
         if (layer == null) throw new NullPointerException("Layer cannot be null");
         current_layer = layer;
+        OnChange();
+        ClearSelection();
     }
 
     public final Layer GetCurrentLayer() {
