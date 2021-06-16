@@ -23,20 +23,21 @@ public class CanvasController extends Canvas {
     private boolean manuallyX = false;
     private boolean manuallyY = false;
 
-    public void init(ToolsPanelController toolsPanel, ObjectPanelController objectPanel) {
-
     private ToolsPanelController toolsPanel;
+    private ObjectPanelController objectPanel;
+
 
     public void reloadShapeManager() {
         if (sm != null) {
-            sm.deleteManager();
+            sm.removeManager();
             sm = null;
-            this.init(toolsPanel);
+            this.init(toolsPanel, objectPanel);
         }
     }
 
-    public void init(ToolsPanelController toolsPanel) {
+    public void init(ToolsPanelController toolsPanel, ObjectPanelController objectPanel) {
         this.toolsPanel = toolsPanel;
+        this.objectPanel = objectPanel;
 
         if (sm == null) {
             sm = new ShapeManager(this) {

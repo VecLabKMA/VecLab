@@ -5,9 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Orientation;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -15,8 +17,6 @@ import javafx.scene.layout.HBox;
 import java.io.IOException;
 
 public class StatusBarController extends HBox {
-    @FXML
-    public Label mouseLocationLabel = new Label("hello");
     private Canvas cs;
     private GridPane mainPanel;
     private double zoomFactor = 0.9;
@@ -28,7 +28,6 @@ public class StatusBarController extends HBox {
                 "/resources/view/main_window/status_bar/StatusBarView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        handleMouseLocationLabel();
 
         Label zoomLabel = new Label();
         zoomLabel.setText(currentZoom + "%");
@@ -59,27 +58,15 @@ public class StatusBarController extends HBox {
             }
         });
 
+        Separator separator = new Separator(Orientation.VERTICAL);
 
-        this.getChildren().setAll(mouseLocationLabel, zoomIn, zoomLabel, zoomOut);
+        this.getChildren().setAll(separator, zoomIn, zoomLabel, zoomOut);
 
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-    }
-
-    public void handleMouseLocationLabel() {
-        mouseLocationLabel.setOnMouseMoved(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                String message =
-                        "X: " + event.getX() +
-                                "\n" +
-                                "Y: " + event.getY();
-                mouseLocationLabel.setText(message);
-            }
-        });
     }
 
     public void getCanvas(Canvas currentCanvas) {
