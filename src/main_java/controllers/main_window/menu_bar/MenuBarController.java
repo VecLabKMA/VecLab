@@ -74,10 +74,6 @@ public class MenuBarController extends VBox {
     }
 
     @FXML
-    public void handleOpenAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
     public void handleSaveAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
         String defaultFileName = FileController.getDefaultFileName();
@@ -157,18 +153,6 @@ public class MenuBarController extends VBox {
             handleSaveAction(actionEvent);
         }
 
-    }
-
-    @FXML
-    public void handleCopyAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleCutAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handlePasteAction(ActionEvent actionEvent) {
     }
 
     @FXML
