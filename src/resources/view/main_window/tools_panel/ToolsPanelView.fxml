@@ -18,32 +18,32 @@
     </stylesheets>
     <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="noMode">
       <tooltip>
-         <Tooltip text="No Mode" />
+         <Tooltip text="Не малювати" />
       </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawCurve">
       <tooltip>
-         <Tooltip text="Curve"/>
+         <Tooltip text="Крива Безьє"/>
       </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawEllipse">
       <tooltip>
-         <Tooltip text="Ellipse" />
+         <Tooltip text="Елліпс" />
       </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawTriangle">
       <tooltip>
-         <Tooltip text="Triangle" />
+         <Tooltip text="Трикутник" />
       </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawRectangle">
       <tooltip>
-         <Tooltip text="Rectangle" />
+         <Tooltip text="Прямокутник" />
       </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="modeButton" styleClass="modeButton" fx:id="drawPolygon">
       <tooltip>
-         <Tooltip text="Polygon" />
+         <Tooltip text="Багатокутник" />
       </tooltip>
     </ToolButtonBaseController>
 <!--    <ToolButtonBaseController fx:id="selectObject">-->
@@ -54,51 +54,51 @@
     <Separator styleClass="separator" orientation="VERTICAL"/>
     <Button styleClass="iconButton" fx:id="clearAll">
       <tooltip>
-         <Tooltip text="Clear Canvas" />
+         <Tooltip text="Очистити поле малювання" />
       </tooltip>
     </Button>
     <Button styleClass="iconButton" fx:id="deleteShape">
         <tooltip>
-            <Tooltip text="Delete Shape" />
+            <Tooltip text="Видалити обрану фігуру" />
         </tooltip>
     </Button>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="selectShape">
         <tooltip>
-            <Tooltip text="Select Shape" />
+            <Tooltip text="Обрати фігуру" />
         </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="appendSelection">
         <tooltip>
-            <Tooltip text="Append Selection" />
+            <Tooltip text="Обирати кілька фігур" />
         </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="showVertexes">
         <tooltip>
-            <Tooltip text="Show Vertexes" />
+            <Tooltip text="Показати опорні точки" />
         </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="showAnchorPoints">
         <tooltip>
-            <Tooltip text="Show Anchor Points" />
+            <Tooltip text="Показати контрольні точки (працює лише з опорними точками)" />
         </tooltip>
     </ToolButtonBaseController>
     <ToolButtonBaseController baseStyleClass="optionButton" styleClass="optionButton" fx:id="rotationFixed">
         <tooltip>
-            <Tooltip text="Enable Rotation" />
+            <Tooltip text="Увімкнути поворт фігур" />
         </tooltip>
     </ToolButtonBaseController>
     <Separator styleClass="separator" orientation="VERTICAL"/>
     <HBox styleClass="hBox">
-        <Label>Current Layer: </Label>
+        <Label>Обраний шар: </Label>
         <Label styleClass="currentLayerLabel" fx:id="currentLayerLabel"/>
     </HBox>
     <Button styleClass="iconButton" fx:id="selectAll">
         <tooltip>
-            <Tooltip text="Select Layer" />
+            <Tooltip text="Обрати шар" />
         </tooltip>
     </Button>
     <HBox styleClass="hBox">
-        <Label>Shape Layer: </Label>
+        <Label>Шар обраної фігури: </Label>
         <Label styleClass="currentLayerLabel" fx:id="currentShapeLayer"/>
     </HBox>
 
