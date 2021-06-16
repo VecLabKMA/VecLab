@@ -15,10 +15,10 @@
     <stylesheets>
         <URL value="@objectPanel.css"/>
     </stylesheets>
-        <Tab text="Color &amp; Style" styleClass="objectPanelTab">
+        <Tab text="Колір &amp; стиль" styleClass="objectPanelTab">
             <ColorManagerPanelController fx:id="colorManager"/>
         </Tab>
-        <Tab text="Layers" styleClass="objectPanelTab">
+        <Tab text="Шари" styleClass="objectPanelTab">
             <LayerManagerPanelController fx:id="layersController"/>
         </Tab>
 </fx:root>

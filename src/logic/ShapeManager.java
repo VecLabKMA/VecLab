@@ -4,12 +4,16 @@ package logic;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import main_java.controllers.canvas.CanvasController;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class ShapeManager implements Serializable {
+    private static final long serialVersionUID = 5916709440899668087L;
     public static transient ShapeManager manager;
 
     public final Layer root_layer = new Layer("root");
@@ -41,6 +45,7 @@ public class ShapeManager implements Serializable {
     private boolean show_manipulators = true;
     private boolean show_anchor_points = true;
     private boolean show_vertices = true;
+    private boolean show_children_shapes = false;
     private DrawingMode drawing_mode = DrawingMode.NO;
 
 
@@ -267,7 +272,11 @@ public class ShapeManager implements Serializable {
         manipulators.clear();
 
         ArrayList<Shape> shapes = new ArrayList<Shape>();
-        root_layer.FillShapes(shapes);
+//        current_layer.FillShapes(shapes);
+        if (show_children_shapes)
+            current_layer.FillShapes(shapes);
+        else
+            shapes = new ArrayList<Shape>(Arrays.asList(current_layer.GetShapes()));
 
         for (Shape curr : shapes) {
             if (selected_shapes.contains(curr)) {
@@ -409,6 +418,14 @@ public class ShapeManager implements Serializable {
         return show_vertices;
     }
 
+    public boolean GetShowChildrenShapes() {
+        return show_children_shapes;
+    }
+
+    public void SetShowChildrenShapes(boolean show_children_shapes) {
+        this.show_children_shapes = show_children_shapes;
+    }
+
     /**Set mode of shape transforming by mouse. */
     public final void SetRotationFixed(boolean fixed) {
         fixed_rotation = fixed;
@@ -462,6 +479,10 @@ public class ShapeManager implements Serializable {
         return selected_shapes.toArray(new Shape[0]);
     }
 
+    public Shape GetPenShape() {
+        return pen_shape;
+    }
+
     /**Returns selected manipulator. It may return null value!*/
     public final Manipulator GetSelectedManipulator() {
         return selected;
@@ -477,13 +498,24 @@ public class ShapeManager implements Serializable {
     public final Layer GetCurrentLayer() {
         return current_layer;
     }
+    public final Layer GetRootLayer() { return root_layer; }
 
 
     public static boolean SaveToFile(String filename) {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(manager);
             return true;
-        } catch (Exception ex) {
+        } catch (IOException ex) {
+            System.err.println("Saving error!");
+            return false;
+        }
+    }
+
+    public static boolean SaveToFile(File file) {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(manager);
+            return true;
+        } catch (IOException ex) {
             System.err.println("Saving error!");
             return false;
         }
@@ -496,8 +528,24 @@ public class ShapeManager implements Serializable {
             manager.Redraw();
             return true;
         } catch(Exception ex) {
-            System.err.println("Opening error!");
+            System.err.println(ex.toString());
             return false;
         }
     }
+
+    public static boolean OpenFromFile(File file, Canvas canvas) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            manager = (ShapeManager)ois.readObject();
+            manager.canvas = canvas;
+            manager.Redraw();
+            return true;
+        } catch(IOException ex) {
+            System.err.println(ex.toString());
+            return false;
+        } catch(ClassNotFoundException ex) {
+            System.err.println("ClassNotFoundException error!");
+            return false;
+        }
+    }
+
 }

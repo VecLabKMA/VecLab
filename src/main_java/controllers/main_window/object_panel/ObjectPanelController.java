@@ -9,6 +9,7 @@ import logic.ShapeManager;
 import logic.Shape;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 public class ObjectPanelController extends TabPane {
 

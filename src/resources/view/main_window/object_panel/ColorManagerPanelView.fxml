@@ -9,7 +9,6 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.control.SpinnerValueFactory.DoubleSpinnerValueFactory?>
 <?import main_java.controllers.common.DoubleTextField?>
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
@@ -20,23 +19,23 @@
         <URL value="@managerPanel.css"/>
     </stylesheets>
 
-    <Label styleClass="objPanelHeader" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">Fill color</Label>
+    <Label styleClass="objPanelHeader" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">Колір заливки</Label>
     <Rectangle styleClass="rect" GridPane.columnIndex="0" GridPane.rowIndex="5" fx:id="fillColorRect" width="15" height="15"/>
     <ColorPicker GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="fillColorPicker"/>
 
-    <Label styleClass="objPanelLabel" GridPane.rowIndex="2" GridPane.columnIndex="0">Fill shape</Label>
+    <Label styleClass="objPanelLabel" GridPane.rowIndex="2" GridPane.columnIndex="0">Заливка</Label>
     <CheckBox fx:id="shapeFilled" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
     <Separator GridPane.hgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"/>
 
-    <Label styleClass="objPanelHeader" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2">Border color</Label>
+    <Label styleClass="objPanelHeader" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2">Колір контуру</Label>
     <Rectangle styleClass="rect" GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="borderColorRect" width="15" height="15"/>
     <ColorPicker GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="borderColorPicker"/>
 
     <Separator GridPane.hgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
 
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="7" alignment="CENTER">
-        <Label styleClass="objPanelLabel" minWidth="100" prefWidth="100">Stroke Width: </Label>
+        <Label styleClass="objPanelLabel" minWidth="100" prefWidth="100">Товщина контуру: </Label>
         <DoubleTextField fx:id="strokeWidthField"/>
     </HBox>
 </fx:root>

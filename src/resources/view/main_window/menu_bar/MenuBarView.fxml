@@ -8,28 +8,21 @@
             type="MenuBarController">
     <MenuBar fx:id="menuBar">
         <menus>
-            <Menu text="File">
+            <Menu text="Файл">
                 <items>
-                    <MenuItem text="New" onAction="#handleNewAction"/>
-                    <MenuItem text="Open" onAction="#handleOpenAction"/>
-                    <MenuItem text="Save" onAction="#handleSaveAction"/>
-                    <MenuItem text="Save As" onAction="#handleSaveAsAction"/>
+                    <MenuItem text="Новий проект" onAction="#handleNewAction"/>
+                    <MenuItem text="Відкрити проект" onAction="#handleOpenAction"/>
+                    <MenuItem text="Зберегти проект" onAction="#handleSaveProjectAction"/>
+                    <MenuItem text="Експортувати зображення" onAction="#handleExportImageAction"/>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Exit" onAction="#handleExitAction"/>
+                    <MenuItem text="Вийти" onAction="#handleExitAction"/>
                 </items>
             </Menu>
-            <Menu text="Edit">
-                <items>
-                    <MenuItem text="Copy" onAction="#handleCopyAction"/>
-                    <MenuItem text="Cut" onAction="#handleCutAction"/>
-                    <MenuItem text="Paste" onAction="#handlePasteAction"/>
-                </items>
-            </Menu>
-            <Menu text="Help">
+            <Menu text="Допомога">
                 <items>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Tutorial" onAction="#handleTutorialAction"/>
-                    <MenuItem text="About" onAction="#handleAboutAction"/>
+                    <MenuItem text="Навчання" onAction="#handleTutorialAction"/>
+                    <MenuItem text="Про нас" onAction="#handleAboutAction"/>
                 </items>
             </Menu>
         </menus>

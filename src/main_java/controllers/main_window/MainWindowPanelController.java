@@ -65,7 +65,7 @@ public class MainWindowPanelController extends GridPane {
         objectPanel.init(this);
         objectPanel.update(null);
 
-        statusBar.init(this);
+        statusBar.init(canvasWrapper);
         statusBar.getCanvas(mainCanvas);
 
         mainCanvas.init(toolsPanel, objectPanel);

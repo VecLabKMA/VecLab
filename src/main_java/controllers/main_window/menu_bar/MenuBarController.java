@@ -16,6 +16,7 @@ import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.FileController;
 import main_java.controllers.main_window.MainWindowPanelController;
 import main_java.controllers.tutorial_window.TutorialWindowController;
+import logic.ShapeManager;
 
 import javax.imageio.ImageIO;
 import java.awt.image.RenderedImage;
@@ -53,12 +54,12 @@ public class MenuBarController extends VBox {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("");
-        alert.setHeaderText("Save changes to document \"" + currentFileName + "\" before closing?");
-        alert.setContentText("If you create a new project without saving, your changes will be discarded.");
+        alert.setHeaderText("Зберегти зміни у документі \"" + currentFileName + "\" перед створенням нового файлу?");
+        alert.setContentText("Якщо ви створите новий файл, не зберігши старий, усі зміни будуть скасовані.");
 
-        ButtonType discardButton = new ButtonType("Discard");
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        ButtonType saveButton = new ButtonType("Save");
+        ButtonType discardButton = new ButtonType("Не зберігати");
+        ButtonType cancelButton = new ButtonType("Скасувати", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType saveButton = new ButtonType("Зберігти");
 
         alert.getButtonTypes().setAll(discardButton, cancelButton, saveButton);
 
@@ -67,7 +68,7 @@ public class MenuBarController extends VBox {
             FileController.createNewFile();
             mainCanvas.reloadShapeManager();
         } else if (result.get() == saveButton) {
-            handleSaveAction(actionEvent);
+            handleExportImageAction(actionEvent);
             FileController.createNewFile();
             mainCanvas.reloadShapeManager();
         }
@@ -75,16 +76,43 @@ public class MenuBarController extends VBox {
 
     @FXML
     public void handleOpenAction(ActionEvent actionEvent) {
+        String currentFileName = FileController.getCurrentFileName();
+        File currentFile = FileController.getCurrentFile();
+
+        Stage thisStage = ((Stage) getScene().getWindow());
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("vlp files (*.vlp)", "*.vlp");
+
+        fileChooser.setInitialFileName(currentFileName);
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(thisStage);
+
+        if (file != null) {
+            ShapeManager.OpenFromFile(file.getName(), mainCanvas);
+            CanvasController.sm = ShapeManager.manager;
+//                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
+//                mainCanvas.snapshot(null, writableImage);
+//                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+//                ImageIO.write(renderedImage, "png", file);
+//
+            // this will change the window title to the current file
+            FileController.setCurrentFile(file);
+            FileController.setCurrentFileName(file.getName());
+            thisStage.setTitle(currentFileName + " - VecLab");
+        }
+
     }
 
     @FXML
-    public void handleSaveAction(ActionEvent actionEvent) {
+    public void handleExportImageAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
         String defaultFileName = FileController.getDefaultFileName();
         File currentFile = FileController.getCurrentFile();
 
         if (currentFileName.equals(defaultFileName)) {
-            handleSaveAsAction(actionEvent);
+            handleSaveProjectAction(actionEvent);
         } else {
             if (currentFile != null) {
                 try {
@@ -92,7 +120,7 @@ public class MenuBarController extends VBox {
                     WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
                     mainCanvas.snapshot(null, writableImage);
                     RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                    ImageIO.write(renderedImage, "png", currentFile );
+                    ImageIO.write(renderedImage, "png", currentFile);
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -102,37 +130,29 @@ public class MenuBarController extends VBox {
     }
 
     @FXML
-    public void handleSaveAsAction(ActionEvent actionEvent) {
+    public void handleSaveProjectAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
-//        File currentFile = FileController.getCurrentFile();
+        File currentFile = FileController.getCurrentFile();
 
         Stage thisStage = ((Stage) getScene().getWindow());
         FileChooser fileChooser = new FileChooser();
 
         FileChooser.ExtensionFilter extFilter =
-                new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+                new FileChooser.ExtensionFilter("vlp files (*.vlp)", "*.vlp");
 
-        fileChooser.setInitialFileName(currentFileName);
+
+        fileChooser.setInitialFileName("Untitled.vlp");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showSaveDialog(thisStage);
 
         if (file != null) {
-            try {
-                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
-                mainCanvas.snapshot(null, writableImage);
-                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                ImageIO.write(renderedImage, "png", file);
+            ShapeManager.SaveToFile(file);
 
-                // this will change the window title to the current file
-                FileController.setCurrentFile(file);
-                FileController.setCurrentFileName(file.getName());
-                thisStage.setTitle(currentFileName + " - VecLab");
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            // this will change the window title to the current file
+            FileController.setCurrentFile(file);
+            FileController.setCurrentFileName(file.getName());
+            thisStage.setTitle(currentFileName + " - VecLab");
         }
-
     }
 
     @FXML
@@ -141,12 +161,12 @@ public class MenuBarController extends VBox {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("");
-        alert.setHeaderText("Save changes to document \"" + currentFileName + "\" before closing?");
-        alert.setContentText("If you close without saving, your changes will be discarded.");
+        alert.setHeaderText("Зберегти зміни у документі \\\"\" + currentFileName + \"\\\" перед закриттям програми?");
+        alert.setContentText("Якщо не зберігти документ, усі зміни будуть скасовані.");
 
-        ButtonType discardButton = new ButtonType("Discard and exit");
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        ButtonType saveButton = new ButtonType("Save");
+        ButtonType discardButton = new ButtonType("Вийти без зберігання");
+        ButtonType cancelButton = new ButtonType("Не виходити", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType saveButton = new ButtonType("Зберегти та вийти");
 
         alert.getButtonTypes().setAll(discardButton, cancelButton, saveButton);
 
@@ -154,21 +174,9 @@ public class MenuBarController extends VBox {
         if (result.get() == discardButton) {
             Platform.exit();
         } else if (result.get() == saveButton) {
-            handleSaveAction(actionEvent);
+            handleExportImageAction(actionEvent);
         }
 
-    }
-
-    @FXML
-    public void handleCopyAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleCutAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handlePasteAction(ActionEvent actionEvent) {
     }
 
     @FXML
@@ -179,10 +187,10 @@ public class MenuBarController extends VBox {
     @FXML
     public void handleAboutAction(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("About VecLab");
-        alert.setHeaderText("VecLab 0.1\na small vector painting program illustrating the power of Bezier curves");
-        alert.setContentText("Developed by:\n" +
-                "\tAnton Atanasov\n\tDmytro Sytnikov\n\tIlia Poeta\n\tYuriy Skoryk");
+        alert.setTitle("Про VecLab");
+        alert.setHeaderText("VecLab 0.1\nНепрофесійний редактор векторної графіки, призначений для показу важливості кривих Безьє");
+        alert.setContentText("Розробники:\n" +
+                "\tАнтон Атанасов\n\tДмитро Ситніков\n\tІлья Поета\n\tЮрій Скорик");
         alert.showAndWait();
     }
 
