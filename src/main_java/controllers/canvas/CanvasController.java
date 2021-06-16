@@ -17,8 +17,8 @@ public class CanvasController extends Canvas {
     public boolean manuallyX = false;
     public boolean manuallyY = false;
 
-    private ToolsPanelController toolsPanel;
-    private ObjectPanelController objectPanel;
+    public static ToolsPanelController toolsPanel;
+    public static ObjectPanelController objectPanel;
     public static boolean drawingPolygon = false;
 
     public CanvasController() {
@@ -42,7 +42,7 @@ public class CanvasController extends Canvas {
         this.objectPanel = objectPanel;
 
         if (sm == null) {
-            sm = new ControlledShapeManager(this);
+            sm = new ControlledShapeManager(this);//, toolsPanel, objectPanel);
         }
 
         objectPanel.initLayers(sm);

@@ -20,14 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="open file&#10;save file&#10;export image">
-      <change afterPath="$PROJECT_DIR$/src/logic/ManipulatedShapeManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/u.vlp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Untitled.vlp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/ControlledShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ControlledShapeManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/menu_bar/MenuBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/ObjectPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/ObjectPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u.vlp" beforeDir="false" afterPath="$PROJECT_DIR$/u.vlp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,12 +122,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -166,6 +162,17 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
@@ -215,17 +222,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -263,13 +259,12 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cdb932d9-7e58-4d    @FXML     public void handleOpenAction(ActionEvent actionEvent) {     } 94-93a9-e7b232ef17da" name="Default" comment="" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -349,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623839491867</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="open file&#10;save file&#10;export image">
+      <created>1623844859409</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623844859409</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

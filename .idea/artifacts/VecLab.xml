@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="VecLab">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="root">
+      <element id="archive" name="VecLab.jar">
+        <element id="module-output" name="VecLab" />
+      </element>
+    </root>
+  </artifact>
+</component>
