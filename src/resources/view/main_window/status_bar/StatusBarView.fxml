@@ -6,6 +6,5 @@
 
 <?import main_java.controllers.main_window.tools_panel.tools_buttons.ToolButtonBaseController?>
 <fx:root styleClass="statusBarPanel" type="HBox" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
-    <Label fx:id="mouseLocationLabel" text=""></Label>
 
 </fx:root>
