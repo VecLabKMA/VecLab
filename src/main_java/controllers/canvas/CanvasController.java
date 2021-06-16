@@ -87,7 +87,6 @@ public class CanvasController extends Canvas {
 
         objectPanel.initLayers(sm);
 
-//        sm.Example();
         sm.SetShowAnchorPoints(false);
         sm.SetShowManipulators(true);
         sm.SetShowManipulators(false);

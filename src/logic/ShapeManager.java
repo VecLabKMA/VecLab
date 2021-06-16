@@ -484,7 +484,17 @@ public class ShapeManager implements Serializable {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(manager);
             return true;
-        } catch (Exception ex) {
+        } catch (IOException ex) {
+            System.err.println("Saving error!");
+            return false;
+        }
+    }
+
+    public static boolean SaveToFile(File file) {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(manager);
+            return true;
+        } catch (IOException ex) {
             System.err.println("Saving error!");
             return false;
         }
@@ -501,4 +511,17 @@ public class ShapeManager implements Serializable {
             return false;
         }
     }
+
+    public static boolean OpenFromFile(File file, Canvas canvas) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            manager = (ShapeManager)ois.readObject();
+            manager.canvas = canvas;
+            manager.Redraw();
+            return true;
+        } catch(Exception ex) {
+            System.err.println("Opening error!");
+            return false;
+        }
+    }
+
 }
