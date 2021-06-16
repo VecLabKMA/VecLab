@@ -56,9 +56,6 @@ public class MainWindowPanelController extends GridPane {
         maxWidth(Double.POSITIVE_INFINITY);
         maxHeight(Double.POSITIVE_INFINITY);
 
-        mainCanvas.widthProperty().bind(canvasWrapper.widthProperty());
-        mainCanvas.heightProperty().bind(canvasWrapper.heightProperty());
-
         canvasWrapper = new ScrollPane(mainCanvas);
         canvasWrapper.setPannable(true);
 
