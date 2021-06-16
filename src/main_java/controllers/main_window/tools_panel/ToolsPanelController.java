@@ -100,6 +100,8 @@ public class ToolsPanelController extends FlowPane {
                     } else {
                         currentToolButton = noMode;
                         noMode.setEnabled(true);
+                        if (CanvasController.drawingPolygon)
+                            CanvasController.sm.GetPenShape().SetFilled(true);
                         CanvasController.sm.SetDrawingMode(DrawingMode.NO);
                     }
                 });
@@ -115,6 +117,7 @@ public class ToolsPanelController extends FlowPane {
     }
 
     public void setNoMode() {
+        CanvasController.drawingPolygon = false;
         CanvasController.sm.SetDrawingMode(DrawingMode.NO);
 
         currentToolButton.setEnabled(false);

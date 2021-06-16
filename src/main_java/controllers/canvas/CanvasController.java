@@ -19,7 +19,7 @@ public class CanvasController extends Canvas {
 
     private ToolsPanelController toolsPanel;
     private ObjectPanelController objectPanel;
-    private boolean drawingPolygon = false;
+    public static boolean drawingPolygon = false;
 
     public void reloadShapeManager() {
         if (sm != null) {
@@ -88,41 +88,95 @@ public class CanvasController extends Canvas {
         sm.SetRotationFixed(false);
 
         toolsPanel.noMode.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            toolsPanel.disableSelection();
+//            toolsPanel.disableSelection();
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             if (toolsPanel.noMode.isEnabled())
                 sm.SetDrawingMode(DrawingMode.NO);
         });
         toolsPanel.drawCurve.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
-            toolsPanel.disableSelection();
+//            toolsPanel.disableSelection();
+            toolsPanel.showManipulators.setEnabled(true);
+            sm.SetShowManipulators(true);
+            toolsPanel.showVertexes.setEnabled(true);
+            sm.SetShowVertices(true);
+            toolsPanel.showAnchorPoints.setEnabled(true);
+            sm.SetShowAnchorPoints(true);
+            sm.ClearSelection();
             if (toolsPanel.drawCurve.isEnabled()) {
                 sm.SetDrawingMode(DrawingMode.PEN);
             }
         });
         toolsPanel.drawTriangle.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
-            toolsPanel.disableSelection();
+//            toolsPanel.disableSelection();
             if (toolsPanel.drawTriangle.isEnabled())
                 sm.SetDrawingMode(DrawingMode.TRIANGLE);
         });
         toolsPanel.drawEllipse.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
-            toolsPanel.disableSelection();
+//            toolsPanel.disableSelection();
             if (toolsPanel.drawEllipse.isEnabled())
                 sm.SetDrawingMode(DrawingMode.ELLIPSE);
         });
         toolsPanel.drawRectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
-            toolsPanel.disableSelection();
+//            toolsPanel.disableSelection();
             if (toolsPanel.drawRectangle.isEnabled())
                 sm.SetDrawingMode(DrawingMode.RECTANGLE);
         });
         toolsPanel.drawPolygon.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+            }
             sm.SetDrawingMode(DrawingMode.NO);
-            toolsPanel.disableSelection();
+//            toolsPanel.disableSelection();
+            sm.ClearSelection();
             if (toolsPanel.drawPolygon.isEnabled()) {
                 drawingPolygon = true;
                 sm.SetDrawingMode(DrawingMode.PEN);
+                toolsPanel.showManipulators.setEnabled(true);
+                sm.SetShowManipulators(true);
+                toolsPanel.showVertexes.setEnabled(true);
+                sm.SetShowVertices(true);
+                toolsPanel.showAnchorPoints.setEnabled(true);
+                sm.SetShowAnchorPoints(true);
             }
         });
 
@@ -427,7 +481,6 @@ public class CanvasController extends Canvas {
                 sm.OnReleased((float)e.getX(), (float)e.getY());
             }
         });
-
 
         initObjectPanel(objectPanel);
     }
