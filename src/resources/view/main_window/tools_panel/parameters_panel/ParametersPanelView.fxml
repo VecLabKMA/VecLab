@@ -51,22 +51,22 @@
     <Separator orientation="VERTICAL"/>
     <Button styleClass="parameterButton" fx:id="layerUpButton">
         <tooltip>
-            <Tooltip text="Підняти шар на один"/>
+            <Tooltip text="Підняти фігуру в шарі"/>
         </tooltip>
     </Button>
     <Button styleClass="parameterButton" fx:id="layerDownButton">
         <tooltip>
-            <Tooltip text="Опустити шар на один"/>
+            <Tooltip text="Опустити фігуру в шарі"/>
         </tooltip>
     </Button>
     <Button styleClass="parameterButton" fx:id="toTopButton">
         <tooltip>
-            <Tooltip text="Нагору"/>
+            <Tooltip text="Наверх шару"/>
         </tooltip>
     </Button>
     <Button styleClass="parameterButton" fx:id="toBottomButton">
         <tooltip>
-            <Tooltip text="Вниз"/>
+            <Tooltip text="Униз шару"/>
         </tooltip>
     </Button>
     <Button styleClass="parameterButton" fx:id="rotateRightButton">
