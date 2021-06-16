@@ -88,7 +88,7 @@ public class LayerManagerPanelController extends GridPane {
         moveLayerToBottomButton.setOnAction(e -> {
             TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
             if (selectedItem != null && selectedItem != layersView.getRoot()) {
-                selectedItem.getParent().getValue().MoveBottom(selectedItem.getValue());
+                selectedItem.getParent().getValue().MoveTop(selectedItem.getValue());
                 update(layersView.getRoot().getValue());
 
                 TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
@@ -113,7 +113,7 @@ public class LayerManagerPanelController extends GridPane {
         moveLayerToTopButton.setOnAction(e -> {
             TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
             if (selectedItem != null && selectedItem != layersView.getRoot()) {
-                selectedItem.getParent().getValue().MoveTop(selectedItem.getValue());
+                selectedItem.getParent().getValue().MoveBottom(selectedItem.getValue());
                 update(layersView.getRoot().getValue());
 
                 TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
