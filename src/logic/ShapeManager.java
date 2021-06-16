@@ -4,12 +4,14 @@ package logic;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import main_java.controllers.canvas.CanvasController;
 
 import java.io.*;
 import java.util.ArrayList;
 
 
 public class ShapeManager implements Serializable {
+    private static final long serialVersionUID = 5916709440899668087L;
     public static transient ShapeManager manager;
 
     public final Layer root_layer = new Layer("root");
@@ -507,7 +509,7 @@ public class ShapeManager implements Serializable {
             manager.Redraw();
             return true;
         } catch(Exception ex) {
-            System.err.println("Opening error!");
+            System.err.println(ex.toString());
             return false;
         }
     }
@@ -518,8 +520,11 @@ public class ShapeManager implements Serializable {
             manager.canvas = canvas;
             manager.Redraw();
             return true;
-        } catch(Exception ex) {
-            System.err.println("Opening error!");
+        } catch(IOException ex) {
+            System.err.println(ex.toString());
+            return false;
+        } catch(ClassNotFoundException ex) {
+            System.err.println("ClassNotFoundException error!");
             return false;
         }
     }

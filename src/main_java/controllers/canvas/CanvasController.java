@@ -2,15 +2,9 @@ package main_java.controllers.canvas;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.input.*;
 import javafx.scene.paint.Color;
-import javafx.util.StringConverter;
 import logic.*;
 import logic.DrawingMode;
 import logic.Layer;
@@ -19,17 +13,25 @@ import logic.ShapeManager;
 import logic.Vertex;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
-import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController;
 
 public class CanvasController extends Canvas {
 
+    public static CanvasController controller;
     public static ShapeManager sm;
 
-    private boolean manuallyX = false;
-    private boolean manuallyY = false;
+    public boolean manuallyX = false;
+    public boolean manuallyY = false;
 
     private ToolsPanelController toolsPanel;
     private ObjectPanelController objectPanel;
+
+    public CanvasController() {
+        if (controller == null) {
+            controller = this;
+        } else {
+            throw new NullPointerException("Not allowed to create more than one canvas");
+        }
+    }
 
     public void reloadShapeManager() {
         if (sm != null) {
@@ -44,45 +46,7 @@ public class CanvasController extends Canvas {
         this.objectPanel = objectPanel;
 
         if (sm == null) {
-            sm = new ShapeManager(this) {
-                @Override
-                public void OnChange() {
-                    manuallyX = true;
-                    manuallyY = true;
-
-                    toolsPanel.currentLayerLabel.setText(sm.GetCurrentLayer().GetName());
-                    toolsPanel.currentShapeLayer.setText("-");
-
-                    ParametersPanelController parametersPanel = toolsPanel.parametersPanel;
-                    if (sm.GetSelectedShapes().length != 1) {
-                        parametersPanel.heightLabel.setText("-");
-                        parametersPanel.widthLabel.setText("-");
-
-                        parametersPanel.xInput.setText("0.0");
-                        parametersPanel.yInput.setText("0.0");
-                        return;
-                    }
-
-                    toolsPanel.currentShapeLayer.setText(sm.GetRootLayer().GetLayerByShape(sm.GetSelectedShapes()[0]).GetName());
-
-                    parametersPanel.heightLabel.setText(String.valueOf(sm.GetSelectionHeight()));
-                    parametersPanel.widthLabel.setText(String.valueOf(sm.GetSelectionWidth()));
-
-                    parametersPanel.xInput.setText(String.valueOf(sm.GetSelectionCenterX()));
-                    parametersPanel.yInput.setText(String.valueOf(sm.GetSelectionCenterY()));
-
-                    objectPanel.update(sm.GetSelectedShapes()[0]);
-                }
-                @Override
-                public void OnManipulatorSelect() {
-                    if (sm.GetSelectedManipulator() instanceof Shape.SelectManipulator) {
-                        toolsPanel.setNoMode();
-                    }
-                }
-                @Override
-                public void OnManipulatorUnselect() {
-                }
-            };
+            sm = new ControlledShapeManager(this);
         }
 
         objectPanel.initLayers(sm);

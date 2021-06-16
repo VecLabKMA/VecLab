@@ -90,7 +90,8 @@ public class MenuBarController extends VBox {
         File file = fileChooser.showOpenDialog(thisStage);
 
         if (file != null) {
-            ShapeManager.OpenFromFile(file, mainCanvas);
+            ShapeManager.OpenFromFile(file.getName(), mainCanvas);
+            CanvasController.sm = ShapeManager.manager;
 //                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
 //                mainCanvas.snapshot(null, writableImage);
 //                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
@@ -139,7 +140,7 @@ public class MenuBarController extends VBox {
         FileChooser.ExtensionFilter extFilter =
                 new FileChooser.ExtensionFilter("vlp files (*.vlp)", "*.vlp");
 
-        fileChooser.setInitialFileName(currentFileName);
+        fileChooser.setInitialFileName("Untitled.vlp");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showSaveDialog(thisStage);
 
