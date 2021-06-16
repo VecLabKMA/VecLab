@@ -11,6 +11,7 @@
 
 <?import main_java.controllers.main_window.menu_bar.MenuBarController?>
 <?import main_java.controllers.main_window.status_bar.StatusBarController?>
+<?import javafx.scene.Group?>
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          type="MainWindowPanelController"
@@ -34,7 +35,9 @@
             styleClass="scrollPane"
             fx:id="canvasWrapper" GridPane.fillWidth="true" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
             prefHeight="400" prefWidth="600" GridPane.rowIndex="2" GridPane.columnIndex="0">
-        <CanvasController styleClass="canvas" width="1000" height="1000" fx:id="mainCanvas"/>
+        <Group>
+            <CanvasController styleClass="canvas" width="1000" height="1000" fx:id="mainCanvas"/>
+        </Group>
         <stylesheets>
             <URL value="@scrollPane.css"/>
         </stylesheets>

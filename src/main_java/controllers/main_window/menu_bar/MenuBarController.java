@@ -16,6 +16,7 @@ import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.FileController;
 import main_java.controllers.main_window.MainWindowPanelController;
 import main_java.controllers.tutorial_window.TutorialWindowController;
+import logic.ShapeManager;
 
 import javax.imageio.ImageIO;
 import java.awt.image.RenderedImage;
@@ -67,20 +68,51 @@ public class MenuBarController extends VBox {
             FileController.createNewFile();
             mainCanvas.reloadShapeManager();
         } else if (result.get() == saveButton) {
-            handleSaveAction(actionEvent);
+            handleExportImageAction(actionEvent);
             FileController.createNewFile();
             mainCanvas.reloadShapeManager();
         }
     }
 
     @FXML
-    public void handleSaveAction(ActionEvent actionEvent) {
+    public void handleOpenAction(ActionEvent actionEvent) {
+        String currentFileName = FileController.getCurrentFileName();
+        File currentFile = FileController.getCurrentFile();
+
+        Stage thisStage = ((Stage) getScene().getWindow());
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("vlp files (*.vlp)", "*.vlp");
+
+        fileChooser.setInitialFileName(currentFileName);
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(thisStage);
+
+        if (file != null) {
+            ShapeManager.OpenFromFile(file.getName(), mainCanvas);
+            CanvasController.sm = ShapeManager.manager;
+//                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
+//                mainCanvas.snapshot(null, writableImage);
+//                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+//                ImageIO.write(renderedImage, "png", file);
+//
+            // this will change the window title to the current file
+            FileController.setCurrentFile(file);
+            FileController.setCurrentFileName(file.getName());
+            thisStage.setTitle(currentFileName + " - VecLab");
+        }
+
+    }
+
+    @FXML
+    public void handleExportImageAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
         String defaultFileName = FileController.getDefaultFileName();
         File currentFile = FileController.getCurrentFile();
 
         if (currentFileName.equals(defaultFileName)) {
-            handleSaveAsAction(actionEvent);
+            handleSaveProjectAction(actionEvent);
         } else {
             if (currentFile != null) {
                 try {
@@ -88,7 +120,7 @@ public class MenuBarController extends VBox {
                     WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
                     mainCanvas.snapshot(null, writableImage);
                     RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                    ImageIO.write(renderedImage, "png", currentFile );
+                    ImageIO.write(renderedImage, "png", currentFile);
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -98,37 +130,29 @@ public class MenuBarController extends VBox {
     }
 
     @FXML
-    public void handleSaveAsAction(ActionEvent actionEvent) {
+    public void handleSaveProjectAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
-//        File currentFile = FileController.getCurrentFile();
+        File currentFile = FileController.getCurrentFile();
 
         Stage thisStage = ((Stage) getScene().getWindow());
         FileChooser fileChooser = new FileChooser();
 
         FileChooser.ExtensionFilter extFilter =
-                new FileChooser.ExtensionFilter("Зображення формату PNG (*.png)", "*.png");
+                new FileChooser.ExtensionFilter("vlp files (*.vlp)", "*.vlp");
 
-        fileChooser.setInitialFileName(currentFileName);
+
+        fileChooser.setInitialFileName("Untitled.vlp");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showSaveDialog(thisStage);
 
         if (file != null) {
-            try {
-                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
-                mainCanvas.snapshot(null, writableImage);
-                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                ImageIO.write(renderedImage, "png", file);
+            ShapeManager.SaveToFile(file);
 
-                // this will change the window title to the current file
-                FileController.setCurrentFile(file);
-                FileController.setCurrentFileName(file.getName());
-                thisStage.setTitle(currentFileName + " - VecLab");
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            // this will change the window title to the current file
+            FileController.setCurrentFile(file);
+            FileController.setCurrentFileName(file.getName());
+            thisStage.setTitle(currentFileName + " - VecLab");
         }
-
     }
 
     @FXML
@@ -150,7 +174,7 @@ public class MenuBarController extends VBox {
         if (result.get() == discardButton) {
             Platform.exit();
         } else if (result.get() == saveButton) {
-            handleSaveAction(actionEvent);
+            handleExportImageAction(actionEvent);
         }
 
     }
