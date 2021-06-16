@@ -76,7 +76,7 @@ public class LayerManagerPanelController extends GridPane {
         moveLayerDownButton.setOnAction(e -> {
             TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
             if (selectedItem != null && selectedItem != layersView.getRoot()) {
-                selectedItem.getParent().getValue().MoveDown(selectedItem.getValue());
+                selectedItem.getParent().getValue().MoveUp(selectedItem.getValue());
                 update(layersView.getRoot().getValue());
 
                 TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
@@ -100,7 +100,7 @@ public class LayerManagerPanelController extends GridPane {
         moveLayerUpButton.setOnAction(e -> {
             TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
             if (selectedItem != null && selectedItem != layersView.getRoot()) {
-                selectedItem.getParent().getValue().MoveUp(selectedItem.getValue());
+                selectedItem.getParent().getValue().MoveDown(selectedItem.getValue());
 
                 update(layersView.getRoot().getValue());
 
@@ -130,8 +130,12 @@ public class LayerManagerPanelController extends GridPane {
     }
 
     private void addLayer(TreeItem<Layer> layerItem) {
-        for (Layer layer : layerItem.getValue().GetLayers()) {
-            TreeItem<Layer> newLayerItem = new TreeItem<>(layer);
+//        for (Layer l : layerItem.getValue().GetLayers())
+//        {
+//            TreeItem<Layer> newLayerItem = new TreeItem<>(l);
+            Layer[] childrenLayers = layerItem.getValue().GetLayers();
+        for (int i = childrenLayers.length - 1; i > -1; --i) {
+            TreeItem<Layer> newLayerItem = new TreeItem<>(childrenLayers[i]);
             layerItem.getChildren().add(newLayerItem);
             addLayer(newLayerItem);
         }
@@ -170,8 +174,8 @@ public class LayerManagerPanelController extends GridPane {
         TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
         if (name != null && !name.isEmpty() && selectedItem != null) {
             Layer newLayer = new Layer(nameField.getText());
-            sm.root_layer.AddLayer(newLayer);
-            selectedItem.getChildren().add(new TreeItem<>(newLayer));
+            selectedItem.getValue().AddLayer(newLayer);
+            selectedItem.getChildren().add(0, new TreeItem<>(newLayer));
             selectedItem.setExpanded(true);
             nameField.setText("");
         }

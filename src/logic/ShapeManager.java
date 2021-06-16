@@ -477,6 +477,7 @@ public class ShapeManager implements Serializable {
     public final Layer GetCurrentLayer() {
         return current_layer;
     }
+    public final Layer GetRootLayer() { return root_layer; }
 
 
     public static boolean SaveToFile(String filename) {

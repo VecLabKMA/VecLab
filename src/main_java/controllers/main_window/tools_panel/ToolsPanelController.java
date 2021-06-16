@@ -50,6 +50,8 @@ public class ToolsPanelController extends FlowPane {
     @FXML
     public Label currentLayerLabel;
     @FXML
+    public Label currentShapeLayer;
+    @FXML
     public ToolButtonBaseController rotationFixed;
     @FXML
     public Button selectAll;

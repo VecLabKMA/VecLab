@@ -99,7 +99,7 @@
     -fx-font-size: 14;
 }
 
-#currentLayerLabel {
+.currentLayerLabel {
     -fx-font-size: 14;
     -fx-padding: 0 10 0 5;
 }
