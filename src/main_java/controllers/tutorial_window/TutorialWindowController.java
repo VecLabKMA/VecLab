@@ -1,5 +1,6 @@
 package main_java.controllers.tutorial_window;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -29,14 +30,17 @@ public class TutorialWindowController {
     static Label label;
     static Button changeTextsButton;
     private MainWindowPanelController mainWindow;
+    private HBox mainPane;
 
     public TutorialWindowController(MainWindowPanelController mainWindow) {
         this.mainWindow = mainWindow;
         window = new Stage();
 
-        VBox mainLayout = new VBox();
-        mainLayout.setSpacing(25);
-        mainLayout.setPadding(new Insets(25, 25, 0,25));
+        mainPane = new HBox();
+        VBox mainContentPane = new VBox();
+
+        mainContentPane.setSpacing(25);
+        mainContentPane.setPadding(new Insets(25, 25, 0,25));
         HBox buttons = new HBox();
         buttons.setPadding(new Insets(0, 25, 25,0));
         buttons.setSpacing(25);
@@ -139,10 +143,11 @@ public class TutorialWindowController {
         closeButton.setOnAction(event -> window.close());
 
         buttons.getChildren().addAll(changeTextsButton, closeButton);
-        mainLayout.getChildren().addAll(label, buttons);
-        mainLayout.setAlignment(Pos.CENTER);
+        mainContentPane.getChildren().addAll(label, buttons);
+        mainContentPane.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(mainLayout);
+        mainPane.getChildren().add(mainContentPane);
+        Scene scene = new Scene(mainPane);
         window.setScene(scene);
         window.showAndWait();
     }
@@ -180,15 +185,37 @@ public class TutorialWindowController {
             mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
                     BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
         }));
+        Image i = new Image(new File("location/file.gif").toURI().toString());
+        ImageView imgView = new ImageView(i);
+        imgView.setFitHeight(50);
+        imgView.setFitWidth(50);
         animations.add(new TutorialAnimation(() -> {
-            Image i = new Image(new File("location/file.gif").toURI().toString());
-            ImageView imgView = new ImageView(i);
 //            toolsP
+            Platform.runLater(() -> {
+                mainPane.getChildren().add(imgView);});
+                while (true) {
+//                    imgView
+                    break;
+                }
+        }, () -> {
+
+            Platform.runLater(() -> {
+                mainPane.getChildren().remove(imgView);});
+        }));
+        animations.add(new TutorialAnimation(() -> {
         }, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
-        animations.add(new TutorialAnimation(() -> {}, () -> {}));
-        animations.add(new TutorialAnimation(() -> {}, () -> {}));
+        animations.add(new TutorialAnimation(() -> {
+
+            mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+            while (true) {}
+        }, () -> {
+
+            mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
+                    BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3))));
+        }));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));
         animations.add(new TutorialAnimation(() -> {}, () -> {}));

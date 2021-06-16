@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import logic.DrawingMode;
@@ -45,9 +46,13 @@ public class ToolsPanelController extends FlowPane {
     @FXML
     public ToolButtonBaseController showAnchorPoints;
     @FXML
+    public ParametersPanelController parametersPanel;
+    @FXML
+    public Label currentLayerLabel;
+    @FXML
     public ToolButtonBaseController rotationFixed;
     @FXML
-    public ParametersPanelController parametersPanel;
+    public Button selectAll;
 
     public ToolsPanelController() {
         super();
@@ -98,6 +103,8 @@ public class ToolsPanelController extends FlowPane {
                 });
             }
         }
+        currentToolButton = noMode;
+        noMode.setEnabled(true);
     }
 
     public void setNoMode() {

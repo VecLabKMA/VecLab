@@ -4,7 +4,7 @@
     -fx-border-color: #d2d2d2;
     -fx-pref-height: 45;
     -fx-fill-width: true;
-    -fx-padding: 2;
+    -fx-padding: 2 0 0 2;
 }
 
 .optionButton {
@@ -88,4 +88,22 @@
 
 #selectShape {
     -fx-background-image: url("/resources/assets/images/manipulators_on.png");
+}
+
+#selectAll {
+    -fx-background-image: url("/resources/assets/images/selectAll.png");
+}
+
+.hBox {
+    -fx-alignment: CENTER;
+    -fx-font-size: 14;
+}
+
+#currentLayerLabel {
+    -fx-font-size: 14;
+    -fx-padding: 0 10 0 5;
+}
+
+.separator {
+    -fx-padding: 0 10 0 10;
 }

@@ -9,6 +9,8 @@
 <?import main_java.controllers.main_window.tools_panel.parameters_panel.ParametersPanelController?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
 <fx:root styleClass="toolPanel" type="ToolsPanelController" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml">
     <stylesheets>
@@ -49,7 +51,7 @@
 <!--         <Tooltip text="Select Object" />-->
 <!--      </tooltip>-->
 <!--    </ToolButtonBaseController>-->
-    <Separator orientation="VERTICAL"/>
+    <Separator styleClass="separator" orientation="VERTICAL"/>
     <Button styleClass="iconButton" fx:id="clearAll">
       <tooltip>
          <Tooltip text="Clear Canvas" />
@@ -85,6 +87,16 @@
             <Tooltip text="Enable Rotation" />
         </tooltip>
     </ToolButtonBaseController>
+    <Separator styleClass="separator" orientation="VERTICAL"/>
+    <HBox styleClass="hBox">
+        <Label>Current Layer: </Label>
+        <Label fx:id="currentLayerLabel"/>
+    </HBox>
+    <Button styleClass="iconButton" fx:id="selectAll">
+        <tooltip>
+            <Tooltip text="Select Layer" />
+        </tooltip>
+    </Button>
 
     <ParametersPanelController fx:id="parametersPanel"/>
 </fx:root>

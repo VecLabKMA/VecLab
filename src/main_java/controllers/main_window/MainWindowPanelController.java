@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -13,6 +15,7 @@ import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 import main_java.controllers.main_window.status_bar.StatusBarController;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainWindowPanelController extends GridPane {
@@ -77,6 +80,16 @@ public class MainWindowPanelController extends GridPane {
 
         AnchorPane.setRightAnchor(openCloseButton, 5.0);
         AnchorPane.setBottomAnchor(openCloseButton, 5.0);
+
+
+        Image i = new Image(new File("location/file.gif").toURI().toString());
+        ImageView imgView = new ImageView(i);
+        imgView.setFitHeight(50);
+        imgView.setFitWidth(50);
+
+        AnchorPane.setRightAnchor(imgView, 0.0);
+
+        toolsPanelButtonWrapper.getChildren().add(imgView);
 
         openCloseButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             openCloseButton.getStyleClass().clear();
