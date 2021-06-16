@@ -28,13 +28,12 @@ public class CanvasController extends Canvas {
     private boolean manuallyX = false;
     private boolean manuallyY = false;
 
-
     private ToolsPanelController toolsPanel;
     private ObjectPanelController objectPanel;
 
     public void reloadShapeManager() {
         if (sm != null) {
-            sm.deleteManager();
+            sm.removeManager();
             sm = null;
             this.init(toolsPanel, objectPanel);
         }
