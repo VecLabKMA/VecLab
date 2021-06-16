@@ -9,7 +9,7 @@
 
 .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
     -fx-alignment: CENTER;
-    -fx-pref-width: 103.0;
+    -fx-pref-width: 102.0;
     -fx-text-fill: -fx-text-base-color;
     -fx-font-size: 14;
 }
@@ -47,27 +47,19 @@
 .objectPanelTab:bottom {
 
 }
-
-.openCloseButton {
-    -fx-pref-width: 10;
-    -fx-pref-height: 20;
-    -fx-background-size: 15px;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-}
-
-.openButton {
-    -fx-background-image: url('/resources/assets/images/open_obj_panel.png');
-}
-
-.closeButton {
-    -fx-background-image: url('/resources/assets/images/close_obj_panel.png');
-}
-
 .openCloseButton {
 
 }
 
 .objPanelLabel {
     -fx-font-size: 13;
+    -fx-border-style: none;
+}
+
+.objPanelHeader {
+    -fx-font-size: 16;
+}
+
+.layersPanel {
+    -fx-padding: 0;
 }

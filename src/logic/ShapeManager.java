@@ -21,9 +21,6 @@ public class ShapeManager implements Serializable {
 
     Manipulator selected;
 
-    public void deleteManager() {
-        manager = null;
-    }
 
     private float pos_x, pos_y, prev_pos_x, prev_pos_y;
     private float cor_x, cor_y, prev_cor_x, prev_cor_y;
@@ -31,6 +28,9 @@ public class ShapeManager implements Serializable {
 
     private Shape pen_shape;
 
+    public void removeManager() {
+        manager = null;
+    }
 
     //Drawing parameters
     private SerializableColor current_fill_color = new SerializableColor(Color.LIGHTBLUE);
@@ -115,7 +115,6 @@ public class ShapeManager implements Serializable {
     }
 
     public final void OnPressed(float x, float y) {
-
 
         for (Manipulator curr : manipulators) {
             if (curr.Intersects(x, y)) {
@@ -471,11 +470,14 @@ public class ShapeManager implements Serializable {
     public final void SetCurrentLayer(Layer layer){
         if (layer == null) throw new NullPointerException("Layer cannot be null");
         current_layer = layer;
+        OnChange();
+        ClearSelection();
     }
 
     public final Layer GetCurrentLayer() {
         return current_layer;
     }
+    public final Layer GetRootLayer() { return root_layer; }
 
 
     public static boolean SaveToFile(String filename) {

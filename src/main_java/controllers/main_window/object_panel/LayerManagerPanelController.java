@@ -9,6 +9,8 @@ import javafx.scene.control.TreeView;
 import javafx.scene.layout.GridPane;
 import logic.Layer;
 import logic.ShapeManager;
+import sun.misc.Queue;
+
 import java.io.IOException;
 
 public class LayerManagerPanelController extends GridPane {
@@ -28,7 +30,7 @@ public class LayerManagerPanelController extends GridPane {
     @FXML
     Button moveLayerToBottomButton;
     @FXML
-    TreeView<String> layersView;
+    TreeView<Layer> layersView;
     @FXML
     TextField nameField;
 
@@ -47,31 +49,136 @@ public class LayerManagerPanelController extends GridPane {
     }
 
     public void init(ShapeManager sm) {
+        update(sm.root_layer);
 
-        TreeItem<String> rootLayerTree = new TreeItem<>(sm.root_layer.toString());
-        rootLayerTree.setExpanded(true);
-        layersView.setRoot(rootLayerTree);
-
-        addLayerButton.setOnAction(e -> {
-            System.out.println(nameField.getText());
-                if (!nameField.getText().equals("")) {
-                    sm.root_layer.AddLayer(new Layer(nameField.getText()));
-                    rootLayerTree.getChildren().add(new TreeItem<>(nameField.getText()));
-                }
+        nameField.setOnAction(e -> {
+            addLayer(sm, nameField.getText());
         });
 
-        deleteLayerButton.setOnAction(e -> {});
+        addLayerButton.setOnAction(e -> {
+            addLayer(sm, nameField.getText());
+        });
 
-        setCurrentLayerButton.setOnAction(e -> {});
+        deleteLayerButton.setOnAction(e -> {
+            TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null && selectedItem != layersView.getRoot()) {
+                selectedItem.getParent().getValue().RemoveLayer(selectedItem.getValue());
+                selectedItem.getParent().getChildren().remove(selectedItem);
+            }
+        });
 
-        moveLayerDownButton.setOnAction(e -> {});
+        setCurrentLayerButton.setOnAction(e -> {
+            TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null)
+                sm.SetCurrentLayer(selectedItem.getValue());
+        });
 
-        moveLayerToBottomButton.setOnAction(e -> {});
+        moveLayerDownButton.setOnAction(e -> {
+            TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null && selectedItem != layersView.getRoot()) {
+                selectedItem.getParent().getValue().MoveUp(selectedItem.getValue());
+                update(layersView.getRoot().getValue());
 
-        moveLayerUpButton.setOnAction(e -> {});
+                TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
+                layersView.getSelectionModel().select(newItem);
+                expand(newItem);
+            }
+        });
 
-        moveLayerToTopButton.setOnAction(e -> {});
+        moveLayerToBottomButton.setOnAction(e -> {
+            TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null && selectedItem != layersView.getRoot()) {
+                selectedItem.getParent().getValue().MoveBottom(selectedItem.getValue());
+                update(layersView.getRoot().getValue());
 
+                TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
+                layersView.getSelectionModel().select(newItem);
+                expand(newItem);
+            }
+        });
 
+        moveLayerUpButton.setOnAction(e -> {
+            TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null && selectedItem != layersView.getRoot()) {
+                selectedItem.getParent().getValue().MoveDown(selectedItem.getValue());
+
+                update(layersView.getRoot().getValue());
+
+                TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
+                layersView.getSelectionModel().select(newItem);
+                expand(newItem);
+            }
+        });
+
+        moveLayerToTopButton.setOnAction(e -> {
+            TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null && selectedItem != layersView.getRoot()) {
+                selectedItem.getParent().getValue().MoveTop(selectedItem.getValue());
+                update(layersView.getRoot().getValue());
+
+                TreeItem<Layer> newItem = getTreeItemByLayer(selectedItem.getValue());
+                layersView.getSelectionModel().select(newItem);
+                expand(newItem);
+            }
+        });
     }
+
+    public void update(Layer rootLayer) {
+        TreeItem<Layer> rootLayerItem = new TreeItem<>(rootLayer);
+        addLayer(rootLayerItem);
+        layersView.setRoot(rootLayerItem);
+    }
+
+    private void addLayer(TreeItem<Layer> layerItem) {
+//        for (Layer l : layerItem.getValue().GetLayers())
+//        {
+//            TreeItem<Layer> newLayerItem = new TreeItem<>(l);
+            Layer[] childrenLayers = layerItem.getValue().GetLayers();
+        for (int i = childrenLayers.length - 1; i > -1; --i) {
+            TreeItem<Layer> newLayerItem = new TreeItem<>(childrenLayers[i]);
+            layerItem.getChildren().add(newLayerItem);
+            addLayer(newLayerItem);
+        }
+    }
+
+    private TreeItem<Layer> getTreeItemByLayer(Layer layer) {
+        Queue<TreeItem<Layer>> queue = new Queue<>();
+        queue.enqueue(layersView.getRoot());
+
+        try {
+            while (true) {
+                TreeItem<Layer> current = queue.dequeue();
+                if (current.getValue() == layer) {
+                    return current;
+                } else {
+                    for (TreeItem<Layer> childLayer : current.getChildren()) {
+                        queue.enqueue(childLayer);
+                    }
+                }
+            }
+        } catch (InterruptedException ignored) {
+
+        }
+        return null;
+    }
+
+    public void expand(TreeItem<Layer> item) {
+        item.setExpanded(true);
+        while (item.getParent() != null) {
+            item = item.getParent();
+            item.setExpanded(true);
+        }
+    }
+
+    private void addLayer(ShapeManager sm, String name) {
+        TreeItem<Layer> selectedItem = layersView.getSelectionModel().getSelectedItem();
+        if (name != null && !name.isEmpty() && selectedItem != null) {
+            Layer newLayer = new Layer(nameField.getText());
+            selectedItem.getValue().AddLayer(newLayer);
+            selectedItem.getChildren().add(0, new TreeItem<>(newLayer));
+            selectedItem.setExpanded(true);
+            nameField.setText("");
+        }
+    }
+
 }

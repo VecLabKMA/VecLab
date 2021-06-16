@@ -12,16 +12,16 @@ import main_java.controllers.tutorial_window.TutorialWindowController;
 import java.io.InputStream;
 
 public class MainWindowController extends Application {
-    private static final int MAX_WINDOW_HEIGHT = 540;
-    private static final int MAX_WINDOW_WIDTH = 540;
+    private static final int MIN_WINDOW_HEIGHT = 540;
+    private static final int MIN_WINDOW_WIDTH = 1250;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         MainWindowPanelController mainPanel = new MainWindowPanelController();
         Scene scene = new Scene(mainPanel);
 
-        primaryStage.setMinHeight(MAX_WINDOW_HEIGHT);
-        primaryStage.setMinWidth(MAX_WINDOW_WIDTH);
+        primaryStage.setMinHeight(MIN_WINDOW_HEIGHT);
+        primaryStage.setMinWidth(MIN_WINDOW_WIDTH);
 
         InputStream iconStream = getClass().getResourceAsStream("/resources/assets/images/bezier-curve-icon.png");
         Image image = new Image(iconStream);

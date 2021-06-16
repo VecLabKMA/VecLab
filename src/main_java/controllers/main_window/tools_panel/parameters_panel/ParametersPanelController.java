@@ -1,33 +1,50 @@
 package main_java.controllers.main_window.tools_panel.parameters_panel;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import main_java.controllers.canvas.CanvasController;
+import main_java.controllers.common.DoubleTextField;
 
 import java.io.IOException;
 
 public class ParametersPanelController extends HBox {
+    @FXML
     public ColorPicker fillColorPicker;
-    public Rectangle fillColorRect;
     @FXML
-    private Button layerUpButton;
+    private Rectangle fillColorRect;
     @FXML
-    private Button layerDownButton;
+    public ColorPicker strokeColorPicker;
     @FXML
-    private Button toTopButton;
+    private Rectangle strokeColorRect;
     @FXML
-    private Button toBottomButton;
+    public DoubleTextField xInput;
     @FXML
-    private Button rotateRightButton;
+    public DoubleTextField yInput;
     @FXML
-    private Button rotateLeftButton;
+    public Label widthLabel;
+    @FXML
+    public Label heightLabel;
+
+
+    @FXML
+    public Button layerUpButton;
+    @FXML
+    public Button layerDownButton;
+    @FXML
+    public Button toTopButton;
+    @FXML
+    public Button toBottomButton;
+    @FXML
+    public Button rotateRightButton;
+    @FXML
+    public Button rotateLeftButton;
 
     public ParametersPanelController() {
         super();
@@ -52,6 +69,14 @@ public class ParametersPanelController extends HBox {
         fillColorPicker.setOnAction(e -> {
             fillColorRect.setFill(fillColorPicker.getValue());
             CanvasController.sm.SetFillColor(fillColorPicker.getValue());
+        });
+
+        strokeColorRect.setFill(Color.BLUE);
+        strokeColorPicker.setValue(Color.BLUE);
+
+        strokeColorPicker.setOnAction(e -> {
+            strokeColorRect.setFill(strokeColorPicker.getValue());
+            CanvasController.sm.SetStrokeColor(strokeColorPicker.getValue());
         });
 
         setSpacing(10);

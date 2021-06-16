@@ -14,6 +14,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main_java.controllers.canvas.CanvasController;
 import main_java.controllers.main_window.FileController;
+import main_java.controllers.main_window.MainWindowPanelController;
 import main_java.controllers.tutorial_window.TutorialWindowController;
 
 import javax.imageio.ImageIO;
@@ -25,6 +26,7 @@ import java.util.Optional;
 public class MenuBarController extends VBox {
 
     private CanvasController mainCanvas;
+    private MainWindowPanelController mainWindow;
 
     public MenuBarController() {
         super();
@@ -40,12 +42,35 @@ public class MenuBarController extends VBox {
             throw new RuntimeException(exception);
         }
     }
-    @FXML
-    public void handleNewAction(ActionEvent actionEvent) {
+
+    public void init(MainWindowPanelController mainWindow) {
+        this.mainWindow = mainWindow;
     }
 
     @FXML
-    public void handleOpenAction(ActionEvent actionEvent) {
+    public void handleNewAction(ActionEvent actionEvent) {
+        String currentFileName = FileController.getCurrentFileName();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("");
+        alert.setHeaderText("Save changes to document \"" + currentFileName + "\" before closing?");
+        alert.setContentText("If you create a new project without saving, your changes will be discarded.");
+
+        ButtonType discardButton = new ButtonType("Discard");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType saveButton = new ButtonType("Save");
+
+        alert.getButtonTypes().setAll(discardButton, cancelButton, saveButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == discardButton) {
+            FileController.createNewFile();
+            mainCanvas.reloadShapeManager();
+        } else if (result.get() == saveButton) {
+            handleSaveAction(actionEvent);
+            FileController.createNewFile();
+            mainCanvas.reloadShapeManager();
+        }
     }
 
     @FXML
@@ -131,20 +156,8 @@ public class MenuBarController extends VBox {
     }
 
     @FXML
-    public void handleCopyAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleCutAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handlePasteAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
     public void handleTutorialAction(ActionEvent actionEvent) {
-        TutorialWindowController tutorial = new TutorialWindowController();
+        new TutorialWindowController(mainWindow);
     }
 
     @FXML
@@ -153,7 +166,7 @@ public class MenuBarController extends VBox {
         alert.setTitle("About VecLab");
         alert.setHeaderText("VecLab 0.1\na small vector painting program illustrating the power of Bezier curves");
         alert.setContentText("Developed by:\n" +
-                "\tAnton Atanasov\n\tDmytro Sytnikov\n\tIllya Poeta\n\tYuriy Skoryk");
+                "\tAnton Atanasov\n\tDmytro Sytnikov\n\tIlia Poeta\n\tYuriy Skoryk");
         alert.showAndWait();
     }
 
