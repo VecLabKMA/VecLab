@@ -140,7 +140,12 @@ public class TutorialWindowController {
         });
 
         Button closeButton = new Button("Вийти з вікна навчання");
-        closeButton.setOnAction(event -> window.close());
+        closeButton.setOnAction(event -> {
+            window.close();
+            if (currentAnimationIndex.get() != -1) {
+                animations.get(currentAnimationIndex.get()).endAnimation();
+            }
+        });
 
         buttons.getChildren().addAll(changeTextsButton, closeButton);
         mainContentPane.getChildren().addAll(label, buttons);
@@ -194,12 +199,12 @@ public class TutorialWindowController {
 //            toolsP
             Platform.runLater(() -> {
                 mainPane.getChildren().add(imgView);});
-                while (true) {
-//                    imgView
-                    break;
+                try {
+                    sleep(2000);
+                } catch (InterruptedException ignored) {
+
                 }
         }, () -> {
-
             Platform.runLater(() -> {
                 mainPane.getChildren().remove(imgView);});
         }));
@@ -210,7 +215,11 @@ public class TutorialWindowController {
         animations.add(new TutorialAnimation(() -> {
             Platform.runLater(() -> mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
                     BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3)))));
-            while (true) {}
+            try {
+                sleep(2000);
+            } catch (InterruptedException ignored) {
+
+            }
         }, () -> {
             Platform.runLater(() -> mainWindow.toolsPanel.drawCurve.setBorder(new Border(new BorderStroke(Color.RED,
                     BorderStrokeStyle.NONE, CornerRadii.EMPTY, new BorderWidths(3)))));
