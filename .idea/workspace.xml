@@ -20,26 +20,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/CursorCoordinatesLabelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/LayerComboBoxController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/AreaSelectToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ArrowToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/BezierToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/EllipseToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/FillAreaToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/FreeSelectToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/LineToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ObjectSelectToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/PolygonToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/RectangleToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SelectAreaToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SelectObjectToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SquareToolButtonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/TriangleToolButtonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/about_window/AboutWindowModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/edit/EditModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/menu_bar/MenuBarModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/object_panel/ObjectPanelModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/status_bar/CursorCoordinatesLabelModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/status_bar/LayerComboBoxModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/status_bar/StatusBarModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/status_bar/ZoomSpinnerModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/ToolsPanelModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/AreaSelectToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/ArrowToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/BezierToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/EllipseToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/FillAreaToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/FreeSelectToolButtonView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/LineToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/ObjectSelectToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/PolygonToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/RectangleToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/SquareToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/ToolButtonBaseModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/main_window/tools_panel/tools_buttons/TriangleToolButtonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/print/PrintModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/saving/RasterFormatSaveModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/saving/VectorFormatSaveModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/ArrowModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/BezierModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/EllipseModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/LineModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/PolygonModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/RectangleModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/ShapeBaseModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/SquareModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/TriangleModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/shapes/VertexModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/models/tutorial_window/TutorialWindowModel.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623758642154</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Re-created project as JavaFX application">
+      <created>1623822942073</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1623822942073</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
