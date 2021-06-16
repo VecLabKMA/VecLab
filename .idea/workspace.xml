@@ -20,12 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Re-created project as JavaFX application">
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/bezier_0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/selectAll.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/CursorCoordinatesLabelController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/LayerComboBoxController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/status_bar/StatusBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/AreaSelectToolButtonController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/ArrowToolButtonController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/BezierToolButtonController.java" beforeDir="false" />
@@ -40,17 +48,6 @@
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SelectObjectToolButtonController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/SquareToolButtonController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/tools_buttons/TriangleToolButtonController.java" beforeDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/bezier_0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/assets/images/selectAll.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/ShapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShapeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/canvas/CanvasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/MainWindowPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/object_panel/LayerManagerPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/ToolsPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/main_window/tools_panel/parameters_panel/ParametersPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_java/controllers/tutorial_window/TutorialWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/ToolsPanelView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/main_window/tools_panel/toolsPanel.css" afterDir="false" />
@@ -193,6 +190,19 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -237,19 +247,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
