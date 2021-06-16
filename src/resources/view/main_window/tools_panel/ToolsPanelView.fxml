@@ -90,13 +90,17 @@
     <Separator styleClass="separator" orientation="VERTICAL"/>
     <HBox styleClass="hBox">
         <Label>Current Layer: </Label>
-        <Label fx:id="currentLayerLabel"/>
+        <Label styleClass="currentLayerLabel" fx:id="currentLayerLabel"/>
     </HBox>
     <Button styleClass="iconButton" fx:id="selectAll">
         <tooltip>
             <Tooltip text="Select Layer" />
         </tooltip>
     </Button>
+    <HBox styleClass="hBox">
+        <Label>Shape Layer: </Label>
+        <Label styleClass="currentLayerLabel" fx:id="currentShapeLayer"/>
+    </HBox>
 
     <ParametersPanelController fx:id="parametersPanel"/>
 </fx:root>
