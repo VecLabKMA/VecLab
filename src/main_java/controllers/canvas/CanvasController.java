@@ -6,11 +6,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.*;
 import javafx.scene.paint.Color;
 import logic.*;
-import logic.DrawingMode;
-import logic.Layer;
-import logic.Shape;
-import logic.ShapeManager;
-import logic.Vertex;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
 
@@ -24,6 +19,7 @@ public class CanvasController extends Canvas {
 
     private ToolsPanelController toolsPanel;
     private ObjectPanelController objectPanel;
+    public static boolean drawingPolygon = false;
 
     public CanvasController() {
         if (controller == null) {
@@ -57,39 +53,101 @@ public class CanvasController extends Canvas {
         sm.SetRotationFixed(false);
 
         toolsPanel.noMode.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+//            toolsPanel.disableSelection();
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             if (toolsPanel.noMode.isEnabled())
                 sm.SetDrawingMode(DrawingMode.NO);
         });
         toolsPanel.drawCurve.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
+//            toolsPanel.disableSelection();
+            toolsPanel.showManipulators.setEnabled(true);
+            sm.SetShowManipulators(true);
+            toolsPanel.showVertexes.setEnabled(true);
+            sm.SetShowVertices(true);
+            toolsPanel.showAnchorPoints.setEnabled(true);
+            sm.SetShowAnchorPoints(true);
+            sm.ClearSelection();
             if (toolsPanel.drawCurve.isEnabled()) {
                 sm.SetDrawingMode(DrawingMode.PEN);
             }
         });
         toolsPanel.drawTriangle.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
+//            toolsPanel.disableSelection();
             if (toolsPanel.drawTriangle.isEnabled())
                 sm.SetDrawingMode(DrawingMode.TRIANGLE);
         });
         toolsPanel.drawEllipse.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
+//            toolsPanel.disableSelection();
             if (toolsPanel.drawEllipse.isEnabled())
                 sm.SetDrawingMode(DrawingMode.ELLIPSE);
         });
         toolsPanel.drawRectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+
+            }
             sm.SetDrawingMode(DrawingMode.NO);
+//            toolsPanel.disableSelection();
             if (toolsPanel.drawRectangle.isEnabled())
                 sm.SetDrawingMode(DrawingMode.RECTANGLE);
         });
         toolsPanel.drawPolygon.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            if (drawingPolygon) {
+                if (sm.GetPenShape() != null)
+                    sm.GetPenShape().SetFilled(true);
+                drawingPolygon = false;
+            }
             sm.SetDrawingMode(DrawingMode.NO);
-            if (toolsPanel.drawCurve.isEnabled()) {
+//            toolsPanel.disableSelection();
+            sm.ClearSelection();
+            if (toolsPanel.drawPolygon.isEnabled()) {
+                drawingPolygon = true;
                 sm.SetDrawingMode(DrawingMode.PEN);
+                toolsPanel.showManipulators.setEnabled(true);
+                sm.SetShowManipulators(true);
+                toolsPanel.showVertexes.setEnabled(true);
+                sm.SetShowVertices(true);
+                toolsPanel.showAnchorPoints.setEnabled(true);
+                sm.SetShowAnchorPoints(true);
             }
         });
 
         toolsPanel.clearAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             toolsPanel.setNoMode();
+            toolsPanel.disableSelection();
 
             for (Shape sh : sm.root_layer.GetShapes()) {
                 sm.root_layer.RemoveShape(sh);
@@ -99,6 +157,7 @@ public class CanvasController extends Canvas {
             }
 
             sm.SetCurrentLayer(sm.root_layer);
+            objectPanel.initLayers(sm);
         });
 
         toolsPanel.deleteShape.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -110,8 +169,9 @@ public class CanvasController extends Canvas {
             sm.SetAppendSelection(!sm.GetAppendSelection());
         });
 
-        toolsPanel.selectShape.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+        toolsPanel.showManipulators.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             toolsPanel.setNoMode();
+//            sm.ClearSelection();
             sm.SetShowAnchorPoints(false);
             toolsPanel.showAnchorPoints.setEnabled(false);
             sm.SetShowVertices(false);
@@ -120,9 +180,11 @@ public class CanvasController extends Canvas {
         });
 
         toolsPanel.showVertexes.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+            toolsPanel.setNoMode();
+            sm.ClearSelection();
             if (!toolsPanel.showVertexes.isEnabled()) {
                 sm.SetShowManipulators(true);
-                toolsPanel.selectShape.setEnabled(true);
+                toolsPanel.showManipulators.setEnabled(true);
             } else if (toolsPanel.showAnchorPoints.isEnabled()) {
                 sm.SetShowAnchorPoints(false);
                 toolsPanel.showAnchorPoints.setEnabled(false);
@@ -131,13 +193,15 @@ public class CanvasController extends Canvas {
         });
 
         toolsPanel.showAnchorPoints.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+            toolsPanel.setNoMode();
+            sm.ClearSelection();
             if (!toolsPanel.showAnchorPoints.isEnabled() ) {
                 if (!toolsPanel.showVertexes.isEnabled()) {
                     sm.SetShowVertices(true);
                     toolsPanel.showVertexes.setEnabled(true);
                 }
                 sm.SetShowManipulators(true);
-                toolsPanel.selectShape.setEnabled(true);
+                toolsPanel.showManipulators.setEnabled(true);
             }
             sm.SetShowAnchorPoints(!sm.GetShowAnchorPoints());
         });
@@ -153,20 +217,36 @@ public class CanvasController extends Canvas {
             }
         });
 
-        toolsPanel.selectAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+        toolsPanel.selectLayer.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            sm.ClearSelection();
             sm.SetAppendSelection(true);
             toolsPanel.appendSelection.setEnabled(true);
+            toolsPanel.setNoMode();
 
             sm.SetShowAnchorPoints(false);
             toolsPanel.showAnchorPoints.setEnabled(false);
             sm.SetShowVertices(false);
             toolsPanel.showVertexes.setEnabled(false);
             sm.SetShowManipulators(true);
-            toolsPanel.selectShape.setEnabled(true);
+            toolsPanel.showManipulators.setEnabled(true);
 
             for (Shape sh : sm.GetCurrentLayer().GetShapes()) {
                 sm.Select(sh);
             }
+        });
+        toolsPanel.clearLayer.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            for (Shape sh : sm.GetCurrentLayer().GetShapes())
+                sm.GetCurrentLayer().RemoveShape(sh);
+        });
+        toolsPanel.showAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            sm.SetCurrentLayer(sm.root_layer);
+            sm.SetShowChildrenShapes(true);
+            toolsPanel.showChildrenShapes.setEnabled(true);
+            sm.Redraw();
+        });
+        toolsPanel.showChildrenShapes.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            sm.SetShowChildrenShapes(!sm.GetShowChildrenShapes());
+            sm.Redraw();
         });
 
         toolsPanel.parametersPanel.rotateLeftButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -324,6 +404,17 @@ public class CanvasController extends Canvas {
                 }
             }
 
+            if (e.getCode() == KeyCode.ENTER) {
+                DrawingMode current = sm.GetDrawingMode();
+                if (current == DrawingMode.PEN) {
+                    if (drawingPolygon) {
+                        sm.GetPenShape().SetFilled(true);
+                    }
+                    sm.SetDrawingMode(DrawingMode.NO);
+                    sm.SetDrawingMode(current);
+                }
+            }
+
         });
 
         this.getScene().setOnKeyReleased(e -> {
@@ -355,7 +446,6 @@ public class CanvasController extends Canvas {
                 sm.OnReleased((float)e.getX(), (float)e.getY());
             }
         });
-
 
         initObjectPanel(objectPanel);
     }

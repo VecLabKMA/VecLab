@@ -54,12 +54,12 @@ public class MenuBarController extends VBox {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("");
-        alert.setHeaderText("Save changes to document \"" + currentFileName + "\" before closing?");
-        alert.setContentText("If you create a new project without saving, your changes will be discarded.");
+        alert.setHeaderText("Зберегти зміни у документі \"" + currentFileName + "\" перед створенням нового файлу?");
+        alert.setContentText("Якщо ви створите новий файл, не зберігши старий, усі зміни будуть скасовані.");
 
-        ButtonType discardButton = new ButtonType("Discard");
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        ButtonType saveButton = new ButtonType("Save");
+        ButtonType discardButton = new ButtonType("Не зберігати");
+        ButtonType cancelButton = new ButtonType("Скасувати", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType saveButton = new ButtonType("Зберігти");
 
         alert.getButtonTypes().setAll(discardButton, cancelButton, saveButton);
 
@@ -140,17 +140,14 @@ public class MenuBarController extends VBox {
         FileChooser.ExtensionFilter extFilter =
                 new FileChooser.ExtensionFilter("vlp files (*.vlp)", "*.vlp");
 
+
         fileChooser.setInitialFileName("Untitled.vlp");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showSaveDialog(thisStage);
 
         if (file != null) {
             ShapeManager.SaveToFile(file);
-//                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
-//                mainCanvas.snapshot(null, writableImage);
-//                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-//                ImageIO.write(renderedImage, "png", file);
-//
+
             // this will change the window title to the current file
             FileController.setCurrentFile(file);
             FileController.setCurrentFileName(file.getName());
@@ -164,12 +161,12 @@ public class MenuBarController extends VBox {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("");
-        alert.setHeaderText("Save changes to document \"" + currentFileName + "\" before closing?");
-        alert.setContentText("If you close without saving, your changes will be discarded.");
+        alert.setHeaderText("Зберегти зміни у документі \\\"\" + currentFileName + \"\\\" перед закриттям програми?");
+        alert.setContentText("Якщо не зберігти документ, усі зміни будуть скасовані.");
 
-        ButtonType discardButton = new ButtonType("Discard and exit");
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        ButtonType saveButton = new ButtonType("Save");
+        ButtonType discardButton = new ButtonType("Вийти без зберігання");
+        ButtonType cancelButton = new ButtonType("Не виходити", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType saveButton = new ButtonType("Зберегти та вийти");
 
         alert.getButtonTypes().setAll(discardButton, cancelButton, saveButton);
 
@@ -190,10 +187,10 @@ public class MenuBarController extends VBox {
     @FXML
     public void handleAboutAction(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("About VecLab");
-        alert.setHeaderText("VecLab 0.1\na small vector painting program illustrating the power of Bezier curves");
-        alert.setContentText("Developed by:\n" +
-                "\tAnton Atanasov\n\tDmytro Sytnikov\n\tIlia Poeta\n\tYuriy Skoryk");
+        alert.setTitle("Про VecLab");
+        alert.setHeaderText("VecLab 0.1\nНепрофесійний редактор векторної графіки, призначений для показу важливості кривих Безьє");
+        alert.setContentText("Розробники:\n" +
+                "\tАнтон Атанасов\n\tДмитро Ситніков\n\tІлья Поета\n\tЮрій Скорик");
         alert.showAndWait();
     }
 
