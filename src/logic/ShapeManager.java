@@ -4,6 +4,7 @@ package logic;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import main_java.controllers.canvas.CanvasController;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 
 
 public class ShapeManager implements Serializable {
+    private static final long serialVersionUID = 5916709440899668087L;
     public static transient ShapeManager manager;
 
     public final Layer root_layer = new Layer("root");
@@ -503,7 +505,17 @@ public class ShapeManager implements Serializable {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(manager);
             return true;
-        } catch (Exception ex) {
+        } catch (IOException ex) {
+            System.err.println("Saving error!");
+            return false;
+        }
+    }
+
+    public static boolean SaveToFile(File file) {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(manager);
+            return true;
+        } catch (IOException ex) {
             System.err.println("Saving error!");
             return false;
         }
@@ -516,8 +528,24 @@ public class ShapeManager implements Serializable {
             manager.Redraw();
             return true;
         } catch(Exception ex) {
-            System.err.println("Opening error!");
+            System.err.println(ex.toString());
             return false;
         }
     }
+
+    public static boolean OpenFromFile(File file, Canvas canvas) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            manager = (ShapeManager)ois.readObject();
+            manager.canvas = canvas;
+            manager.Redraw();
+            return true;
+        } catch(IOException ex) {
+            System.err.println(ex.toString());
+            return false;
+        } catch(ClassNotFoundException ex) {
+            System.err.println("ClassNotFoundException error!");
+            return false;
+        }
+    }
+
 }

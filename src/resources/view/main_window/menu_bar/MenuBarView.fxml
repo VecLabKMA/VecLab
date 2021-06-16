@@ -10,9 +10,10 @@
         <menus>
             <Menu text="Файл">
                 <items>
-                    <MenuItem text="Новий" onAction="#handleNewAction"/>
-                    <MenuItem text="Зберегти" onAction="#handleSaveAction"/>
-                    <MenuItem text="Зберегти як" onAction="#handleSaveAsAction"/>
+                    <MenuItem text="Новий проект" onAction="#handleNewAction"/>
+                    <MenuItem text="Відкрити проект" onAction="#handleOpenAction"/>
+                    <MenuItem text="Зберегти проект" onAction="#handleSaveProjectAction"/>
+                    <MenuItem text="Експортувати зображення" onAction="#handleExportImageAction"/>
                     <SeparatorMenuItem/>
                     <MenuItem text="Вийти" onAction="#handleExitAction"/>
                 </items>

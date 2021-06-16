@@ -9,6 +9,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -18,7 +19,7 @@ import java.io.IOException;
 
 public class StatusBarController extends HBox {
     private Canvas cs;
-    private GridPane mainPanel;
+    private ScrollPane mainPanel;
     private double zoomFactor = 0.9;
     private double currentZoom = 100.00;
 
@@ -39,6 +40,8 @@ public class StatusBarController extends HBox {
                 if (currentZoom > 10) {
                     cs.setScaleX(cs.getScaleX() * zoomFactor);
                     cs.setScaleY(cs.getScaleY() * zoomFactor);
+                    mainPanel.setScaleX(mainPanel.getScaleX() * zoomFactor);
+                    mainPanel.setScaleY(mainPanel.getScaleY() * zoomFactor);
                     currentZoom *= zoomFactor;
                     zoomLabel.setText(String.format("%.2f", currentZoom) + "%");
                 }
@@ -52,6 +55,9 @@ public class StatusBarController extends HBox {
                 if (currentZoom < 200) {
                     cs.setScaleX(cs.getScaleX() / zoomFactor);
                     cs.setScaleY(cs.getScaleY() / zoomFactor);
+                    mainPanel.setScaleX(mainPanel.getScaleX() / zoomFactor);
+                    mainPanel.setScaleY(mainPanel.getScaleY() / zoomFactor);
+
                     currentZoom /= zoomFactor;
                     zoomLabel.setText(String.format("%.2f", currentZoom) + "%");
                 }
@@ -73,7 +79,7 @@ public class StatusBarController extends HBox {
         cs = currentCanvas;
     }
 
-    public void init(GridPane mainPanel) {
+    public void init(ScrollPane mainPanel) {
         this.mainPanel = mainPanel;
     }
 }
