@@ -5,7 +5,7 @@ import java.io.File;
 public class FileController {
     private static final String defaultFileName = "Untitled.png";
     private static String currentFileName = defaultFileName;
-    private static File currentFile;
+    private static File currentProjectFile;
 
     public static String getDefaultFileName() {
         return defaultFileName;
@@ -19,17 +19,17 @@ public class FileController {
         FileController.currentFileName = currentFileName;
     }
 
-    public static File getCurrentFile() {
-        return currentFile;
+    public static File getCurrentProjectFile() {
+        return currentProjectFile;
     }
 
-    public static void setCurrentFile(File currentFile) {
-        FileController.currentFile = currentFile;
-        FileController.currentFileName = currentFile.getName();
+    public static void setCurrentProjectFile(File currentProjectFile) {
+        FileController.currentProjectFile = currentProjectFile;
+        FileController.currentFileName = currentProjectFile.getName();
     }
 
     public static void createNewFile() {
         currentFileName = defaultFileName;
-        currentFile = null;
+        currentProjectFile = null;
     }
 }
