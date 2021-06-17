@@ -151,13 +151,6 @@ public class CanvasController extends Canvas {
         });
 
         toolsPanel.clearAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("");
-            alert.setHeaderText("Очистити полотно");
-            alert.setContentText("Підтвердіть дію");
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
                 toolsPanel.setNoMode();
                 toolsPanel.disableSelection();
 
@@ -170,10 +163,6 @@ public class CanvasController extends Canvas {
 
                 sm.SetCurrentLayer(sm.root_layer);
                 objectPanel.initLayers(sm);
-            } else {
-                alert.close();
-            }
-
         });
 
         toolsPanel.deleteShape.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
