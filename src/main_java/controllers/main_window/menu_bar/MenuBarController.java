@@ -77,7 +77,7 @@ public class MenuBarController extends VBox {
     @FXML
     public void handleOpenAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
-        File currentFile = FileController.getCurrentFile();
+        File currentFile = FileController.getCurrentProjectFile();
 
         Stage thisStage = ((Stage) getScene().getWindow());
         FileChooser fileChooser = new FileChooser();
@@ -92,13 +92,9 @@ public class MenuBarController extends VBox {
         if (file != null) {
             ShapeManager.OpenFromFile(file.getName(), mainCanvas);
             CanvasController.sm = ShapeManager.manager;
-//                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
-//                mainCanvas.snapshot(null, writableImage);
-//                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-//                ImageIO.write(renderedImage, "png", file);
-//
+
             // this will change the window title to the current file
-            FileController.setCurrentFile(file);
+            FileController.setCurrentProjectFile(file);
             FileController.setCurrentFileName(file.getName());
             thisStage.setTitle(currentFileName + " - VecLab");
         }
@@ -108,31 +104,35 @@ public class MenuBarController extends VBox {
     @FXML
     public void handleExportImageAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
-        String defaultFileName = FileController.getDefaultFileName();
-        File currentFile = FileController.getCurrentFile();
 
-        if (currentFileName.equals(defaultFileName)) {
-            handleSaveProjectAction(actionEvent);
-        } else {
-            if (currentFile != null) {
-                try {
+        Stage thisStage = ((Stage) getScene().getWindow());
+        FileChooser fileChooser = new FileChooser();
 
-                    WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
-                    mainCanvas.snapshot(null, writableImage);
-                    RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                    ImageIO.write(renderedImage, "png", currentFile);
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
 
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+        fileChooser.setInitialFileName(currentFileName);
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showSaveDialog(thisStage);
+
+        if (file != null) {
+            try {
+                WritableImage writableImage = new WritableImage((int) mainCanvas.getWidth(), (int) mainCanvas.getHeight());
+                mainCanvas.snapshot(null, writableImage);
+                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                ImageIO.write(renderedImage, "png", file);
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         }
+
     }
 
     @FXML
     public void handleSaveProjectAction(ActionEvent actionEvent) {
         String currentFileName = FileController.getCurrentFileName();
-        File currentFile = FileController.getCurrentFile();
+        File currentFile = FileController.getCurrentProjectFile();
 
         Stage thisStage = ((Stage) getScene().getWindow());
         FileChooser fileChooser = new FileChooser();
@@ -149,7 +149,7 @@ public class MenuBarController extends VBox {
             ShapeManager.SaveToFile(file);
 
             // this will change the window title to the current file
-            FileController.setCurrentFile(file);
+            FileController.setCurrentProjectFile(file);
             FileController.setCurrentFileName(file.getName());
             thisStage.setTitle(currentFileName + " - VecLab");
         }

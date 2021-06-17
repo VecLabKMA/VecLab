@@ -3,11 +3,16 @@ package main_java.controllers.canvas;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.*;
 import javafx.scene.paint.Color;
 import logic.*;
 import main_java.controllers.main_window.object_panel.ObjectPanelController;
 import main_java.controllers.main_window.tools_panel.ToolsPanelController;
+
+import java.util.Optional;
 
 public class CanvasController extends Canvas {
 
@@ -146,18 +151,29 @@ public class CanvasController extends Canvas {
         });
 
         toolsPanel.clearAll.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            toolsPanel.setNoMode();
-            toolsPanel.disableSelection();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("Очистити полотно");
+            alert.setContentText("Підтвердіть дію");
 
-            for (Shape sh : sm.root_layer.GetShapes()) {
-                sm.root_layer.RemoveShape(sh);
-            }
-            for (Layer l : sm.root_layer.GetLayers()) {
-                sm.root_layer.RemoveLayer(l);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                toolsPanel.setNoMode();
+                toolsPanel.disableSelection();
+
+                for (Shape sh : sm.root_layer.GetShapes()) {
+                    sm.root_layer.RemoveShape(sh);
+                }
+                for (Layer l : sm.root_layer.GetLayers()) {
+                    sm.root_layer.RemoveLayer(l);
+                }
+
+                sm.SetCurrentLayer(sm.root_layer);
+                objectPanel.initLayers(sm);
+            } else {
+                alert.close();
             }
 
-            sm.SetCurrentLayer(sm.root_layer);
-            objectPanel.initLayers(sm);
         });
 
         toolsPanel.deleteShape.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
